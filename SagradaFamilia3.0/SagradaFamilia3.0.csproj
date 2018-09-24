@@ -99,6 +99,26 @@
     <Compile Include="Medico.xaml.cs">
       <DependentUpon>Medico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Especialidad.cs" />
+    <Compile Include="Models\FormaPago.cs" />
+    <Compile Include="Models\HistoriaClinica.cs" />
+    <Compile Include="Models\HorarioAtencion.cs" />
+    <Compile Include="Models\Medico.cs" />
+    <Compile Include="Models\MedicoEspecialidad.cs" />
+    <Compile Include="Models\MedicoFormaPago.cs" />
+    <Compile Include="Models\ObraSocial.cs" />
+    <Compile Include="Models\ObraSocialMedico.cs" />
+    <Compile Include="Models\ObraSocialPaciente.cs" />
+    <Compile Include="Models\Paciente.cs" />
+    <Compile Include="Models\PacienteMedico.cs" />
+    <Compile Include="Models\PacientesAtendidos.cs" />
+    <Compile Include="Models\PacientesPorMedico.cs" />
+    <Compile Include="Models\PacientesPorObraSocial.cs" />
+    <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\PagosPorFormaPago.cs" />
+    <Compile Include="Models\Turno.cs" />
+    <Compile Include="Models\TurnosPorPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

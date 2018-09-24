@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SagradaFamilia3._0"
         mc:Ignorable="d"
-        Title="Administrador" Height="600" Width="1000" WindowState="Maximized">
+        Title="Administrador" Height="600" Width="1000" WindowState="Maximized" Loaded="MetroWindow_Loaded">
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" Margin="20,20,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="Sr/a:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,20,0,0" FontSize="16" FontFamily="Microsoft YaHei" Height="30"/>
@@ -18,7 +18,7 @@
         <Button  Style="{StaticResource AccentedSquareButtonStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Pagos" HorizontalAlignment="Left" Margin="20,439,0,0" VerticalAlignment="Top" Width="150" Height="40" FontFamily="Microsoft YaHei UI" Click="pagos_Click"/>
 
 
-        <ComboBox  Name="FormaDePago"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="307,140,0,0" VerticalAlignment="Top" Width="150" Height="30"  Uid="asd" Visibility="Hidden"/>
+        <ComboBox  Name="FormaDePago"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="307,140,0,0" VerticalAlignment="Top" Width="150" Height="30"  Uid="asd" Visibility="Visible" SelectionChanged="FormaDePago_SelectionChanged"/>
         <ComboBox  Name="BancObra"      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="290,190,0,0" VerticalAlignment="Top" Width="167" Height="30"  Visibility="Hidden"/>
         <ComboBox  Name="Especialidad"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="289,238,0,0" VerticalAlignment="Top" Width="168" Height="30"  Visibility="Hidden"/>
         <ComboBox  Name="Fecha"         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="547,140,0,0" VerticalAlignment="Top" Width="200" Height="30"  Visibility="Hidden"/>
@@ -93,10 +93,10 @@
         <Label Name="labMan" Content="Mañana:" HorizontalAlignment="Left" Margin="518,440,0,0" VerticalAlignment="Top" Width="54" IsEnabled="False" Visibility="Hidden"/>
         <Label Name="labTar" Content="Tarde:" HorizontalAlignment="Left" Margin="518,470,0,0" VerticalAlignment="Top" Width="44" IsEnabled="False" Visibility="Hidden"/>
 
-        <Button Name="butCrear" Content="Crear" HorizontalAlignment="Left" Margin="231,140,0,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Click="crearUsuario_Click" Height="30" VerticalAlignment="Top"/>
-        <Button Name="butEditar" Content="Editar" Margin="537,140,356.6,0" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Width="100" Height="30" VerticalAlignment="Top"/>
-        <Button Name="butEliminar" HorizontalAlignment="Right" Margin="0,140,60.6,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Content="Eliminar" Height="30" VerticalAlignment="Top"/>
-        <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top"/>
+        <Button Name="butCrear" Content="Crear" HorizontalAlignment="Left" Margin="231,140,0,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Click="crearUsuario_Click" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button Name="butEditar" Content="Editar" Margin="537,140,356.6,0" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Width="100" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button Name="butEliminar" HorizontalAlignment="Right" Margin="0,140,60.6,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Content="Eliminar" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top" Visibility="Hidden"/>
 
 
 

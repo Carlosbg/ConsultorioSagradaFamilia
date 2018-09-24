@@ -18,6 +18,7 @@ using System.IO;
 using RestSharp;
 using SimpleJson;
 using Newtonsoft.Json.Linq;
+using ConsultorioSagradaFamilia.Models;
 
 namespace SagradaFamilia3._0
 {
@@ -35,6 +36,37 @@ namespace SagradaFamilia3._0
             limpiarPantalla();
         }
 
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<FormaPago> formaPagoList = new List<FormaPago>();
+            
+            var client = new RestClient("http://consultoriosagradafamilia.azurewebsites.net/api");
+            var request = new RestRequest("FormaPago", Method.GET);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddHeader("Authorization", "Bearer " + DatosUsuario.Token);
+
+            var response = client.Execute(request);
+            var content = response.Content;
+
+            JArray rss = JArray.Parse(content);
+
+            foreach (var formaPagoJToken in rss)
+            {
+                dynamic formaPagoObj = JObject.Parse(formaPagoJToken.ToString());
+
+                FormaPago formaPago = new FormaPago
+                {
+                    Nombre = formaPagoObj.Nombre,
+                    IdFormaPago = formaPagoObj.IdFormaPago
+                };
+
+                formaPagoList.Add(formaPago);
+            }
+
+            FormaDePago.ItemsSource = formaPagoList;
+            FormaDePago.DisplayMemberPath = "Nombre";
+            FormaDePago.SelectedValuePath = "IdFormaPago";
+        }
 
         private void CrearTurno_Click(object sender, RoutedEventArgs e)
         {
@@ -610,6 +642,11 @@ namespace SagradaFamilia3._0
 
         }
 
+        private void FormaDePago_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        
     }
 }
 
