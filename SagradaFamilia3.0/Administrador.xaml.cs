@@ -75,6 +75,10 @@ namespace SagradaFamilia3._0
         }
 
         private void cargarCrearTurno() {
+
+            labId.IsEnabled = true;
+            labId.Visibility = Visibility.Visible;
+
             fdp.IsEnabled = true;
             fdp.Visibility = Visibility.Visible;
 
@@ -93,9 +97,6 @@ namespace SagradaFamilia3._0
             med.IsEnabled = true;
             med.Visibility = Visibility.Visible;
 
-            mont.IsEnabled = true;
-            mont.Visibility = Visibility.Visible;
-
             FormaDePago.IsEnabled = true;
             FormaDePago.Visibility = Visibility.Visible;
 
@@ -113,9 +114,6 @@ namespace SagradaFamilia3._0
 
             Hora.IsEnabled = true;
             Hora.Visibility = Visibility.Visible;
-
-            Monto.IsEnabled = true;
-            Monto.Visibility = Visibility.Visible;
 
             TurnoM.IsEnabled = true;
             TurnoM.Visibility = Visibility.Visible;
@@ -136,7 +134,7 @@ namespace SagradaFamilia3._0
 
         }
 
-        private void cargarCrearUsuarioMedico() { }
+        
 
         private void limpiarPantalla() {
 
@@ -167,8 +165,8 @@ namespace SagradaFamilia3._0
             med.IsEnabled = false;
             med.Visibility = Visibility.Hidden;
 
-            mont.IsEnabled = false;
-            mont.Visibility = Visibility.Hidden;
+            labId.IsEnabled = false;
+            labId.Visibility = Visibility.Hidden;
 
             FormaDePago.IsEnabled = false;
             FormaDePago.Visibility = Visibility.Hidden;
@@ -187,10 +185,7 @@ namespace SagradaFamilia3._0
 
             Hora.IsEnabled = false;
             Hora.Visibility = Visibility.Hidden;
-
-            Monto.IsEnabled = false;
-            Monto.Visibility = Visibility.Hidden;
-
+                        
             TurnoM.IsEnabled = false;
             TurnoM.Visibility = Visibility.Hidden;
 
@@ -462,7 +457,7 @@ namespace SagradaFamilia3._0
             PacientesAtendidos.Visibility = Visibility.Hidden;
         }
 
-        private void cargarCrearUsuario() {
+        private void cargarCrearMedico() {
 
             labNom.IsEnabled = true;
             labNom.Visibility = Visibility.Visible;
@@ -577,12 +572,86 @@ namespace SagradaFamilia3._0
 
         }
 
-        private void crearUsuario_Click(object sender, RoutedEventArgs e)
+        private void crear_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
-            cargarCrearUsuario();
+
+            if (mostrandoMedicos == true && mostrandoPacientes == false)
+                cargarCrearMedico();
+
+            else if (mostrandoMedicos == false && mostrandoPacientes == true)
+                cargarCrearPaciente();
         }
 
+        private void cargarCrearPaciente()
+        {
+
+
+            labNom.IsEnabled = true;
+            labNom.Visibility = Visibility.Visible;
+
+            labAp.IsEnabled = true;
+            labAp.Visibility = Visibility.Visible;
+
+            labDni.IsEnabled = true;
+            labDni.Visibility = Visibility.Visible;
+
+            labNat.IsEnabled = true;
+            labNat.Visibility = Visibility.Visible;
+
+            nameBox.IsEnabled = true;
+            nameBox.Visibility = Visibility.Visible;
+
+            apBox.IsEnabled = true;
+            apBox.Visibility = Visibility.Visible;
+
+            dniBox.IsEnabled = true;
+            dniBox.Visibility = Visibility.Visible;
+
+            natBox.IsEnabled = true;
+            natBox.Visibility = Visibility.Visible;
+
+            labDie.IsEnabled = true;
+            labDie.Visibility = Visibility.Visible;
+
+            labTel.IsEnabled = true;
+            labTel.Visibility = Visibility.Visible;
+
+            labCel.IsEnabled = true;
+            labCel.Visibility = Visibility.Visible;
+
+            labEm.IsEnabled = true;
+            labEm.Visibility = Visibility.Visible;
+
+            dirBox.IsEnabled = true;
+            dirBox.Visibility = Visibility.Visible;
+
+            telBox.IsEnabled = true;
+            telBox.Visibility = Visibility.Visible;
+
+            celBox.IsEnabled = true;
+            celBox.Visibility = Visibility.Visible;
+
+            emBox.IsEnabled = true;
+            emBox.Visibility = Visibility.Visible;
+            
+            checkObra.IsEnabled = true;
+            checkObra.Visibility = Visibility.Visible;
+
+            datObras.IsEnabled = true;
+            datObras.Visibility = Visibility.Visible;
+
+            combObras.IsEnabled = true;
+            combObras.Visibility = Visibility.Visible;
+
+            butAgr.IsEnabled = true;
+            butAgr.Visibility = Visibility.Visible;
+
+            butQuit.IsEnabled = true;
+            butQuit.Visibility = Visibility.Visible;
+
+            
+        }
 
 
         private void medicos_Click(object sender, RoutedEventArgs e)
