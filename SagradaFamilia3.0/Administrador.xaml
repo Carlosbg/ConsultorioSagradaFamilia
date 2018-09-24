@@ -18,22 +18,22 @@
         <Button  Style="{StaticResource AccentedSquareButtonStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Pagos" HorizontalAlignment="Left" Margin="20,439,0,0" VerticalAlignment="Top" Width="150" Height="40" FontFamily="Microsoft YaHei UI" Click="pagos_Click"/>
 
 
-        <ComboBox  Name="FormaDePago"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="307,140,0,0" VerticalAlignment="Top" Width="150" Height="30"  Uid="asd" Visibility="Hidden"/>
-        <ComboBox  Name="BancObra"      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="290,190,0,0" VerticalAlignment="Top" Width="167" Height="30"  Visibility="Hidden"/>
-        <ComboBox  Name="Especialidad"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="289,238,0,0" VerticalAlignment="Top" Width="168" Height="30"  Visibility="Hidden"/>
-        <ComboBox  Name="Fecha"         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="547,140,0,0" VerticalAlignment="Top" Width="200" Height="30"  Visibility="Hidden"/>
-        <TextBox Name="Monto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="30" Margin="562,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"  Visibility="Hidden"/>
-        <Label Name="fdp" Content="Forma de Pago:" HorizontalAlignment="Left" Margin="195,140,0,0" VerticalAlignment="Top" Width="106" Height="30" FontSize="14" Visibility="Hidden"/>
-        <Label Name="banOb" Content="Banco / Obra:" HorizontalAlignment="Left" Margin="195,190,0,0" VerticalAlignment="Top" Width="95" Height="30" FontSize="14" Visibility="Hidden"/>
-        <Label Name="esp" Content="Especialidad:" HorizontalAlignment="Left" Margin="195,238,0,0" VerticalAlignment="Top" Width="89" Height="30" FontSize="14" Visibility="Hidden"/>
-        <RadioButton Name="TurnoM" VerticalContentAlignment="Center" Content="Mañana" HorizontalAlignment="Left" Margin="562,191,0,0" VerticalAlignment="Top" Visibility="Hidden" Height="30" Width="76" FontSize="14"/>
-        <RadioButton Name="TurnoT" VerticalContentAlignment="Center" Content="Tarde" HorizontalAlignment="Left" Margin="664,190,0,0" VerticalAlignment="Top" Width="83" Visibility="Hidden" Height="30" FontSize="14"/>
-        <Label Name="fech" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Fecha:" HorizontalAlignment="Left" Margin="490,140,0,0" VerticalAlignment="Top" Height="30" Width="52" FontSize="14" Visibility="Hidden"/>
-        <Label Name="hor" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Hora:" HorizontalAlignment="Left" Margin="490,238,0,0" VerticalAlignment="Top" Height="31" Width="47" FontSize="14" Visibility="Hidden"/>
-        <ComboBox Name="Hora" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="547,238,0,0" VerticalAlignment="Top" Width="200" Height="30"  Visibility="Hidden"/>
-        <Label Name="med" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Médico:" HorizontalAlignment="Left" Margin="195,288,0,0" VerticalAlignment="Top" Height="30" Width="58" FontSize="14" Visibility="Hidden"/>
-        <ComboBox Name="Medico" HorizontalContentAlignment="Center"   VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="258,288,0,0" VerticalAlignment="Top" Width="199" Height="30"  Visibility="Hidden"/>
-        <Label Name="mont" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Monto: $" HorizontalAlignment="Left" Margin="490,290,0,0" VerticalAlignment="Top" Height="30" Width="66" FontSize="14" Visibility="Hidden"/>
+        <ComboBox  Name="FormaDePago"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="350,140,0,0" VerticalAlignment="Top" Width="175" Height="40"  Uid="asd" Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <ComboBox  Name="BancObra"      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="336,213,0,0" VerticalAlignment="Top" Width="189" Height="40"  Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <ComboBox  Name="Especialidad"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="312,279,0,0" VerticalAlignment="Top" Width="213" Height="40"  Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <ComboBox  Name="Fecha"         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="618,140,0,0" VerticalAlignment="Top" Width="200" Height="40"  Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <Label Name="fdp" Content="Forma de Pago:" HorizontalAlignment="Left" Margin="218,140,0,0" VerticalAlignment="Top" Width="127" Height="40" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <Label Name="banOb" Content="Banco / Obra:" HorizontalAlignment="Left" Margin="218,213,0,0" VerticalAlignment="Top" Width="113" Height="40" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <Label Name="esp" Content="Especialidad:" HorizontalAlignment="Left" Margin="218,279,0,0" VerticalAlignment="Top" Width="89" Height="40" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <RadioButton Name="TurnoM" VerticalContentAlignment="Center" Content="Mañana" HorizontalAlignment="Left" Margin="618,214,0,0" VerticalAlignment="Top" Visibility="Visible" Height="40" Width="91" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <RadioButton Name="TurnoT" VerticalContentAlignment="Center" Content="Tarde" HorizontalAlignment="Left" Margin="735,213,0,0" VerticalAlignment="Top" Width="83" Visibility="Visible" Height="40" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <Label Name="fech" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Fecha:" HorizontalAlignment="Left" Margin="561,140,0,0" VerticalAlignment="Top" Height="40" Width="52" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <Label Name="hor" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Hora:" HorizontalAlignment="Left" Margin="561,279,0,0" VerticalAlignment="Top" Height="40" Width="47" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <ComboBox Name="Hora" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="618,279,0,0" VerticalAlignment="Top" Width="200" Height="40"  Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <Label Name="med" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Médico:" HorizontalAlignment="Left" Margin="218,352,0,0" VerticalAlignment="Top" Height="40" Width="58" FontSize="16" Visibility="Visible" FontFamily="Microsoft JhengHei"/>
+        <ComboBox Name="Medico" HorizontalContentAlignment="Center"   VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="281,352,0,0" VerticalAlignment="Top" Width="244" Height="40"  Visibility="Visible" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <Label Name="labId" Content="IdTurno:" HorizontalAlignment="Left" Margin="561,354,0,0" VerticalAlignment="Top" Height="40" Width="72" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" FontSize="16" FontFamily="Microsoft JhengHei"/>
+        <TextBox  Name="idBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="40" Margin="633,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" FontSize="16" FontFamily="Microsoft JhengHei"/>
 
 
         <RadioButton Name="Medic" Content="Médico:" HorizontalAlignment="Left" Margin="206,181,0,0" VerticalAlignment="Top" Height="30" Width="73" FontSize="14" Checked="Medic_Checked" Visibility="Hidden"/>
@@ -93,11 +93,11 @@
         <Label Name="labMan" Content="Mañana:" HorizontalAlignment="Left" Margin="518,440,0,0" VerticalAlignment="Top" Width="54" IsEnabled="False" Visibility="Hidden"/>
         <Label Name="labTar" Content="Tarde:" HorizontalAlignment="Left" Margin="518,470,0,0" VerticalAlignment="Top" Width="44" IsEnabled="False" Visibility="Hidden"/>
 
-        <Button Name="butCrear" Content="Crear" HorizontalAlignment="Left" Margin="231,140,0,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Click="crearUsuario_Click" Height="30" VerticalAlignment="Top"/>
-        <Button Name="butEditar" Content="Editar" Margin="537,140,356.6,0" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Width="100" Height="30" VerticalAlignment="Top"/>
-        <Button Name="butEliminar" HorizontalAlignment="Right" Margin="0,140,60.6,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Content="Eliminar" Height="30" VerticalAlignment="Top"/>
-        <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top"/>
-
+        <Button Name="butCrear" Content="Crear" HorizontalAlignment="Left" Margin="231,140,0,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Click="crear_Click" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button Name="butEditar" Content="Editar" Margin="537,140,356.6,0" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Width="100" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button Name="butEliminar" HorizontalAlignment="Right" Margin="0,140,60.6,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Content="Eliminar" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+        <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top" Visibility="Hidden"/>
+       
 
 
 
