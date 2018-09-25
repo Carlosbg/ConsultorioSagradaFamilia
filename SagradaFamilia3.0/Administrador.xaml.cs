@@ -138,6 +138,19 @@ namespace SagradaFamilia3._0
 
         private void limpiarPantalla() {
 
+
+            butNuevo.IsEnabled = false;
+            butNuevo.Visibility = Visibility.Hidden;
+
+            butBuscar.IsEnabled = false;
+            butBuscar.Visibility = Visibility.Hidden;
+
+            butElim.IsEnabled = false;
+            butElim.Visibility = Visibility.Hidden;
+
+            listaPagos.IsEnabled = false;
+            listaPagos.Visibility = Visibility.Hidden;
+
             idBox.IsEnabled = false;
             idBox.Visibility = Visibility.Hidden;
 
@@ -672,6 +685,22 @@ namespace SagradaFamilia3._0
         private void pagos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
+            mostrarPagos();
+        }
+
+        private void mostrarPagos() {
+            butNuevo.IsEnabled = true;
+            butNuevo.Visibility = Visibility.Visible;
+
+            butBuscar.IsEnabled = true;
+            butBuscar.Visibility = Visibility.Visible;
+
+            butElim.IsEnabled = true;
+            butElim.Visibility = Visibility.Visible;
+
+            listaPagos.IsEnabled = true;
+            listaPagos.Visibility = Visibility.Visible;
+
         }
 
         private void mostrarMedicos()
