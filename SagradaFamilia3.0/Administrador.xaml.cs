@@ -138,6 +138,9 @@ namespace SagradaFamilia3._0
 
         private void limpiarPantalla() {
 
+            idBox.IsEnabled = false;
+            idBox.Visibility = Visibility.Hidden;
+
             turn.IsEnabled = false;
             turn.Visibility = Visibility.Hidden;
 
