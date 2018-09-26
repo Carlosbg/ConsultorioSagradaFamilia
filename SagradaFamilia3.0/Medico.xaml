@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Medico" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="641,362,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click" Height="48"/>
+        <Button Content="botonaso" HorizontalAlignment="Left" Margin="45,227,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click" Height="48"/>
 
     </Grid>
 </Window>
