@@ -86,17 +86,17 @@ namespace SagradaFamilia3._0
             Fecha.IsEnabled = true;
             Fecha.Visibility = Visibility.Visible;
 
-            Medico.IsEnabled = true;
-            Medico.Visibility = Visibility.Visible;
+            //Medico.IsEnabled = true;
+            //Medico.Visibility = Visibility.Visible;
 
-            Hora.IsEnabled = true;
-            Hora.Visibility = Visibility.Visible;
+            //Hora.IsEnabled = true;
+            //Hora.Visibility = Visibility.Visible;
 
-            TurnoM.IsEnabled = true;
-            TurnoM.Visibility = Visibility.Visible;
+            //TurnoM.IsEnabled = true;
+            //TurnoM.Visibility = Visibility.Visible;
 
-            TurnoT.IsEnabled = true;
-            TurnoT.Visibility = Visibility.Visible;
+            //TurnoT.IsEnabled = true;
+            //TurnoT.Visibility = Visibility.Visible;
         }
 
         private void cargarGenerarInforme() {
@@ -204,17 +204,17 @@ namespace SagradaFamilia3._0
             Fecha.IsEnabled = false;
             Fecha.Visibility = Visibility.Hidden;
 
-            Medico.IsEnabled = false;
-            Medico.Visibility = Visibility.Hidden;
+            //Medico.IsEnabled = false;
+            //Medico.Visibility = Visibility.Hidden;
 
-            Hora.IsEnabled = false;
-            Hora.Visibility = Visibility.Hidden;
+            //Hora.IsEnabled = false;
+            //Hora.Visibility = Visibility.Hidden;
                         
-            TurnoM.IsEnabled = false;
-            TurnoM.Visibility = Visibility.Hidden;
+            //TurnoM.IsEnabled = false;
+            //TurnoM.Visibility = Visibility.Hidden;
 
-            TurnoT.IsEnabled = false;
-            TurnoT.Visibility = Visibility.Hidden;
+            //TurnoT.IsEnabled = false;
+            //TurnoT.Visibility = Visibility.Hidden;
 
             Medics.IsEnabled = false;
             Medics.Visibility = Visibility.Hidden;
@@ -791,55 +791,7 @@ namespace SagradaFamilia3._0
 
 
         }
-
-
-        private dynamic GetLista(string nombreControlador, int? id1 = null, int? id2 = null, 
-                                 DateTime? fechaDesde = null, DateTime? fechaHasta = null)
-        {
-            var client = new RestClient("http://consultoriosagradafamilia.azurewebsites.net/api");
-            var request = new RestRequest(nombreControlador, Method.GET);
-            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.AddHeader("Authorization", "Bearer " + DatosUsuario.Token);
-
-            var response = client.Execute(request);
-            var content = response.Content;
-
-            JArray rss = JArray.Parse(content);
-
-            var lista = new List<dynamic>();
-
-            foreach (var JToken in rss)
-            {
-                dynamic dynamicObj = JObject.Parse(JToken.ToString());
-
-                lista.Add(dynamicObj);                
-            }
-
-            return lista;
-        }
-
-        private void FormaDePago_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (FormaDePago.ItemsSource != null) return;
-            List<dynamic> formaPagoDynamicList = GetLista("FormaPago");
-            List<FormaPago> formaPagoList = new List<FormaPago>();
-
-            foreach (var formaPagoDynamic in formaPagoDynamicList)
-            {
-                FormaPago formaPago = new FormaPago
-                {
-                    Nombre = formaPagoDynamic.Nombre,
-                    IdFormaPago = formaPagoDynamic.IdFormaPago
-                };
-
-                formaPagoList.Add(formaPago);
-            }
-
-            FormaDePago.ItemsSource = formaPagoList;
-            FormaDePago.DisplayMemberPath = "Nombre";
-            FormaDePago.SelectedValuePath = "IdFormaPago";
-        }
-
+        
         
     }
 }
