@@ -27,8 +27,11 @@ namespace SagradaFamilia3._0
     /// </summary>
     public partial class Administrador : MetroWindow
     {
-        private bool mostrandoMedicos;
-        private bool mostrandoPacientes;
+        private int mostrando = 0;
+        //mostrando = 1: medico
+        //mostrando = 2: paciente
+        //mostrando = 3: turno
+        //mostrando = 4: pago
 
         public Administrador()
         {
@@ -40,14 +43,15 @@ namespace SagradaFamilia3._0
         {
             
         }
-
-        private void CrearTurno_Click(object sender, RoutedEventArgs e)
-        {
-            limpiarPantalla();
-            cargarCrearTurno();
-        }
-
+               
         private void cargarCrearTurno() {
+            limpiarPantalla();
+
+            butGuardar.IsEnabled = true;
+            butGuardar.Visibility = Visibility.Visible;
+
+            butLimpiar.IsEnabled = true;
+            butLimpiar.Visibility = Visibility.Visible;
 
             labId.IsEnabled = true;
             labId.Visibility = Visibility.Visible;
@@ -96,6 +100,7 @@ namespace SagradaFamilia3._0
         }
 
         private void cargarGenerarInforme() {
+            limpiarPantalla();
 
             Medic.IsEnabled = true;
             Medic.Visibility = Visibility.Visible;
@@ -103,13 +108,41 @@ namespace SagradaFamilia3._0
 
             DirMedic.IsEnabled = true;
             DirMedic.Visibility = Visibility.Visible;
-            DirMedic.IsChecked = false; 
+            DirMedic.IsChecked = false;
+
+            dPer.IsEnabled = true;
+            dPer.Visibility = Visibility.Visible;
+
+            desde.IsEnabled = true;
+            desde.Visibility = Visibility.Visible;
+
+            sta.IsEnabled = true;
+            sta.Visibility = Visibility.Visible;
+
+            hasta.IsEnabled = true;
+            hasta.Visibility = Visibility.Visible;
 
         }
-
         
+        private void limpiarPantalla() {
 
-        private void limpiarPantalla() {           
+            butGuardar.IsEnabled = false;
+            butGuardar.Visibility = Visibility.Hidden;
+
+            butLimpiar.IsEnabled = false;
+            butLimpiar.Visibility = Visibility.Hidden;
+
+            lista.IsEnabled = false;
+            lista.Visibility = Visibility.Hidden;
+
+            butNuevo.IsEnabled = false;
+            butNuevo.Visibility = Visibility.Hidden;
+
+            butBuscar.IsEnabled = false;
+            butBuscar.Visibility = Visibility.Hidden;
+
+            butElim.IsEnabled = false;
+            butElim.Visibility = Visibility.Hidden;
 
             turn.IsEnabled = false;
             turn.Visibility = Visibility.Hidden;
@@ -231,8 +264,8 @@ namespace SagradaFamilia3._0
             natBox.IsEnabled = false;
             natBox.Visibility = Visibility.Hidden;
 
-            labDie.IsEnabled = false;
-            labDie.Visibility = Visibility.Hidden;
+            labDir.IsEnabled = false;
+            labDir.Visibility = Visibility.Hidden;
 
             labTel.IsEnabled = false;
             labTel.Visibility = Visibility.Hidden;
@@ -335,6 +368,7 @@ namespace SagradaFamilia3._0
         private void generarInforme_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
+
             cargarGenerarInforme();
         }
 
@@ -432,6 +466,29 @@ namespace SagradaFamilia3._0
 
         private void cargarCrearMedico() {
 
+            limpiarPantalla();
+
+            labEsp.IsEnabled = true;
+            labEsp.Visibility = Visibility.Visible;
+
+            datEsp.IsEnabled = true;
+            datEsp.Visibility = Visibility.Visible;
+
+            butAgrEsp.IsEnabled = true;
+            butAgrEsp.Visibility = Visibility.Visible;
+
+            butQuitEsp.IsEnabled = true;
+            butQuitEsp.Visibility = Visibility.Visible;
+
+            combEsp.IsEnabled = true;
+            combEsp.Visibility = Visibility.Visible;
+
+            butGuardar.IsEnabled = true;
+            butGuardar.Visibility = Visibility.Visible;
+
+            butLimpiar.IsEnabled = true;
+            butLimpiar.Visibility = Visibility.Visible;
+
             labNom.IsEnabled = true;
             labNom.Visibility = Visibility.Visible;
 
@@ -456,8 +513,8 @@ namespace SagradaFamilia3._0
             natBox.IsEnabled = true;
             natBox.Visibility = Visibility.Visible;
 
-            labDie.IsEnabled = true;
-            labDie.Visibility = Visibility.Visible;
+            labDir.IsEnabled = true;
+            labDir.Visibility = Visibility.Visible;
 
             labTel.IsEnabled = true;
             labTel.Visibility = Visibility.Visible;
@@ -549,16 +606,20 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
 
-            if (mostrandoMedicos == true && mostrandoPacientes == false)
-                cargarCrearMedico();
+            
 
-            else if (mostrandoMedicos == false && mostrandoPacientes == true)
-                cargarCrearPaciente();
+
         }
 
         private void cargarCrearPaciente()
         {
+            limpiarPantalla();
 
+            butGuardar.IsEnabled = true;
+            butGuardar.Visibility = Visibility.Visible;
+
+            butLimpiar.IsEnabled = true;
+            butLimpiar.Visibility = Visibility.Visible;
 
             labNom.IsEnabled = true;
             labNom.Visibility = Visibility.Visible;
@@ -584,8 +645,8 @@ namespace SagradaFamilia3._0
             natBox.IsEnabled = true;
             natBox.Visibility = Visibility.Visible;
 
-            labDie.IsEnabled = true;
-            labDie.Visibility = Visibility.Visible;
+            labDir.IsEnabled = true;
+            labDir.Visibility = Visibility.Visible;
 
             labTel.IsEnabled = true;
             labTel.Visibility = Visibility.Visible;
@@ -625,105 +686,89 @@ namespace SagradaFamilia3._0
 
             
         }
-
-
+        
         private void medicos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
-            mostrarMedicos();
+            mostrando = 1;
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
+            butNuevo.IsEnabled = true;
+            butNuevo.Visibility = Visibility.Visible;
+            butBuscar.IsEnabled = true;
+            butBuscar.Visibility = Visibility.Visible;
+            butElim.IsEnabled = true;
+            butElim.Visibility = Visibility.Visible;
         }
 
         private void pacientes_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
-            mostrarPacientes();
+            mostrando = 2;
+
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
+            butNuevo.IsEnabled = true;
+            butNuevo.Visibility = Visibility.Visible;
+            butBuscar.IsEnabled = true;
+            butBuscar.Visibility = Visibility.Visible;
+            butElim.IsEnabled = true;
+            butElim.Visibility = Visibility.Visible;
+        }
+
+        private void turnos_Click(object sender, RoutedEventArgs e)
+        {
+            limpiarPantalla();
+            mostrando = 3;
+
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
+            butNuevo.IsEnabled = true;
+            butNuevo.Visibility = Visibility.Visible;
+            butBuscar.IsEnabled = true;
+            butBuscar.Visibility = Visibility.Visible;
+            butElim.IsEnabled = true;
+            butElim.Visibility = Visibility.Visible;
+
+
+
         }
 
         private void pagos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
-            mostrarPagos();
+            mostrando = 4;
+
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
+            
         }
-
-        private void mostrarPagos() {
-            butNuevo.IsEnabled = true;
-            butNuevo.Visibility = Visibility.Visible;
-
-            butBuscar.IsEnabled = true;
-            butBuscar.Visibility = Visibility.Visible;
-
-            butElim.IsEnabled = true;
-            butElim.Visibility = Visibility.Visible;
-
-            listaPagos.IsEnabled = true;
-            listaPagos.Visibility = Visibility.Visible;
-
-        }
-
-        private void mostrarMedicos()
-        {
-            mostrandoPacientes = false;
-            mostrandoMedicos = true;
-
-            butCrear.IsEnabled = true;
-            butCrear.Visibility = Visibility.Visible;
-
-            butEditar.IsEnabled = true;
-            butEditar.Visibility = Visibility.Visible;
-
-            butEliminar.IsEnabled = true;
-            butEliminar.Visibility = Visibility.Visible;
-
-            gridListado.IsEnabled = true;
-            gridListado.Visibility = Visibility.Visible;
-
-        }
-
-        private void mostrarPacientes()
-        {
-            mostrandoPacientes = true;
-            mostrandoMedicos = false;
-
-            butCrear.IsEnabled = true;
-            butCrear.Visibility = Visibility.Visible;
-
-            butEditar.IsEnabled = true;
-            butEditar.Visibility = Visibility.Visible;
-
-            butEliminar.IsEnabled = true;
-            butEliminar.Visibility = Visibility.Visible;
-
-            gridListado.IsEnabled = true;
-            gridListado.Visibility = Visibility.Visible;
-
-
-
-        }
-
-        private void FormaDePago_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+        
         private void butNuevo_Click(object sender, RoutedEventArgs e)
         {
-            limpiarPantalla();
-            cargarCrearPago();
+            switch (mostrando) {
+                case 1:
+                    cargarCrearMedico();
+                    break;
+                case 2:
+                    cargarCrearPaciente();
+                    break;
+                case 3:
+                    cargarCrearTurno();
+                    break;
+                case 4:
+                    cargarCrearPago();
+                    break;
+                                       
+            }
+
         }
 
         private void cargarCrearPago() {
 
 
-
         }
 
-        private void checkConsulta_Checked(object sender, RoutedEventArgs e)
-        {
-            
-
-
-
-        }
 
         private dynamic GetLista(string nombreControlador, int? id1 = null, int? id2 = null, 
                                  DateTime? fechaDesde = null, DateTime? fechaHasta = null)
@@ -771,6 +816,8 @@ namespace SagradaFamilia3._0
             FormaDePago.DisplayMemberPath = "Nombre";
             FormaDePago.SelectedValuePath = "IdFormaPago";
         }
+
+        
     }
 }
 
