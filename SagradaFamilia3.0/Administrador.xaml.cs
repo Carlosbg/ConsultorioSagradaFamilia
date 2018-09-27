@@ -126,6 +126,24 @@ namespace SagradaFamilia3._0
         
         private void limpiarPantalla() {
 
+            labEsp.IsEnabled = false;
+            labEsp.Visibility = Visibility.Hidden;
+
+            datEsp.IsEnabled = false;
+            datEsp.Visibility = Visibility.Hidden;
+
+            butAgrEsp.IsEnabled = false;
+            butAgrEsp.Visibility = Visibility.Hidden;
+
+            butQuitEsp.IsEnabled = false;
+            butQuitEsp.Visibility = Visibility.Hidden;
+
+            combEsp.IsEnabled = false;
+            combEsp.Visibility = Visibility.Hidden;
+
+            butEdit.IsEnabled = false;
+            butEdit.Visibility = Visibility.Hidden;
+
             butGuardar.IsEnabled = false;
             butGuardar.Visibility = Visibility.Hidden;
 
@@ -697,6 +715,8 @@ namespace SagradaFamilia3._0
             butNuevo.Visibility = Visibility.Visible;
             butBuscar.IsEnabled = true;
             butBuscar.Visibility = Visibility.Visible;
+            butEdit.IsEnabled = true;
+            butEdit.Visibility = Visibility.Visible;
             butElim.IsEnabled = true;
             butElim.Visibility = Visibility.Visible;
         }
@@ -712,6 +732,8 @@ namespace SagradaFamilia3._0
             butNuevo.Visibility = Visibility.Visible;
             butBuscar.IsEnabled = true;
             butBuscar.Visibility = Visibility.Visible;
+            butEdit.IsEnabled = true;
+            butEdit.Visibility = Visibility.Visible;
             butElim.IsEnabled = true;
             butElim.Visibility = Visibility.Visible;
         }
@@ -746,6 +768,7 @@ namespace SagradaFamilia3._0
         
         private void butNuevo_Click(object sender, RoutedEventArgs e)
         {
+            limpiarPantalla();
             switch (mostrando) {
                 case 1:
                     cargarCrearMedico();
