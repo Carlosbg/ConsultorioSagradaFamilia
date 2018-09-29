@@ -86,17 +86,17 @@ namespace SagradaFamilia3._0
             Fecha.IsEnabled = true;
             Fecha.Visibility = Visibility.Visible;
 
-            //Medico.IsEnabled = true;
-            //Medico.Visibility = Visibility.Visible;
+            Medico.IsEnabled = true;
+            Medico.Visibility = Visibility.Visible;
 
-            //Hora.IsEnabled = true;
-            //Hora.Visibility = Visibility.Visible;
+            Hora.IsEnabled = true;
+            Hora.Visibility = Visibility.Visible;
 
-            //TurnoM.IsEnabled = true;
-            //TurnoM.Visibility = Visibility.Visible;
+            TurnoM.IsEnabled = true;
+            TurnoM.Visibility = Visibility.Visible;
 
-            //TurnoT.IsEnabled = true;
-            //TurnoT.Visibility = Visibility.Visible;
+            TurnoT.IsEnabled = true;
+            TurnoT.Visibility = Visibility.Visible;
         }
 
         private void cargarGenerarInforme() {
@@ -204,17 +204,17 @@ namespace SagradaFamilia3._0
             Fecha.IsEnabled = false;
             Fecha.Visibility = Visibility.Hidden;
 
-            //Medico.IsEnabled = false;
-            //Medico.Visibility = Visibility.Hidden;
+            Medico.IsEnabled = false;
+            Medico.Visibility = Visibility.Hidden;
 
-            //Hora.IsEnabled = false;
-            //Hora.Visibility = Visibility.Hidden;
+            Hora.IsEnabled = false;
+            Hora.Visibility = Visibility.Hidden;
                         
-            //TurnoM.IsEnabled = false;
-            //TurnoM.Visibility = Visibility.Hidden;
+            TurnoM.IsEnabled = false;
+            TurnoM.Visibility = Visibility.Hidden;
 
-            //TurnoT.IsEnabled = false;
-            //TurnoT.Visibility = Visibility.Hidden;
+            TurnoT.IsEnabled = false;
+            TurnoT.Visibility = Visibility.Hidden;
 
             Medics.IsEnabled = false;
             Medics.Visibility = Visibility.Hidden;
