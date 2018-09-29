@@ -33,6 +33,10 @@ namespace SagradaFamilia3._0
         //mostrando = 3: turno
         //mostrando = 4: pago
 
+        private int porImprimir = 0;
+
+
+
         public Administrador()
         {
             InitializeComponent();
@@ -52,10 +56,7 @@ namespace SagradaFamilia3._0
 
             butLimpiar.IsEnabled = true;
             butLimpiar.Visibility = Visibility.Visible;
-
-            labId.IsEnabled = true;
-            labId.Visibility = Visibility.Visible;
-
+            
             fdp.IsEnabled = true;
             fdp.Visibility = Visibility.Visible;
 
@@ -188,10 +189,7 @@ namespace SagradaFamilia3._0
 
             med.IsEnabled = false;
             med.Visibility = Visibility.Hidden;
-
-            labId.IsEnabled = false;
-            labId.Visibility = Visibility.Hidden;
-
+            
             FormaDePago.IsEnabled = false;
             FormaDePago.Visibility = Visibility.Hidden;
 

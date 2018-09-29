@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SagradaFamilia3._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" Background="White">
+        Title="MainWindow" Height="600" Width="800" Background="White" WindowState="Maximized">
     <Grid>
         <Image Source=".\Source\Logo.png" HorizontalAlignment="Center" Height="160" Margin="0,30,0,0" VerticalAlignment="Top" Width="448"/>
         <Label  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Usuario:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" Width="200" Height="40" FontFamily="Microsoft JhengHei" FontSize="24" FontWeight="Bold"/>
