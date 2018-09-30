@@ -62,8 +62,6 @@ namespace SagradaFamilia3._0
             fdp.IsEnabled = true;
             fdp.Visibility = Visibility.Visible;
 
-            banOb.IsEnabled = true;
-            banOb.Visibility = Visibility.Visible;
 
             esp.IsEnabled = true;
             esp.Visibility = Visibility.Visible;
@@ -80,8 +78,6 @@ namespace SagradaFamilia3._0
             FormaDePago.IsEnabled = true;
             FormaDePago.Visibility = Visibility.Visible;
 
-            BancObra.IsEnabled = true;
-            BancObra.Visibility = Visibility.Visible;
 
             Especialidad.IsEnabled = true;
             Especialidad.Visibility = Visibility.Visible;
@@ -182,9 +178,6 @@ namespace SagradaFamilia3._0
             fdp.IsEnabled = false;
             fdp.Visibility = Visibility.Hidden;
 
-            banOb.IsEnabled = false;
-            banOb.Visibility = Visibility.Hidden;
-
             esp.IsEnabled = false;
             esp.Visibility = Visibility.Hidden;
 
@@ -199,9 +192,6 @@ namespace SagradaFamilia3._0
             
             FormaDePago.IsEnabled = false;
             FormaDePago.Visibility = Visibility.Hidden;
-
-            BancObra.IsEnabled = false;
-            BancObra.Visibility = Visibility.Hidden;
 
             Especialidad.IsEnabled = false;
             Especialidad.Visibility = Visibility.Hidden;
@@ -810,6 +800,40 @@ namespace SagradaFamilia3._0
             main.Show();
             main.Focus();
             this.Close();
+        }
+
+        private void TurnoE_Checked(object sender, RoutedEventArgs e)
+        {
+            TurnoM.IsEnabled = false;
+            TurnoT.IsEnabled = false;
+            hor.IsEnabled = false;
+            fech.IsEnabled = false;
+            Hora.IsEnabled = false;
+            Fecha.IsEnabled = false;
+
+
+
+
+        }
+
+        private void TurnoM_Checked(object sender, RoutedEventArgs e)
+        {
+            TurnoM.IsEnabled = true;
+            TurnoT.IsEnabled = true;
+            hor.IsEnabled = true;
+            fech.IsEnabled = true;
+            Hora.IsEnabled = true;
+            Fecha.IsEnabled = true;
+        }
+
+        private void TurnoT_Checked(object sender, RoutedEventArgs e)
+        {
+            TurnoM.IsEnabled = true;
+            TurnoT.IsEnabled = true;
+            hor.IsEnabled = true;
+            fech.IsEnabled = true;
+            Hora.IsEnabled = true;
+            Fecha.IsEnabled = true;
         }
     }
 }

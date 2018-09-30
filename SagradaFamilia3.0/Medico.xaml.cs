@@ -78,6 +78,8 @@ namespace SagradaFamilia3._0
         private void butCalendarioDeTurnos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
 
 
         }
