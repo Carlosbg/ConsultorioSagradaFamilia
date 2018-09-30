@@ -57,12 +57,14 @@ namespace SagradaFamilia3._0
                 Medico ventana = new Medico();
                 ventana.Show();
                 ventana.Focus();
+                this.Close();
             }
             else
             {
                 Administrador ventana = new Administrador();
                 ventana.Show();
                 ventana.Focus();
+                this.Close();
             }
 
             //Logeo funcional

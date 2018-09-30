@@ -33,13 +33,15 @@ namespace SagradaFamilia3._0
         //mostrando = 3: turno
         //mostrando = 4: pago
 
-        private int porImprimir = 0;
+        
 
 
 
         public Administrador()
         {
+            
             InitializeComponent();
+            
             limpiarPantalla();
         }
 
@@ -103,6 +105,8 @@ namespace SagradaFamilia3._0
         private void cargarGenerarInforme() {
             limpiarPantalla();
 
+            butImprimir.Visibility = Visibility.Visible;
+
             Medic.IsEnabled = true;
             Medic.Visibility = Visibility.Visible;
             Medic.IsChecked = false;
@@ -126,6 +130,9 @@ namespace SagradaFamilia3._0
         }
         
         private void limpiarPantalla() {
+
+            butImprimir.IsEnabled = false;
+            butImprimir.Visibility = Visibility.Hidden;
 
             labEsp.IsEnabled = false;
             labEsp.Visibility = Visibility.Hidden;
@@ -384,12 +391,12 @@ namespace SagradaFamilia3._0
         private void generarInforme_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
-
             cargarGenerarInforme();
         }
 
         private void Medic_Checked(object sender, RoutedEventArgs e)
-        {             
+        {
+            butImprimir.IsEnabled = true;
 
             Medics.IsEnabled = true;
             Medics.Visibility = Visibility.Visible;
@@ -437,6 +444,8 @@ namespace SagradaFamilia3._0
 
         private void DirMedic_Checked(object sender, RoutedEventArgs e)
         {
+            butImprimir.IsEnabled = true;
+
             dPer.IsEnabled = true;
             dPer.Visibility = Visibility.Visible;
 
@@ -789,8 +798,19 @@ namespace SagradaFamilia3._0
 
 
         }
-        
-        
+
+        private void butImprimir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            main.Focus();
+            this.Close();
+        }
     }
 }
 
