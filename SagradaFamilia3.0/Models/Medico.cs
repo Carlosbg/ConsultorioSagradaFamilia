@@ -21,6 +21,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public decimal Monto { get; set; }
 
+        public string ApellidoNombre => Apellido + ", " + Nombre;
+
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }
         //public virtual ICollection<HorarioAtencion> HorarioAtencion { get; set; }
         //public virtual ICollection<ObraSocialMedico> ObraSocialMedico { get; set; }

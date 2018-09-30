@@ -58,6 +58,8 @@ namespace SagradaFamilia3._0
                 }
             }
 
+            if (nombreControlador.Last() == '?') nombreControlador = nombreControlador.Trim('?');
+
             var client = new RestClient("http://consultoriosagradafamilia.azurewebsites.net/api");
             var request = new RestRequest(nombreControlador, Method.GET);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -146,6 +148,94 @@ namespace SagradaFamilia3._0
             Especialidad.ItemsSource = especialidadList;
             Especialidad.DisplayMemberPath = "Nombre";
             Especialidad.SelectedValuePath = "IdEspecialidad";
+        }
+
+        private void Especialidad_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List<dynamic> medicoDynamicList = GetLista("Medico", "idEspecialidad", (int)Especialidad.SelectedValue);
+            List<ConsultorioSagradaFamilia.Models.Medico> medicoList = new List<ConsultorioSagradaFamilia.Models.Medico>();
+
+            foreach (var medicoDynamic in medicoDynamicList)
+            {
+                ConsultorioSagradaFamilia.Models.Medico medico = new ConsultorioSagradaFamilia.Models.Medico
+                {
+                    Nombre = medicoDynamic.Nombre,
+                    IdMedico = medicoDynamic.IdMedico,
+                    Apellido = medicoDynamic.Apellido
+                };
+
+                medicoList.Add(medico);
+            }
+
+            Medico.ItemsSource = medicoList;
+            Medico.DisplayMemberPath = "ApellidoNombre";
+            Medico.SelectedValuePath = "IdMedico";
+        }
+
+        private void Fecha_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Fecha.ItemsSource != null) return;
+            List<string> fechas = new List<string>();
+            for(int i = 0; i < 14; i++)
+            {
+                DateTime fecha = DateTime.Now.AddDays(i);
+                if (fecha.DayOfWeek == DayOfWeek.Saturday || fecha.DayOfWeek == DayOfWeek.Sunday) continue;
+                string fechaString = string.Empty;
+                switch (fecha.DayOfWeek)
+                {
+                    case DayOfWeek.Monday:
+                        fechaString = "Lunes";
+                        break;
+                    case DayOfWeek.Tuesday:
+                        fechaString = "Martes";
+                        break;
+                    case DayOfWeek.Wednesday:
+                        fechaString = "Miércoles";
+                        break;
+                    case DayOfWeek.Thursday:
+                        fechaString = "Jueves";
+                        break;
+                    case DayOfWeek.Friday:
+                        fechaString = "Viernes";
+                        break;
+                }
+                fechaString = fechaString + " " + fecha.Day + "/" + fecha.Month + "/" + fecha.Year + " ";
+
+                fechas.Add(fechaString);
+            }
+
+            Fecha.ItemsSource = fechas;
+        }
+
+        private void Hora_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //8.00 hs a 12.00 hs y de 16.00 hs a 20.30 hs.
+
+            List<string> horarios = new List<string>();
+            if (TurnoM.IsChecked.GetValueOrDefault())
+            {
+                TimeSpan timeSpan = new TimeSpan(8, 0, 0);
+                for (int i=0; i < 12; i++)
+                {
+                    string horario = timeSpan.Hours + ":" + timeSpan.Minutes;
+                    horarios.Add(horario);
+
+                    timeSpan = timeSpan.Add(new TimeSpan(0, 20, 0));
+                }
+            }
+            else
+            {
+                TimeSpan timeSpan = new TimeSpan(16, 0, 0);
+                for (int i = 0; i < 12; i++)
+                {
+                    string horario = timeSpan.Hours + ":" + timeSpan.Minutes;
+                    horarios.Add(horario);
+
+                    timeSpan = timeSpan.Add(new TimeSpan(0, 20, 0));
+                }
+            }
+
+            Hora.ItemsSource = horarios;
         }
     }
 }
