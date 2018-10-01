@@ -35,13 +35,17 @@ namespace SagradaFamilia3._0
             {
                 if (nombreControlador.Last() != '?')
                 {
-                    nombreControlador = nombreControlador + "&fechaDesde=" + 
-                        fechaDesde.GetValueOrDefault().ToShortDateString();
+                    nombreControlador = nombreControlador + "&fechaDesde=" +
+                        fechaDesde.GetValueOrDefault().Year + "-" +
+                        fechaDesde.GetValueOrDefault().Month + "-" +
+                        fechaDesde.GetValueOrDefault().Day;
                 }
                 else
                 {
-                    nombreControlador = nombreControlador + "fechaDesde=" + 
-                        fechaDesde.GetValueOrDefault().ToShortDateString();
+                    nombreControlador = nombreControlador + "fechaDesde=" +
+                        fechaDesde.GetValueOrDefault().Year + "-" +
+                        fechaDesde.GetValueOrDefault().Month + "-" +
+                        fechaDesde.GetValueOrDefault().Day;
                 }
             }
             if (fechaHasta != null)
@@ -49,12 +53,16 @@ namespace SagradaFamilia3._0
                 if (nombreControlador.Last() != '?')
                 {
                     nombreControlador = nombreControlador + "&fechaHasta=" +
-                        fechaHasta.GetValueOrDefault().ToShortDateString();
+                        fechaHasta.GetValueOrDefault().Year + "-" +
+                        fechaHasta.GetValueOrDefault().Month + "-" +
+                        fechaHasta.GetValueOrDefault().Day;
                 }
                 else
                 {
                     nombreControlador = nombreControlador + "fechaHasta=" +
-                        fechaHasta.GetValueOrDefault().ToShortDateString();
+                        fechaHasta.GetValueOrDefault().Year + "-" +
+                        fechaHasta.GetValueOrDefault().Month + "-" +
+                        fechaHasta.GetValueOrDefault().Day;
                 }
             }
 
@@ -183,63 +191,43 @@ namespace SagradaFamilia3._0
 
         private void Medico_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<dynamic> horariosDynamicList = GetLista("DisponibilidadHorario", "idMedico",
-                                                        (int)Medico.SelectedValue, fechaDesde: DateTime.Today);
-
-            List<string> horarios = new List<string>();
-
-            foreach (var horarioDynamic in horariosDynamicList)
-            {
-                horarios.Add(horarioDynamic);
-            }
-
-            Hora.ItemsSource = horarios;
+            
         }
 
         private void Fecha_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {            
-            //if (Fecha.ItemsSource != null) return;
-            //List<string> fechas = new List<string>();
+        {
+            if (Medico.ItemsSource == null) return;
+            if (Fecha.ItemsSource != null) return;
+            List<dynamic> diasDynamicList = GetLista("DisponibilidadDia", "idMedico",
+                                                        (int)Medico.SelectedValue);
 
-            //for(int i = 0; i < 14; i++)
-            //{
-            //    DateTime fecha = DateTime.Now.AddDays(i);
-            //    if (fecha.DayOfWeek == DayOfWeek.Saturday || fecha.DayOfWeek == DayOfWeek.Sunday) continue;
-            //    string fechaString = string.Empty;
-            //    switch (fecha.DayOfWeek)
-            //    {
-            //        case DayOfWeek.Monday:
-            //            fechaString = "Lunes";
-            //            break;
-            //        case DayOfWeek.Tuesday:
-            //            fechaString = "Martes";
-            //            break;
-            //        case DayOfWeek.Wednesday:
-            //            fechaString = "Miércoles";
-            //            break;
-            //        case DayOfWeek.Thursday:
-            //            fechaString = "Jueves";
-            //            break;
-            //        case DayOfWeek.Friday:
-            //            fechaString = "Viernes";
-            //            break;
-            //    }
-            //    fechaString = fechaString + " " + fecha.Day + "/" + fecha.Month + "/" + fecha.Year + " ";
+            List<string> dias = new List<string>();
 
-            //    fechas.Add(fechaString);
-            //}
+            if (diasDynamicList == null) dias.Add("No hay");
 
-            //Fecha.ItemsSource = fechas;
+            foreach (var diasDynamic in diasDynamicList)
+            {
+                dias.Add(diasDynamic.ToString());
+            }
+
+            Fecha.ItemsSource = dias;
         }
 
-        private void Hora_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Fecha_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (Hora.ItemsSource != null) return;
+            if (Fecha.SelectedValue == null) return;
+            string[] fechaStringDia = Fecha.SelectedValue.ToString().Split(' ');
+            string[] fechaString = fechaStringDia[1].Split('/');
+
+            DateTime fecha = new DateTime(int.Parse(fechaString[2]), int.Parse(fechaString[1]),
+                                          int.Parse(fechaString[0]));
             List<dynamic> horariosDynamicList = GetLista("DisponibilidadHorario", "idMedico",
-                                                        (int)Medico.SelectedValue, fechaDesde: new DateTime(2018,10,1));
-            
+                                                        (int)Medico.SelectedValue, fechaDesde: fecha);
+
             List<string> horarios = new List<string>();
 
-            if (horariosDynamicList == null) horarios.Add("No hay");
+            if (horariosDynamicList == null || horariosDynamicList.Count() == 0) horarios.Add("No hay");
 
             foreach (var horarioDynamic in horariosDynamicList)
             {
@@ -252,31 +240,11 @@ namespace SagradaFamilia3._0
             }
 
             Hora.ItemsSource = horarios;
-            //8.00 hs a 12.00 hs y de 16.00 hs a 20.30 hs.
-            //List<string> horarios = new List<string>();
-            //if (TurnoM.IsChecked.GetValueOrDefault())
-            //{
-            //    TimeSpan timeSpan = new TimeSpan(8, 0, 0);
-            //    for (int i=0; i < 12; i++)
-            //    {
-            //        string horario = timeSpan.Hours + ":" + timeSpan.Minutes;
-            //        horarios.Add(horario);
+        }
 
-            //        timeSpan = timeSpan.Add(new TimeSpan(0, 20, 0));
-            //    }
-            //}
-            //else
-            //{
-            //    TimeSpan timeSpan = new TimeSpan(16, 0, 0);
-            //    for (int i = 0; i < 12; i++)
-            //    {
-            //        string horario = timeSpan.Hours + ":" + timeSpan.Minutes;
-            //        horarios.Add(horario);
-
-            //        timeSpan = timeSpan.Add(new TimeSpan(0, 20, 0));
-            //    }
-            //}
-            //Hora.ItemsSource = horarios;
+        private void Hora_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+                     
         }
     }
 }
