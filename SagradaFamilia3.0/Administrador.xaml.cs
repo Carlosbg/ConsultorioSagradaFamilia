@@ -19,6 +19,7 @@ using RestSharp;
 using SimpleJson;
 using Newtonsoft.Json.Linq;
 using ConsultorioSagradaFamilia.Models;
+using SAPBusinessObjects.WPF.Viewer;
 
 namespace SagradaFamilia3._0
 {
@@ -122,6 +123,8 @@ namespace SagradaFamilia3._0
         }
         
         private void limpiarPantalla() {
+
+            Viewer.Visibility = Visibility.Hidden;
 
             labBusqNombre.IsEnabled = false;
             labBusqNombre.Visibility = Visibility.Hidden;
@@ -459,6 +462,7 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             cargarGenerarInforme();
+            Viewer.Visibility = Visibility.Visible;
         }
 
         private void Medic_Checked(object sender, RoutedEventArgs e)
@@ -994,7 +998,36 @@ namespace SagradaFamilia3._0
 
         private void butImprimir_Click(object sender, RoutedEventArgs e)
         {
+            List<dynamic> pagosPorFormaPagoDynamic = GetLista("PagosPorFormaPago");
+            List<PagosPorFormaPago> pagos = new List<PagosPorFormaPago>();
 
+            foreach (var pagoDynamic in pagosPorFormaPagoDynamic)
+            {
+                PagosPorFormaPago pago = new PagosPorFormaPago
+                {
+                    FormaPago = pagoDynamic.FormaPago,
+                    IdFormaPago = pagoDynamic.IdFormaPago,
+                    IdObraSocial = pagoDynamic.IdObraSocial,
+                    Monto = pagoDynamic.Monto,
+                    NombreObraSocial = pagoDynamic.NombreObraSocial,
+                    Fecha = pagoDynamic.Fecha,
+                    IdMedico = pagoDynamic.IdMedico,
+                    IdPaciente = pagoDynamic.IdPaciente,
+                    NombreMedico = pagoDynamic.NombreMedico,
+                    NombrePaciente = pagoDynamic.NombrePaciente
+                };
+
+                pagos.Add(pago);
+            }
+
+            Reports.PagosPorFormaPago report = new Reports.PagosPorFormaPago();
+            report.SetDataSource(pagos);
+
+            //CrystalReportsViewer rptViewer = new CrystalReportViewer();
+            // WindowsFormsHost host = new WindowsFormsHost();
+            Viewer.ViewerCore.ReportSource = report;
+            //host.Child = rptViewer;
+            //reportGrid.Children.Add(host);
         }
 
         private void TurnoE_Checked(object sender, RoutedEventArgs e)
@@ -1217,8 +1250,6 @@ namespace SagradaFamilia3._0
         {
 
         }
-
-        
     }
 }
 
