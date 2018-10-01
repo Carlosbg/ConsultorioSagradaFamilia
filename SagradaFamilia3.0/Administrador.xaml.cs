@@ -216,8 +216,6 @@ namespace SagradaFamilia3._0
             DirMedic.IsEnabled = false;
             DirMedic.Visibility = Visibility.Hidden;
 
-            fdp.IsEnabled = false;
-            fdp.Visibility = Visibility.Hidden;
 
             esp.IsEnabled = false;
             esp.Visibility = Visibility.Hidden;
