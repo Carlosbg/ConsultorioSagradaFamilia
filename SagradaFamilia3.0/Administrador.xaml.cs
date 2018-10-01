@@ -123,6 +123,33 @@ namespace SagradaFamilia3._0
         
         private void limpiarPantalla() {
 
+            combBuscMedico.IsEnabled = false;
+            combBuscMedico.Visibility = Visibility.Hidden;
+
+            combBuscPaciente.IsEnabled = false;
+            combBuscPaciente.Visibility = Visibility.Hidden;
+
+            dateBusqDesde.IsEnabled = false;
+            dateBusqDesde.Visibility = Visibility.Hidden;
+
+            labBusqPaciente.IsEnabled = false;
+            labBusqPaciente.Visibility = Visibility.Hidden;
+
+            labBusqMedico.IsEnabled = false;
+            labBusqMedico.Visibility = Visibility.Hidden;
+
+            labBusqDesde.IsEnabled = false;
+            labBusqDesde.Visibility = Visibility.Hidden;
+
+            dateBusqHasta.IsEnabled = false;
+            dateBusqHasta.Visibility = Visibility.Hidden;
+
+            labBusqHasta.IsEnabled = false;
+            labBusqHasta.Visibility = Visibility.Hidden;
+
+
+
+
             CombEntidad.IsEnabled = false;
             CombEntidad.Visibility = Visibility.Hidden;
 
@@ -753,6 +780,31 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             mostrando = 3;
+
+            combBuscMedico.IsEnabled = true;
+            combBuscMedico.Visibility = Visibility.Visible;
+
+            combBuscPaciente.IsEnabled = true;
+            combBuscPaciente.Visibility = Visibility.Visible;
+
+            dateBusqDesde.IsEnabled = true;
+            dateBusqDesde.Visibility = Visibility.Visible;
+
+            labBusqPaciente.IsEnabled = true;
+            labBusqPaciente.Visibility = Visibility.Visible;
+
+            labBusqMedico.IsEnabled = true;
+            labBusqMedico.Visibility = Visibility.Visible;
+
+            labBusqDesde.IsEnabled = true;
+            labBusqDesde.Visibility = Visibility.Visible;
+
+            dateBusqHasta.IsEnabled = true;
+            dateBusqHasta.Visibility = Visibility.Visible;
+
+            labBusqHasta.IsEnabled = true;
+            labBusqHasta.Visibility = Visibility.Visible;
+
             listarNuevoEditarBuscarEliminar();
         }
 
@@ -760,6 +812,31 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             mostrando = 4;
+
+            combBuscMedico.IsEnabled = true;
+            combBuscMedico.Visibility = Visibility.Visible;
+
+            combBuscPaciente.IsEnabled = true;
+            combBuscPaciente.Visibility = Visibility.Visible;
+
+            dateBusqDesde.IsEnabled = true;
+            dateBusqDesde.Visibility = Visibility.Visible;
+
+            labBusqPaciente.IsEnabled = true;
+            labBusqPaciente.Visibility = Visibility.Visible;
+
+            labBusqMedico.IsEnabled = true;
+            labBusqMedico.Visibility = Visibility.Visible;
+
+            labBusqDesde.IsEnabled = true;
+            labBusqDesde.Visibility = Visibility.Visible;
+
+            dateBusqHasta.IsEnabled = true;
+            dateBusqHasta.Visibility = Visibility.Visible;
+
+            labBusqHasta.IsEnabled = true;
+            labBusqHasta.Visibility = Visibility.Visible;
+
             listarNuevoEditarBuscarEliminar();
             
         }
