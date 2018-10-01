@@ -473,5 +473,10 @@ namespace SagradaFamilia3._0
 
             }
         }
+
+        private void butBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
