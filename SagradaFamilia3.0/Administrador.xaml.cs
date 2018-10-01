@@ -53,6 +53,15 @@ namespace SagradaFamilia3._0
         private void cargarCrearTurno() {
             limpiarPantalla();
 
+            TurnoE.IsEnabled = true;
+            TurnoE.Visibility = Visibility.Visible;
+
+            Paciente.IsEnabled = true;
+            Paciente.Visibility = Visibility.Visible;
+
+            labPac.IsEnabled = true;
+            labPac.Visibility = Visibility.Visible;
+
             butGuardar.IsEnabled = true;
             butGuardar.Visibility = Visibility.Visible;
 
@@ -126,6 +135,15 @@ namespace SagradaFamilia3._0
         }
         
         private void limpiarPantalla() {
+
+            TurnoE.IsEnabled = false;
+            TurnoE.Visibility = Visibility.Hidden;
+
+            Paciente.IsEnabled = false;
+            Paciente.Visibility = Visibility.Hidden;
+
+            labPac.IsEnabled = false;
+            labPac.Visibility = Visibility.Hidden;
 
             butImprimir.IsEnabled = false;
             butImprimir.Visibility = Visibility.Hidden;
