@@ -451,6 +451,8 @@ namespace SagradaFamilia3._0
             gridListado.IsEnabled = false;
             gridListado.Visibility = Visibility.Hidden;
 
+            butPagar.IsEnabled = false;
+            butPagar.Visibility = Visibility.Hidden;
         }
 
         private void generarInforme_Click(object sender, RoutedEventArgs e)
@@ -911,7 +913,14 @@ namespace SagradaFamilia3._0
             butBuscar.Visibility = Visibility.Visible;
             butElim.IsEnabled = false;  //se habilita al seleccionar un elemento de la lista
 
+
             butElim.Visibility = Visibility.Visible;
+
+            if(mostrando == 3)
+            {
+                butPagar.IsEnabled = false;  //se habilita al seleccionar un elemento de la lista
+                butPagar.Visibility = Visibility.Visible;
+            }
         }
 
         private void butNuevo_Click(object sender, RoutedEventArgs e)
@@ -1115,6 +1124,11 @@ namespace SagradaFamilia3._0
         {
             butEdit.IsEnabled = true;
             butElim.IsEnabled = true;
+            
+            if(mostrando == 3)
+            {
+                butPagar.IsEnabled = true;
+            }
         }
 
         private void butLimpiar_Click(object sender, RoutedEventArgs e)

@@ -145,6 +145,7 @@
         <Label          Name="labBusqApellido" Content="Apellido:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,320,0,0" VerticalAlignment="Top" Height="50" Width="150" FontFamily="Microsoft YaHei" FontSize="16"/>
         <TextBox        Name="busqNombreBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="50" Margin="400,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontFamily="Microsoft YaHei" FontSize="16"/>
         <TextBox        Name="busqApellidoBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="50" Margin="400,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontFamily="Microsoft YaHei" FontSize="16"/>
+        <Button         x:Name="butPagar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Pagar" Margin="932,140,276,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Center" Width="150" Click="butPagar_Click" IsEnabled="False"/>
 
     </Grid>
 </Controls:MetroWindow>

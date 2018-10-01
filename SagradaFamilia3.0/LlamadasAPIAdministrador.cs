@@ -629,23 +629,6 @@ namespace SagradaFamilia3._0
                     break;
                 case 4:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     if (dateBusqDesde.SelectedDate != null)
                     {
                         fechaDesde = dateBusqDesde.SelectedDate;
@@ -713,30 +696,6 @@ namespace SagradaFamilia3._0
 
                     lista.Columns[9].Visibility = Visibility.Collapsed;
                     lista.Columns[10].Visibility = Visibility.Collapsed;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     break;
             }
@@ -1050,6 +1009,11 @@ namespace SagradaFamilia3._0
             {
                 MessageBox.Show("No se pudo conectar al servidor, intente de nuevo mas tarde.");
             }
+        }
+
+        private void butPagar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

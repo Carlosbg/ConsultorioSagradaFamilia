@@ -17,6 +17,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public decimal Monto { get; set; }
 
+        public string NumeroTarjeta { get; set; }
+
         //public virtual FormaPago FormaPago { get; set; }
         //public virtual ObraSocial ObraSocial { get; set; }
         //public virtual Turno Turno { get; set; }
