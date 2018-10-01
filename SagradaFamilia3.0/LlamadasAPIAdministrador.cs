@@ -399,19 +399,31 @@ namespace SagradaFamilia3._0
 
                     if (Paciente.SelectedValue == null) { MessageBox.Show("Debe indicar un Paciente"); return; };
                     if (Medico.SelectedValue == null) { MessageBox.Show("Debe indicar un Médico"); return; };
-                    if (Fecha.SelectedValue == null) { MessageBox.Show("Debe indicar una Fecha"); return; };
-                    if (Hora.SelectedValue == null || Hora.SelectedValue.ToString() == "No hay")
+                    if (Fecha.SelectedValue == null && !TurnoE.IsChecked.GetValueOrDefault())
+                        { MessageBox.Show("Debe indicar una Fecha"); return; };
+                    if ((Hora.SelectedValue == null || Hora.SelectedValue.ToString() == "No hay") &&
+                        !TurnoE.IsChecked.GetValueOrDefault())
                     {
                         MessageBox.Show("Debe indicar una Hora");
                         return;
                     }
 
-                    string[] arregloFechaConDia = Fecha.SelectedValue.ToString().Split(' ');
-                    string[] arregloFecha = arregloFechaConDia[1].Split('/');
-                    string[] arregloHora = Hora.SelectedValue.ToString().Split(':');
-                    DateTime fecha = new DateTime(int.Parse(arregloFecha[2]), int.Parse(arregloFecha[1]),
-                                                  int.Parse(arregloFecha[0]), int.Parse(arregloHora[0]), 
-                                                  int.Parse(arregloHora[1]), 0);
+                    DateTime fecha;
+                    
+                    if (TurnoE.IsChecked.GetValueOrDefault())
+                    {
+                        fecha = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
+                    }
+                    else
+                    {
+                        string[] arregloFechaConDia = Fecha.SelectedValue.ToString().Split(' ');
+                        string[] arregloFecha = arregloFechaConDia[1].Split('/');
+                        string[] arregloHora = Hora.SelectedValue.ToString().Split(':');
+                        fecha = new DateTime(int.Parse(arregloFecha[2]), int.Parse(arregloFecha[1]),
+                                                      int.Parse(arregloFecha[0]), int.Parse(arregloHora[0]),
+                                                      int.Parse(arregloHora[1]), 0);
+                    }
+
                     Turno turno = new Turno
                     {
                         IdPaciente = (int)Paciente.SelectedValue,
@@ -460,7 +472,6 @@ namespace SagradaFamilia3._0
                     break;
 
             }
-
         }
     }
 }
