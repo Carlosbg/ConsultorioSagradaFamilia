@@ -21,5 +21,9 @@ namespace ConsultorioSagradaFamilia.Models
         public int MatriculaMedico { get; set; }
 
         public string CUILMedico { get; set; }
+
+        public string FechaString { get; set; }
+
+        public string HoraString { get; set; }
     }
 }

@@ -476,7 +476,153 @@ namespace SagradaFamilia3._0
 
         private void butBuscar_Click(object sender, RoutedEventArgs e)
         {
+            DateTime? fechaDesde = null;
+            DateTime? fechaHasta = null;
+            int? idMedico = null;
+            int? idPaciente = null;
 
+            switch (mostrando)
+            {
+                case 1:
+                    //cargarCrearMedico();
+                    break;
+                case 2:
+                    //cargarCrearPaciente();
+                    break;
+                case 3:
+                    
+                    if(dateBusqDesde.SelectedDate != null)
+                    {
+                        fechaDesde = dateBusqDesde.SelectedDate;
+                    }
+                    if (dateBusqHasta.SelectedDate != null)
+                    {
+                        fechaHasta = dateBusqHasta.SelectedDate;
+                    }
+                    if(combBuscMedico.SelectedValue != null)
+                    {
+                        idMedico = (int) combBuscMedico.SelectedValue;
+                        if (idMedico == 0) idMedico = null;
+                    }
+                    if (combBuscPaciente.SelectedValue != null)
+                    {
+                        idPaciente = (int)combBuscPaciente.SelectedValue;
+                        if (idPaciente == 0) idPaciente = null;
+                    }
+
+                    List<dynamic> turnosDynamicList = GetLista("TurnosPorPaciente","idMedico", idMedico, "idPaciente",
+                                                                idPaciente,fechaDesde,fechaHasta);
+
+                    List<TurnosPorPaciente> turnos = new List<TurnosPorPaciente>();
+
+                    foreach (var turnodynamic in turnosDynamicList)
+                    {
+                        string[] fechaSplit = turnodynamic.FechaString.ToString().Split('-');
+                        string fechaReal = fechaSplit[2] + "/" + fechaSplit[1] + "/" + fechaSplit[0];
+
+                        string[] horaSplit = turnodynamic.HoraString.ToString().Split('.');
+                        string[] horaSplit2 = horaSplit[0].ToString().Split(':');
+                        string horaReal = horaSplit2[0] + ":" + horaSplit2[1];
+
+                        TurnosPorPaciente turno = new TurnosPorPaciente
+                        {
+                            CUILMedico = turnodynamic.CUILMedico,
+                            DNIMedico = turnodynamic.DNIMedico,
+                            Fecha = turnodynamic.Fecha,
+                            FechaString = fechaReal,
+                            HoraString = horaReal != "00:00" ? horaReal : "En espera",
+                            IdMedico = turnodynamic.IdMedico,
+                            IdPaciente = turnodynamic.IdPaciente,
+                            MatriculaMedico = turnodynamic.MatriculaMedico,
+                            NombreMedico = turnodynamic.NombreMedico,
+                            NombrePaciente = turnodynamic.NombrePaciente
+                        };
+
+                        turnos.Add(turno);
+                    }
+
+                    double totalWidth = lista.ActualWidth; 
+                    lista.ItemsSource = turnos;
+                    lista.Columns[1].Width = totalWidth / 4;
+                    lista.Columns[4].Width = totalWidth / 4;
+                    lista.Columns[8].Width = totalWidth / 4;
+                    lista.Columns[9].Width = totalWidth / 4;
+                    lista.Columns[1].Header = "Paciente";                    
+                    lista.Columns[4].Header = "Médico";
+                    lista.Columns[8].Header = "Fecha";
+                    lista.Columns[9].Header = "Hora";
+                    lista.Columns[0].Visibility = Visibility.Collapsed;
+                    lista.Columns[2].Visibility = Visibility.Collapsed;
+                    lista.Columns[3].Visibility = Visibility.Collapsed;
+                    lista.Columns[5].Visibility = Visibility.Collapsed;
+                    lista.Columns[6].Visibility = Visibility.Collapsed;
+                    lista.Columns[7].Visibility = Visibility.Collapsed;
+
+                    break;
+                case 4:
+                    //cargarCrearPago();
+                    break;
+            }
+            
         }
+
+        private void combBuscMedico_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (combBuscMedico.ItemsSource != null) return;
+            List<dynamic> medicoDynamicList = GetLista("Medico");
+            List<ConsultorioSagradaFamilia.Models.Medico> medicoList = new List<ConsultorioSagradaFamilia.Models.Medico>();
+
+            ConsultorioSagradaFamilia.Models.Medico medicoNulo = new ConsultorioSagradaFamilia.Models.Medico();
+            medicoNulo.Nombre = "[Ninguno]";
+
+            medicoList.Add(medicoNulo);
+
+            foreach (var medicoDynamic in medicoDynamicList)
+            {
+                ConsultorioSagradaFamilia.Models.Medico medico = new ConsultorioSagradaFamilia.Models.Medico
+                {
+                    Nombre = medicoDynamic.Nombre,
+                    IdMedico = medicoDynamic.IdMedico,
+                    Apellido = medicoDynamic.Apellido
+                };
+
+                medicoList.Add(medico);
+            }
+            
+            combBuscMedico.ItemsSource = medicoList;
+            combBuscMedico.DisplayMemberPath = "ApellidoNombre";
+            combBuscMedico.SelectedValuePath = "IdMedico";
+        }
+
+        private void combBuscPaciente_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (combBuscPaciente.ItemsSource != null) return;
+            List<dynamic> pacienteDynamicList = GetLista("Paciente");
+            List<Paciente> pacienteList = new List<Paciente>();
+
+            Paciente pacienteNulo = new Paciente();
+            pacienteNulo.Nombre = "[Ninguno]";
+
+            pacienteList.Add(pacienteNulo);
+
+            foreach (var pacienteDynamic in pacienteDynamicList)
+            {
+                Paciente paciente = new Paciente
+                {
+                    Nombre = pacienteDynamic.Nombre,
+                    Apellido = pacienteDynamic.Apellido,
+                    IdPaciente = pacienteDynamic.IdPaciente
+                };
+
+                pacienteList.Add(paciente);
+            }
+
+            
+
+            combBuscPaciente.ItemsSource = pacienteList;
+            combBuscPaciente.DisplayMemberPath = "ApellidoNombre";
+            combBuscPaciente.SelectedValuePath = "IdPaciente";
+        }
+        
     }
 }

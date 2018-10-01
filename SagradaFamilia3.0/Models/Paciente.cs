@@ -19,7 +19,7 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string Direccion { get; set; }
 
-        public string ApellidoNombre => Apellido + ", " + Nombre;
+        public string ApellidoNombre => Nombre != "[Ninguno]" ? Apellido + ", " + Nombre : Nombre;
 
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }       
         //public virtual ICollection<ObraSocialPaciente> ObraSocialPaciente { get; set; }        
