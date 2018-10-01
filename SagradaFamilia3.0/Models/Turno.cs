@@ -9,7 +9,7 @@ namespace ConsultorioSagradaFamilia.Models
     {
         public int IdTurno { get; set; }
 
-        public int? IdHorarioAtencion { get; set; }
+        //public int? IdHorarioAtencion { get; set; }
 
         public int IdPaciente { get; set; }
 
@@ -19,7 +19,7 @@ namespace ConsultorioSagradaFamilia.Models
 
         public bool Atendido { get; set; }
 
-        public int? Orden { get; set; }
+        //public int? Orden { get; set; }
 
         //public virtual HorarioAtencion HorarioAtencion { get; set; }
         //public virtual Medico Medico { get; set; }

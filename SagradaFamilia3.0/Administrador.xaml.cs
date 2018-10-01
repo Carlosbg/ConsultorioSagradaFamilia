@@ -806,6 +806,7 @@ namespace SagradaFamilia3._0
             fech.IsEnabled = true;
             Hora.IsEnabled = true;
             Fecha.IsEnabled = true;
+            TurnoM_Checked();
         }
 
         private void TurnoT_Checked(object sender, RoutedEventArgs e)
@@ -816,6 +817,7 @@ namespace SagradaFamilia3._0
             fech.IsEnabled = true;
             Hora.IsEnabled = true;
             Fecha.IsEnabled = true;
+            TurnoT_Checked();
         }
 
         private void butEdit_Click(object sender, RoutedEventArgs e)
@@ -870,11 +872,6 @@ namespace SagradaFamilia3._0
         {
             butEdit.IsEnabled = true;
             butElim.IsEnabled = true;
-        }
-
-        private void butGuardar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void butLimpiar_Click(object sender, RoutedEventArgs e)

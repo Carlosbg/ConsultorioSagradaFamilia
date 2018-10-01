@@ -19,6 +19,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string Direccion { get; set; }
 
+        public string ApellidoNombre => Apellido + ", " + Nombre;
+
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }       
         //public virtual ICollection<ObraSocialPaciente> ObraSocialPaciente { get; set; }        
         //public virtual ICollection<PacienteMedico> PacienteMedico { get; set; }     
