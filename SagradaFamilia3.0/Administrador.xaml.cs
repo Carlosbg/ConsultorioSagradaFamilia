@@ -794,8 +794,7 @@ namespace SagradaFamilia3._0
 
         private void TurnoE_Checked(object sender, RoutedEventArgs e)
         {
-            TurnoM.IsEnabled = false;
-            TurnoT.IsEnabled = false;
+
             hor.IsEnabled = false;
             fech.IsEnabled = false;
             Hora.IsEnabled = false;
@@ -871,7 +870,11 @@ namespace SagradaFamilia3._0
 
         }
 
-
+        private void lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            butEdit.IsEnabled = true;
+            butElim.IsEnabled = true;
+        }
     }
 }
 
