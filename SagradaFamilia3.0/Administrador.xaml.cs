@@ -123,6 +123,42 @@ namespace SagradaFamilia3._0
         
         private void limpiarPantalla() {
 
+            CombEntidad.IsEnabled = false;
+            CombEntidad.Visibility = Visibility.Hidden;
+
+            listaTurnos.IsEnabled = false;
+            listaTurnos.Visibility = Visibility.Hidden;
+
+            CombForma.IsEnabled = false;
+            CombForma.Visibility = Visibility.Hidden;
+
+            labFdp.IsEnabled = false;
+            labFdp.Visibility = Visibility.Hidden;
+
+            labEnt.IsEnabled = false;
+            labEnt.Visibility = Visibility.Hidden;
+
+            labMed.IsEnabled = false;
+            labMed.Visibility = Visibility.Hidden;
+
+            labPaciente.IsEnabled = false;
+            labPaciente.Visibility = Visibility.Hidden;
+
+            labMont.IsEnabled = false;
+            labMont.Visibility = Visibility.Hidden;
+
+            combMed.IsEnabled = false;
+            combMed.Visibility = Visibility.Hidden;
+
+            combPac.IsEnabled = false;
+            combPac.Visibility = Visibility.Hidden;
+
+            montoBox.IsEnabled = false;
+            montoBox.Visibility = Visibility.Hidden;
+
+            listaTurnos.IsEnabled = false;
+            listaTurnos.Visibility = Visibility.Hidden;
+
             TurnoE.IsEnabled = false;
             TurnoE.Visibility = Visibility.Hidden;
 
@@ -193,10 +229,7 @@ namespace SagradaFamilia3._0
             hor.Visibility = Visibility.Hidden;
 
             med.IsEnabled = false;
-            med.Visibility = Visibility.Hidden;
-            
-            //FormaDePago.IsEnabled = false;
-            //FormaDePago.Visibility = Visibility.Hidden;
+            med.Visibility = Visibility.Hidden;            
 
             Especialidad.IsEnabled = false;
             Especialidad.Visibility = Visibility.Hidden;
@@ -779,6 +812,43 @@ namespace SagradaFamilia3._0
             butGuardar.IsEnabled = true;
             butGuardar.Visibility = Visibility.Visible;
 
+            CombEntidad.IsEnabled = true;
+            CombEntidad.Visibility = Visibility.Visible;
+
+            listaTurnos.IsEnabled = true;
+            listaTurnos.Visibility = Visibility.Visible;
+
+            CombForma.IsEnabled = true;
+            CombForma.Visibility = Visibility.Visible;
+
+            labFdp.IsEnabled = true;
+            labFdp.Visibility = Visibility.Visible;
+
+            labEnt.IsEnabled = true;
+            labEnt.Visibility = Visibility.Visible;
+
+            labMed.IsEnabled = true;
+            labMed.Visibility = Visibility.Visible;
+
+            labPaciente.IsEnabled = true;
+            labPaciente.Visibility = Visibility.Visible;
+
+            labMont.IsEnabled = true;
+            labMont.Visibility = Visibility.Visible;
+
+            combMed.IsEnabled = true;
+            combMed.Visibility = Visibility.Visible;
+
+            combPac.IsEnabled = true;
+            combPac.Visibility = Visibility.Visible;
+
+            montoBox.IsEnabled = true;
+            montoBox.Visibility = Visibility.Visible;
+
+            listaTurnos.IsEnabled = true;
+            listaTurnos.Visibility = Visibility.Visible;
+
+
 
         }
 
@@ -944,7 +1014,6 @@ namespace SagradaFamilia3._0
         }
         private void limpiarTurno()
         {
-            //FormaDePago.SelectedItem = null;
             Especialidad.SelectedItem = null;
             Fecha.SelectedItem = null;
             Hora.SelectedItem = null;
