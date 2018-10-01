@@ -123,6 +123,18 @@ namespace SagradaFamilia3._0
         
         private void limpiarPantalla() {
 
+            labBusqNombre.IsEnabled = false;
+            labBusqNombre.Visibility = Visibility.Hidden;
+
+            labBusqApellido.IsEnabled = false;
+            labBusqApellido.Visibility = Visibility.Hidden;
+
+            busqNombreBox.IsEnabled = false;
+            busqNombreBox.Visibility = Visibility.Hidden;
+
+            busqApellidoBox.IsEnabled = false;
+            busqApellidoBox.Visibility = Visibility.Hidden;
+
             combBuscMedico.IsEnabled = false;
             combBuscMedico.Visibility = Visibility.Hidden;
 
@@ -766,6 +778,19 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             mostrando = 1;
+
+            labBusqNombre.IsEnabled = true;
+            labBusqNombre.Visibility = Visibility.Visible;
+
+            labBusqApellido.IsEnabled = true;
+            labBusqApellido.Visibility = Visibility.Visible;
+
+            busqNombreBox.IsEnabled = true;
+            busqNombreBox.Visibility = Visibility.Visible;
+
+            busqApellidoBox.IsEnabled = true;
+            busqApellidoBox.Visibility = Visibility.Visible;
+
             listarNuevoEditarBuscarEliminar();
         }
 
@@ -773,6 +798,19 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             mostrando = 2;
+
+            labBusqNombre.IsEnabled = true;
+            labBusqNombre.Visibility = Visibility.Visible;
+
+            labBusqApellido.IsEnabled = true;
+            labBusqApellido.Visibility = Visibility.Visible;
+
+            busqNombreBox.IsEnabled = true;
+            busqNombreBox.Visibility = Visibility.Visible;
+
+            busqApellidoBox.IsEnabled = true;
+            busqApellidoBox.Visibility = Visibility.Visible;
+
             listarNuevoEditarBuscarEliminar();
         }
 
