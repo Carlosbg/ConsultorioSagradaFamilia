@@ -107,15 +107,15 @@
         <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top" Visibility="Hidden"/>
 
 
-        <Button Name="butNuevo" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Nuevo" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" Click="butNuevo_Click" Width="150" HorizontalAlignment="Left" IsEnabled="False"/>
-        <Button Name="butEdit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Editar" Margin="0,140,650,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" IsEnabled="False"/>
-        <Button Name="butBuscar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Buscar" Margin="0,140,330,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" Width="150" HorizontalAlignment="Right" IsEnabled="False"/>
-        <Button Name="butElim" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Eliminar" Margin="1158,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" Width="150" HorizontalAlignment="Right" IsEnabled="False"/>
-        <DataGrid Name="lista" Margin="250,200,50,50" IsEnabled="False" Visibility="Hidden"/>
+        <Button Name="butNuevo" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Nuevo" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" Click="butNuevo_Click" Width="150" HorizontalAlignment="Left" IsEnabled="False"/>
+        <Button Name="butEdit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Editar" Margin="0,140,650,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" IsEnabled="False" Click="butEdit_Click"/>
+        <Button Name="butBuscar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Buscar" Margin="0,140,330,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" Width="150" HorizontalAlignment="Right" IsEnabled="False"/>
+        <Button Name="butElim" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Eliminar" Margin="1158,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" Width="150" HorizontalAlignment="Right" IsEnabled="False"/>
+        <DataGrid Name="lista" Margin="250,200,50,50" IsEnabled="False" Visibility="Visible"/>
 
         <Button Name="butGuardar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Limpiar" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Left" Width="150" IsEnabled="False" />
         <Button Name="butLimpiar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Guardar" Margin="0,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" IsEnabled="False" />
-        <Button Foreground="White" Name="butDesconectar" Style="{StaticResource AccentedSquareButtonStyle}" Background="#EC2834" Content="Desconectar" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Width="150" Height="50" FontFamily="Microsoft YaHei" FontSize="16" Click="Button_Click"/>
+        <Button Name="butDesconectar" Foreground="White"  Style="{StaticResource AccentedSquareButtonStyle}" Background="#EC2834" Content="Desconectar" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Width="150" Height="50" FontFamily="Microsoft YaHei" FontSize="16" Click="butDesconectar_Click" />
 
 
 

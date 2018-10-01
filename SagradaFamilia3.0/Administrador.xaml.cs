@@ -33,13 +33,8 @@ namespace SagradaFamilia3._0
         //mostrando = 3: turno
         //mostrando = 4: pago
 
-        
-
-
-
         public Administrador()
-        {
-            
+        {            
             InitializeComponent();
             
             limpiarPantalla();
@@ -724,63 +719,48 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
             mostrando = 1;
-            lista.IsEnabled = true;
-            lista.Visibility = Visibility.Visible;
-            butNuevo.IsEnabled = true;
-            butNuevo.Visibility = Visibility.Visible;
-            butBuscar.IsEnabled = true;
-            butBuscar.Visibility = Visibility.Visible;
-            butEdit.IsEnabled = true;
-            butEdit.Visibility = Visibility.Visible;
-            butElim.IsEnabled = true;
-            butElim.Visibility = Visibility.Visible;
+            listarNuevoEditarBuscarEliminar();
         }
 
         private void pacientes_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
             mostrando = 2;
-
-            lista.IsEnabled = true;
-            lista.Visibility = Visibility.Visible;
-            butNuevo.IsEnabled = true;
-            butNuevo.Visibility = Visibility.Visible;
-            butBuscar.IsEnabled = true;
-            butBuscar.Visibility = Visibility.Visible;
-            butEdit.IsEnabled = true;
-            butEdit.Visibility = Visibility.Visible;
-            butElim.IsEnabled = true;
-            butElim.Visibility = Visibility.Visible;
+            listarNuevoEditarBuscarEliminar();
         }
 
         private void turnos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
             mostrando = 3;
-
-            lista.IsEnabled = true;
-            lista.Visibility = Visibility.Visible;
-            butNuevo.IsEnabled = true;
-            butNuevo.Visibility = Visibility.Visible;
-            butBuscar.IsEnabled = true;
-            butBuscar.Visibility = Visibility.Visible;
-            butElim.IsEnabled = true;
-            butElim.Visibility = Visibility.Visible;
-
-
-
+            listarNuevoEditarBuscarEliminar();
         }
 
         private void pagos_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
             mostrando = 4;
-
-            lista.IsEnabled = true;
-            lista.Visibility = Visibility.Visible;
+            listarNuevoEditarBuscarEliminar();
             
         }
-        
+
+        private void listarNuevoEditarBuscarEliminar() {
+
+            
+            lista.IsEnabled = true;
+            lista.Visibility = Visibility.Visible;
+            butNuevo.IsEnabled = true;
+            butNuevo.Visibility = Visibility.Visible;
+            butEdit.IsEnabled = false;  //se habilita al seleccionar un elemento de la lista
+
+            butEdit.Visibility = Visibility.Visible;
+            butBuscar.IsEnabled = true;
+            butBuscar.Visibility = Visibility.Visible;
+            butElim.IsEnabled = false;  //se habilita al seleccionar un elemento de la lista
+
+            butElim.Visibility = Visibility.Visible;
+        }
+
         private void butNuevo_Click(object sender, RoutedEventArgs e)
         {
             limpiarPantalla();
@@ -812,14 +792,6 @@ namespace SagradaFamilia3._0
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            main.Show();
-            main.Focus();
-            this.Close();
-        }
-
         private void TurnoE_Checked(object sender, RoutedEventArgs e)
         {
             TurnoM.IsEnabled = false;
@@ -828,9 +800,6 @@ namespace SagradaFamilia3._0
             fech.IsEnabled = false;
             Hora.IsEnabled = false;
             Fecha.IsEnabled = false;
-
-
-
 
         }
 
@@ -853,6 +822,56 @@ namespace SagradaFamilia3._0
             Hora.IsEnabled = true;
             Fecha.IsEnabled = true;
         }
+
+        private void butEdit_Click(object sender, RoutedEventArgs e)
+        {
+            switch (mostrando)
+            {
+                case 1:
+                    editarPaciente();
+                    break;
+                case 2:
+                    editarPaciente();
+                    break;
+                case 3:
+                    editarPaciente();
+                    break;
+                case 4:
+                    editarPaciente();
+                    break;
+
+            }
+        }
+
+        private void butDesconectar_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            main.Focus();
+            this.Close();
+        }
+
+        private void editarPaciente()
+        {
+            cargarCrearPaciente();
+            //llenar con datos de la bd
+
+        }
+
+        private void editarTurno()
+        {
+            cargarCrearTurno();
+            //llenar con datos de la bd
+        }
+
+        private void editarPago()
+        {
+            cargarCrearPago();
+            //llenar con datos de la bd
+
+        }
+
+
     }
 }
 
