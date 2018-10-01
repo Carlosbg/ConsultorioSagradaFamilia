@@ -39,7 +39,8 @@ namespace SagradaFamilia3._0
         }
         private dynamic GetLista(string nombreControlador, string id1Nombre = null, int? id1 = null,
                                  string id2Nombre = null, int? id2 = null, DateTime? fechaDesde = null,
-                                 DateTime? fechaHasta = null)
+                                 DateTime? fechaHasta = null, string nombre = null, string apellido = null,
+                                 int? dni = null)
         {
             nombreControlador = nombreControlador + "?";
 
@@ -87,6 +88,30 @@ namespace SagradaFamilia3._0
                         fechaHasta.GetValueOrDefault().Month + "-" +
                         fechaHasta.GetValueOrDefault().Day;
                 }
+            }
+            if(nombre != null)
+            {
+                if (nombreControlador.Last() != '?')
+                {
+                    nombreControlador = nombreControlador + "&";
+                }
+                nombreControlador = nombreControlador + "nombre=" + nombre;                
+            }
+            if (apellido != null)
+            {
+                if (nombreControlador.Last() != '?')
+                {
+                    nombreControlador = nombreControlador + "&";
+                }
+                nombreControlador = nombreControlador + "apellido=" + apellido;
+            }
+            if (dni != null)
+            {
+                if (nombreControlador.Last() != '?')
+                {
+                    nombreControlador = nombreControlador + "&";
+                }
+                nombreControlador = nombreControlador + "dni=" + dni;
             }
 
             if (nombreControlador.Last() == '?') nombreControlador = nombreControlador.Trim('?');
@@ -441,14 +466,89 @@ namespace SagradaFamilia3._0
             DateTime? fechaHasta = null;
             int? idMedico = null;
             int? idPaciente = null;
+            double totalWidth = 0;
+            string nombre = string.Empty;
+            string apellido = string.Empty;
 
             switch (mostrando)
             {
                 case 1:
-                    //cargarCrearMedico();
+                    nombre = busqNombreBox.Text == string.Empty ? null : busqNombreBox.Text;
+                    apellido = busqApellidoBox.Text == string.Empty ? null : busqApellidoBox.Text;
+
+                    List<dynamic> medicosDynamicList = GetLista("Medico", nombre: nombre, apellido: apellido);
+
+                    List<ConsultorioSagradaFamilia.Models.Medico> medicos = new List<ConsultorioSagradaFamilia.Models.Medico>();
+
+                    foreach(var medicoDynamic in medicosDynamicList)
+                    {
+                        ConsultorioSagradaFamilia.Models.Medico medico = new ConsultorioSagradaFamilia.Models.Medico
+                        {
+                            Apellido = medicoDynamic.Apellido,
+                            DNI = medicoDynamic.DNI,
+                            CUIL = medicoDynamic.CUIL,
+                            IdMedico = medicoDynamic.IdMedico,
+                            Matricula = medicoDynamic.Matricula,
+                            Monto = medicoDynamic.Monto,
+                            Nombre = medicoDynamic.Nombre
+                        };
+
+                        medicos.Add(medico);                        
+                    }
+
+                    lista.IsReadOnly = true;
+                    lista.SelectionMode = DataGridSelectionMode.Single;
+
+                    totalWidth = lista.ActualWidth;
+                    lista.ItemsSource = medicos;
+                    lista.Columns[1].Width = totalWidth / 5;
+                    lista.Columns[4].Width = totalWidth / 5;
+                    lista.Columns[5].Width = totalWidth / 5;
+                    lista.Columns[6].Width = totalWidth / 5;
+                    lista.Columns[7].Width = totalWidth / 5;
+                    lista.Columns[0].Visibility = Visibility.Collapsed;
+                    lista.Columns[2].Visibility = Visibility.Collapsed;
+                    lista.Columns[3].Visibility = Visibility.Collapsed;
+                    lista.Columns[4].Header = "Apellido y Nombre";
                     break;
                 case 2:
-                    //cargarCrearPaciente();
+                    nombre = busqNombreBox.Text == string.Empty ? null : busqNombreBox.Text;
+                    apellido = busqApellidoBox.Text == string.Empty ? null : busqApellidoBox.Text;
+
+                    List<dynamic> pacientesDynamicList = GetLista("Paciente", nombre: nombre, apellido: apellido);
+
+                    List<Paciente> pacientes = new List<Paciente>();
+
+                    foreach (var pacienteDynamic in pacientesDynamicList)
+                    {
+                        Paciente paciente = new Paciente
+                        {
+                            Apellido = pacienteDynamic.Apellido,
+                            DNI = pacienteDynamic.DNI,
+                            IdPaciente = pacienteDynamic.IdPaciente,
+                            Nombre = pacienteDynamic.Nombre,
+                            Direccion = pacienteDynamic.Direccion,
+                            FechaNacimiento = pacienteDynamic.FechaNacimiento
+                        };
+
+                        pacientes.Add(paciente);
+                    }
+
+                    lista.IsReadOnly = true;
+                    lista.SelectionMode = DataGridSelectionMode.Single;
+
+                    totalWidth = lista.ActualWidth;
+                    lista.ItemsSource = pacientes;
+                    lista.Columns[1].Width = totalWidth / 4;
+                    lista.Columns[4].Width = totalWidth / 4;
+                    lista.Columns[6].Width = totalWidth / 4;
+                    lista.Columns[7].Width = totalWidth / 4;
+                    lista.Columns[0].Visibility = Visibility.Collapsed;
+                    lista.Columns[5].Visibility = Visibility.Collapsed;
+                    lista.Columns[2].Visibility = Visibility.Collapsed;
+                    lista.Columns[3].Visibility = Visibility.Collapsed;
+                    lista.Columns[4].Header = "Apellido y Nombre";
+                    lista.Columns[7].Header = "Fecha de Nacimiento";
                     break;
                 case 3:
                     
@@ -507,7 +607,7 @@ namespace SagradaFamilia3._0
                     lista.IsReadOnly = true;
                     lista.SelectionMode = DataGridSelectionMode.Single;
 
-                    double totalWidth = lista.ActualWidth; 
+                    totalWidth = lista.ActualWidth; 
                     lista.ItemsSource = turnos;
                     lista.Columns[1].Width = totalWidth / 5;
                     lista.Columns[4].Width = totalWidth / 5;

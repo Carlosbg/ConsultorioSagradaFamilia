@@ -15,12 +15,14 @@ namespace ConsultorioSagradaFamilia.Models
        
         public string Apellido { get; set; }
 
-        public DateTime FechaNacimiento { get; set; }
-
-        public string Direccion { get; set; }
-
         public string ApellidoNombre => Nombre != "[Ninguno]" ? Apellido + ", " + Nombre : Nombre;
 
+        public DateTime FechaNacimiento { get; set; }
+
+        public string Direccion { get; set; }       
+
+        public string FechaNacimientoString => FechaNacimiento.Day + "/" + FechaNacimiento.Month + "/" +
+                                               FechaNacimiento.Year;
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }       
         //public virtual ICollection<ObraSocialPaciente> ObraSocialPaciente { get; set; }        
         //public virtual ICollection<PacienteMedico> PacienteMedico { get; set; }     

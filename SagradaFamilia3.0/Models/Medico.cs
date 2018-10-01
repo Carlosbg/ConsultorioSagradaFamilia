@@ -15,13 +15,13 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string Apellido { get; set; }
 
+        public string ApellidoNombre => Nombre != "[Ninguno]" ? Apellido + ", " + Nombre : Nombre;
+
         public int Matricula { get; set; }
 
         public string CUIL { get; set; }
 
-        public decimal Monto { get; set; }
-
-        public string ApellidoNombre => Nombre != "[Ninguno]" ? Apellido + ", " + Nombre : Nombre;
+        public decimal Monto { get; set; }       
 
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }
         //public virtual ICollection<HorarioAtencion> HorarioAtencion { get; set; }
