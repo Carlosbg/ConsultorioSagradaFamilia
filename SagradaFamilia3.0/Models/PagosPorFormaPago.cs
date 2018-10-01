@@ -6,6 +6,8 @@ namespace ConsultorioSagradaFamilia.Models
 
     public partial class PagosPorFormaPago
     {
+        public string FechaString => Fecha.Day + "/" + Fecha.Month + "/" + Fecha.Year;
+
         public string FormaPago { get; set; }
 
         public decimal Monto { get; set; }
@@ -23,5 +25,7 @@ namespace ConsultorioSagradaFamilia.Models
         public string NombreObraSocial{ get; set; }
 
         public int IdFormaPago { get; set; }
+
+        public int IdPaciente { get; set; }        
     }
 }

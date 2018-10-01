@@ -456,7 +456,6 @@ namespace SagradaFamilia3._0
                 case 4:
                     //cargarCrearPago();
                     break;
-
             }
         }
 
@@ -629,7 +628,116 @@ namespace SagradaFamilia3._0
 
                     break;
                 case 4:
-                    //cargarCrearPago();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    if (dateBusqDesde.SelectedDate != null)
+                    {
+                        fechaDesde = dateBusqDesde.SelectedDate;
+                    }
+                    if (dateBusqHasta.SelectedDate != null)
+                    {
+                        fechaHasta = dateBusqHasta.SelectedDate;
+                    }
+                    if (combBuscMedico.SelectedValue != null)
+                    {
+                        idMedico = (int)combBuscMedico.SelectedValue;
+                        if (idMedico == 0) idMedico = null;
+                    }
+                    if (combBuscPaciente.SelectedValue != null)
+                    {
+                        idPaciente = (int)combBuscPaciente.SelectedValue;
+                        if (idPaciente == 0) idPaciente = null;
+                    }
+
+                    List<dynamic> pagosDynamicList = GetLista("PagosPorFormaPago", "idMedico", idMedico, "idPaciente",
+                                                                idPaciente, fechaDesde, fechaHasta);
+
+                    List<PagosPorFormaPago> pagos = new List<PagosPorFormaPago>();
+
+                    foreach (var pagoDynamic in pagosDynamicList)
+                    {
+                        PagosPorFormaPago pago = new PagosPorFormaPago
+                        {
+                            FormaPago = pagoDynamic.FormaPago,
+                            IdFormaPago = pagoDynamic.IdFormaPago,
+                            IdObraSocial = pagoDynamic.IdObraSocial,
+                            Monto = pagoDynamic.Monto,
+                            NombreObraSocial = pagoDynamic.NombreObraSocial,
+                            Fecha = pagoDynamic.Fecha,
+                            IdMedico = pagoDynamic.IdMedico,
+                            IdPaciente = pagoDynamic.IdPaciente,
+                            NombreMedico = pagoDynamic.NombreMedico,
+                            NombrePaciente = pagoDynamic.NombrePaciente                            
+                        };
+
+                        pagos.Add(pago);
+                    }
+
+                    lista.IsReadOnly = true;
+                    lista.SelectionMode = DataGridSelectionMode.Single;
+
+                    totalWidth = lista.ActualWidth;
+                    lista.ItemsSource = pagos;
+
+                    lista.Columns[0].Header = "Fecha";
+                    lista.Columns[0].Width = totalWidth / 5;
+                    lista.Columns[1].Width = totalWidth / 5;
+                    lista.Columns[3].Visibility = Visibility.Collapsed;
+
+                    lista.Columns[4].Header = "Médico";
+                    lista.Columns[4].Width = totalWidth / 5;
+                    lista.Columns[5].Header = "Paciente";
+                    lista.Columns[5].Width = totalWidth / 5;
+
+                    lista.Columns[6].Visibility = Visibility.Collapsed;
+                    lista.Columns[7].Visibility = Visibility.Collapsed;
+
+                    lista.Columns[8].Header = "Obra Social";
+                    lista.Columns[8].Width = totalWidth / 5;
+
+                    lista.Columns[9].Visibility = Visibility.Collapsed;
+                    lista.Columns[10].Visibility = Visibility.Collapsed;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     break;
             }
             
