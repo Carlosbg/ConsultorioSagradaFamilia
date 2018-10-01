@@ -769,13 +769,14 @@ namespace SagradaFamilia3._0
             butAgr.Visibility = Visibility.Visible;
 
             butQuit.IsEnabled = true;
-            butQuit.Visibility = Visibility.Visible;
-
-            
+            butQuit.Visibility = Visibility.Visible;            
         }
         
         private void medicos_Click(object sender, RoutedEventArgs e)
         {
+            LimpiarCamposSiEstabaEditando();
+
+            if (mostrando != 1) lista.ItemsSource = null;
             limpiarPantalla();
             mostrando = 1;
 
@@ -792,10 +793,16 @@ namespace SagradaFamilia3._0
             busqApellidoBox.Visibility = Visibility.Visible;
 
             listarNuevoEditarBuscarEliminar();
+
+            horarioUsadoEnEditTurno = null;
+            
         }
 
         private void pacientes_Click(object sender, RoutedEventArgs e)
         {
+            LimpiarCamposSiEstabaEditando();
+
+            if (mostrando != 2) lista.ItemsSource = null;
             limpiarPantalla();
             mostrando = 2;
 
@@ -812,10 +819,15 @@ namespace SagradaFamilia3._0
             busqApellidoBox.Visibility = Visibility.Visible;
 
             listarNuevoEditarBuscarEliminar();
+
+            horarioUsadoEnEditTurno = null;
         }
 
         private void turnos_Click(object sender, RoutedEventArgs e)
         {
+            LimpiarCamposSiEstabaEditando();
+
+            if (mostrando != 3) lista.ItemsSource = null;
             limpiarPantalla();
             mostrando = 3;
 
@@ -844,10 +856,15 @@ namespace SagradaFamilia3._0
             labBusqHasta.Visibility = Visibility.Visible;
 
             listarNuevoEditarBuscarEliminar();
+
+            horarioUsadoEnEditTurno = null;
         }
 
         private void pagos_Click(object sender, RoutedEventArgs e)
         {
+            LimpiarCamposSiEstabaEditando();
+
+            if (mostrando != 4) lista.ItemsSource = null;
             limpiarPantalla();
             mostrando = 4;
 
@@ -876,7 +893,8 @@ namespace SagradaFamilia3._0
             labBusqHasta.Visibility = Visibility.Visible;
 
             listarNuevoEditarBuscarEliminar();
-            
+
+            horarioUsadoEnEditTurno = null;
         }
 
         private void listarNuevoEditarBuscarEliminar() {
@@ -1013,10 +1031,50 @@ namespace SagradaFamilia3._0
                     editarPaciente();
                     break;
                 case 3:
-                    editarPaciente();
+                    TurnosPorPaciente seleccion = (TurnosPorPaciente)lista.SelectedItem;
+                    if (seleccion.Atendido)
+                    {
+                        MessageBox.Show("Este turno no puede ser editado porque ya fue atendido.");
+                        return;
+                    }
+                    editarTurno(seleccion.IdTurno);
                     break;
                 case 4:
                     editarPaciente();
+                    break;
+
+            }
+        }
+
+        private void butEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            switch (mostrando)
+            {
+                case 1:
+                    //medico
+                    break;
+                case 2:
+                    //paciente
+                    break;
+                case 3:
+                    TurnosPorPaciente seleccion = (TurnosPorPaciente)lista.SelectedItem;
+                    if (seleccion.Atendido)
+                    {
+                        MessageBox.Show("Este turno no puede ser eliminado porque ya fue atendido.");
+                        return;
+                    }
+
+                    MessageBoxResult messageBoxResult = MessageBox.Show("¿Esta seguro que desea eliminar el turno" +
+                        " del paciente " + seleccion.NombrePaciente + " con el medico " + seleccion.NombreMedico +
+                        " del dia " + seleccion.FechaString + "?", 
+                        "Confirmacion de borrado", MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
+                    {
+                        EliminarTurno(seleccion.IdTurno);
+                    }
+                    break;
+                case 4:
+                    //pago
                     break;
 
             }
@@ -1037,10 +1095,13 @@ namespace SagradaFamilia3._0
 
         }
 
-        private void editarTurno()
+        private void editarTurno(int idTurno)
         {
             cargarCrearTurno();
-            //llenar con datos de la bd
+
+            CargarTurnoParaEditar(idTurno);
+
+            editando = true;
         }
 
         private void editarPago()

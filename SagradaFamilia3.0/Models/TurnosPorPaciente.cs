@@ -25,5 +25,11 @@ namespace ConsultorioSagradaFamilia.Models
         public string FechaString { get; set; }
 
         public string HoraString { get; set; }
+
+        public bool Atendido { get; set; }
+
+        public string AtendidoString => Atendido ? "Sí" : "No";
+
+        public int IdTurno { get; set; }
     }
 }
