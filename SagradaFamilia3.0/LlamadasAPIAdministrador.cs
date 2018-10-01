@@ -103,24 +103,24 @@ namespace SagradaFamilia3._0
 
         private void FormaDePago_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (FormaDePago.ItemsSource != null) return;
-            List<dynamic> formaPagoDynamicList = GetLista("FormaPago");
-            List<FormaPago> formaPagoList = new List<FormaPago>();
+            //if (FormaDePago.ItemsSource != null) return;
+            //List<dynamic> formaPagoDynamicList = GetLista("FormaPago");
+            //List<FormaPago> formaPagoList = new List<FormaPago>();
 
-            foreach (var formaPagoDynamic in formaPagoDynamicList)
-            {
-                FormaPago formaPago = new FormaPago
-                {
-                    Nombre = formaPagoDynamic.Nombre,
-                    IdFormaPago = formaPagoDynamic.IdFormaPago
-                };
+            //foreach (var formaPagoDynamic in formaPagoDynamicList)
+            //{
+            //    FormaPago formaPago = new FormaPago
+            //    {
+            //        Nombre = formaPagoDynamic.Nombre,
+            //        IdFormaPago = formaPagoDynamic.IdFormaPago
+            //    };
 
-                formaPagoList.Add(formaPago);
-            }
+            //    formaPagoList.Add(formaPago);
+            //}
 
-            FormaDePago.ItemsSource = formaPagoList;
-            FormaDePago.DisplayMemberPath = "Nombre";
-            FormaDePago.SelectedValuePath = "IdFormaPago";
+            //FormaDePago.ItemsSource = formaPagoList;
+            //FormaDePago.DisplayMemberPath = "Nombre";
+            //FormaDePago.SelectedValuePath = "IdFormaPago";
         }
 
         private void FormaDePago_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

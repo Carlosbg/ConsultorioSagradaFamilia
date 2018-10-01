@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Administrador" Height="768" Width="1366" Loaded="MetroWindow_Loaded" WindowState="Maximized">
     <Grid>
+
         <Image HorizontalAlignment="Left" Height="100" Margin="20,20,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="Sr/a:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,20,0,0" FontSize="16" FontFamily="Microsoft YaHei" Height="30"/>
         <Label Name="Adm" Content="[Nombre del Administrativo]" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,56,0,0" FontSize="16" Width="250" FontFamily="Microsoft YaHei" Height="30"/>
@@ -19,7 +20,12 @@
         <Button Name="butDesconectar" Foreground="White"  Style="{StaticResource AccentedSquareButtonStyle}" Background="#EC2834" Content="Desconectar" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Width="150" Height="50" FontFamily="Microsoft YaHei" FontSize="16" Click="butDesconectar_Click" />
 
 
-        <ComboBox       Name="FormaDePago"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="399,200,0,0" VerticalAlignment="Top" Width="309" Height="50"  Uid="asd" Visibility="Hidden" FontSize="18" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="FormaDePago_PreviewMouseLeftButtonDown" SelectionChanged="FormaDePago_SelectionChanged_1" IsEnabled="False" />
+
+
+
+
+
+
         <ComboBox       Name="Especialidad" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="380,300,0,0" VerticalAlignment="Top" Width="328" Height="50"  Visibility="Hidden" FontSize="18" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="Especialidad_PreviewMouseLeftButtonDown" SelectionChanged="Especialidad_SelectionChanged" IsEnabled="False"/>
         <ComboBox       Name="Fecha"        VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,200,50,0" VerticalAlignment="Top" Width="428" Height="50"  Visibility="Hidden" FontSize="18" FontFamily="Microsoft YaHei" IsEnabled="False" SelectionChanged="Fecha_SelectionChanged"/>
         <RadioButton    Name="TurnoM"       VerticalContentAlignment="Center" Content="Mañana" HorizontalAlignment="Right" Margin="839,300,370,0" VerticalAlignment="Top" Visibility="Hidden" Height="50" Width="91" FontSize="16" FontFamily="Microsoft YaHei" Checked="TurnoM_Checked" IsEnabled="False"/>
@@ -27,8 +33,8 @@
         <RadioButton    Name="TurnoE"       VerticalContentAlignment="Center" Content="Espera" HorizontalAlignment="Right" Margin="0,300,478,0" VerticalAlignment="Top" Visibility="Hidden" Height="50" Width="91" FontSize="16" FontFamily="Microsoft YaHei" Checked="TurnoE_Checked" IsEnabled="False"/>
         <ComboBox       Name="Hora"         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,300,50,0" VerticalAlignment="Top" Width="177" Height="50"  Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="Hora_PreviewMouseLeftButtonDown" IsEnabled="False"/>
         <ComboBox       Name="Medico"       HorizontalContentAlignment="Center"   VerticalContentAlignment="Center" Margin="0,400,50,0" VerticalAlignment="Top" Height="50"  Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="423" IsEnabled="False" SelectionChanged="Medico_SelectionChanged"/>
-        <ComboBox       Name="Paciente"       HorizontalContentAlignment="Center"   VerticalContentAlignment="Center" Margin="340,400,0,0" VerticalAlignment="Top" Height="50"  Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Left" Width="368" IsEnabled="False" SelectionChanged="Paciente_SelectionChanged" PreviewMouseLeftButtonDown="Paciente_PreviewMouseLeftButtonDown"/>
-        <Label          Name="labPac"          VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Paciente:" HorizontalAlignment="Left" Margin="250,400,1017,0" VerticalAlignment="Top" Height="50" Width="91" FontSize="18" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <ComboBox       Name="Paciente"     HorizontalContentAlignment="Center"   VerticalContentAlignment="Center" Margin="340,400,0,0" VerticalAlignment="Top" Height="50"  Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" HorizontalAlignment="Left" Width="368" IsEnabled="False" SelectionChanged="Paciente_SelectionChanged" PreviewMouseLeftButtonDown="Paciente_PreviewMouseLeftButtonDown"/>
+        <Label          Name="labPac"       VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Paciente:" HorizontalAlignment="Left" Margin="250,400,1017,0" VerticalAlignment="Top" Height="50" Width="91" FontSize="18" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
         <Label          Name="fdp"          VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Forma de Pago:" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Width="140" Height="50" FontSize="18" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
         <Label          Name="esp"          VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Especialidad:" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="125" Height="50" FontSize="18" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
         <Label          Name="fech"         VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Fecha:" Margin="750,200,500,0" VerticalAlignment="Top" Height="50" FontSize="18" Visibility="Hidden" FontFamily="Microsoft YaHei" HorizontalAlignment="Right" IsEnabled="False"/>
@@ -108,6 +114,18 @@
         <Button Name="butEliminar" HorizontalAlignment="Right" Margin="0,140,60.6,0" Width="100" FontSize="16" FontFamily="Microsoft YaHei" Content="Eliminar" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
         <DataGrid Name="gridListado" Margin="231,205,59.6,0" Height="300" VerticalAlignment="Top" Visibility="Hidden"/>
 
+        <ComboBox       Name="CombEntidad"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="364,615,0,50" VerticalAlignment="Bottom" Width="297" Height="50"  Uid="asd" Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="FormaDePago_PreviewMouseLeftButtonDown" SelectionChanged="FormaDePago_SelectionChanged_1" IsEnabled="False" />
+        <ComboBox       Name="CombForma"    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="428,0,0,120" VerticalAlignment="Bottom" Width="233" Height="50"  Uid="asd" Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="FormaDePago_PreviewMouseLeftButtonDown" SelectionChanged="FormaDePago_SelectionChanged_1" IsEnabled="False" />
+        <Label          Name="labFdp"       VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Forma de Pago:" HorizontalAlignment="Left" Margin="250,0,0,120" VerticalAlignment="Bottom" Width="145" Height="50" FontSize="16" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <Label          Name="labEnt"       VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Entidad:" HorizontalAlignment="Left" Margin="250,615,0,50" VerticalAlignment="Bottom" Width="81" Height="50" FontSize="16" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <Label          Name="labMed"       VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Medico:" HorizontalAlignment="Left" Margin="250,232,0,0" VerticalAlignment="Top" Width="81" Height="50" FontSize="16" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <Label          Name="labPaciente"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Paciente:" HorizontalAlignment="Right" Margin="816,232,370,0" VerticalAlignment="Top" Width="92" Height="50" FontSize="16" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <Label          Name="labMont"      VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Content="Monto: $" HorizontalAlignment="Right" Margin="0,0,159,50" VerticalAlignment="Bottom" Width="91" Height="50" FontSize="16" Visibility="Hidden" FontFamily="Microsoft YaHei" IsEnabled="False"/>
+        <ComboBox       Name="combMed"      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="364,232,0,0" VerticalAlignment="Top" Width="300" Height="50"  Uid="asd" Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="FormaDePago_PreviewMouseLeftButtonDown" SelectionChanged="FormaDePago_SelectionChanged_1" IsEnabled="False" />
+        <ComboBox       Name="combPac"      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Right" Margin="0,232,50,0" VerticalAlignment="Top" Width="312" Height="50"  Uid="asd" Visibility="Hidden" FontSize="16" FontFamily="Microsoft YaHei" PreviewMouseLeftButtonDown="FormaDePago_PreviewMouseLeftButtonDown" SelectionChanged="FormaDePago_SelectionChanged_1" IsEnabled="False" />
+        <TextBox        Name="montoBox"     VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Height="50" Margin="0,0,50,50" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="100" FontFamily="Microsoft YaHei" FontSize="16" Visibility="Hidden"/>
+        <DataGrid       Name="listaTurnos"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"         Margin="250,300,50,200" Visibility="Hidden"/>
+
 
         <Button Name="butNuevo" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Nuevo" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" Click="butNuevo_Click" Width="150" HorizontalAlignment="Left" IsEnabled="False"/>
         <Button Name="butEdit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Editar" Margin="0,140,650,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" Click="butEdit_Click" IsEnabled="False"/>
@@ -115,8 +133,8 @@
         <Button Name="butElim" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Eliminar" Margin="1158,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" Width="150" HorizontalAlignment="Right" IsEnabled="False"/>
         <DataGrid Name="lista" Margin="250,200,50,50" Visibility="Hidden" SelectionChanged="lista_SelectionChanged" IsEnabled="False"/>
 
-        <Button Name="butLimpiar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Limpiar" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Left" Width="150" IsEnabled="False" Click="butLimpiar_Click" />
-        <Button Name="butGuardar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Guardar" Margin="0,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Visible" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" IsEnabled="False" Click="butGuardar_Click" />
+        <Button Name="butLimpiar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Limpiar" Margin="250,140,0,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Left" Width="150" IsEnabled="False" Click="butLimpiar_Click" />
+        <Button Name="butGuardar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Guardar" Margin="0,140,50,0" VerticalAlignment="Top" Height="40" Visibility="Hidden" FontFamily="Microsoft YaHei" FontSize="16" HorizontalAlignment="Right" Width="150" IsEnabled="False" Click="butGuardar_Click" />
 
     </Grid>
 </Controls:MetroWindow>

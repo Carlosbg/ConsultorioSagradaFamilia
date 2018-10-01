@@ -62,10 +62,6 @@ namespace SagradaFamilia3._0
 
             butLimpiar.IsEnabled = true;
             butLimpiar.Visibility = Visibility.Visible;
-            
-            fdp.IsEnabled = true;
-            fdp.Visibility = Visibility.Visible;
-
 
             esp.IsEnabled = true;
             esp.Visibility = Visibility.Visible;
@@ -78,10 +74,6 @@ namespace SagradaFamilia3._0
 
             med.IsEnabled = true;
             med.Visibility = Visibility.Visible;
-
-            FormaDePago.IsEnabled = true;
-            FormaDePago.Visibility = Visibility.Visible;
-
 
             Especialidad.IsEnabled = true;
             Especialidad.Visibility = Visibility.Visible;
@@ -203,8 +195,8 @@ namespace SagradaFamilia3._0
             med.IsEnabled = false;
             med.Visibility = Visibility.Hidden;
             
-            FormaDePago.IsEnabled = false;
-            FormaDePago.Visibility = Visibility.Hidden;
+            //FormaDePago.IsEnabled = false;
+            //FormaDePago.Visibility = Visibility.Hidden;
 
             Especialidad.IsEnabled = false;
             Especialidad.Visibility = Visibility.Hidden;
@@ -779,6 +771,13 @@ namespace SagradaFamilia3._0
         }
 
         private void cargarCrearPago() {
+            limpiarPantalla();
+
+            butLimpiar.IsEnabled = true;
+            butLimpiar.Visibility = Visibility.Visible;
+
+            butGuardar.IsEnabled = true;
+            butGuardar.Visibility = Visibility.Visible;
 
 
         }
@@ -945,7 +944,7 @@ namespace SagradaFamilia3._0
         }
         private void limpiarTurno()
         {
-            FormaDePago.SelectedItem = null;
+            //FormaDePago.SelectedItem = null;
             Especialidad.SelectedItem = null;
             Fecha.SelectedItem = null;
             Hora.SelectedItem = null;
