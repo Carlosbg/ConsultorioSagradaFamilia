@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.Threading;
 
 namespace SagradaFamilia3._0
 {

@@ -152,7 +152,7 @@
     <Resource Include="Source\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Source\LOGO EMPRESA.png" />
+    <SplashScreen Include="Source\LOGO EMPRESA 2.0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

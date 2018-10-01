@@ -634,9 +634,6 @@ namespace SagradaFamilia3._0
         {
             limpiarPantalla();
 
-            
-
-
         }
 
         private void cargarCrearPaciente()
@@ -776,8 +773,7 @@ namespace SagradaFamilia3._0
                     break;
                 case 4:
                     cargarCrearPago();
-                    break;
-                                       
+                    break;                                       
             }
 
         }
@@ -875,6 +871,100 @@ namespace SagradaFamilia3._0
             butEdit.IsEnabled = true;
             butElim.IsEnabled = true;
         }
+
+        private void butGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            switch (mostrando) {
+
+                case 1:
+                    limpiarMedico();
+                    break;
+                case 2:
+                    limpiarPaciente();
+                    break;
+                case 3:
+                    limpiarTurno();
+                    break;
+                case 4:
+                    limpiarPago();
+                    break;
+            }
+        }
+
+        private void limpiarMedico()
+        {
+            nameBox.Clear();
+            apBox.Clear();
+            dniBox.Clear();
+            natBox.Clear();
+            dirBox.Clear();
+            telBox.Clear();
+            celBox.Clear();
+            emBox.Clear();
+            datObras.Items.Clear();
+            datEsp.Items.Clear();
+            combObras.SelectedItem = null;
+            combEsp.SelectedItem = null;
+            checkObra.IsChecked = false;
+
+            checkEfec.IsChecked = false;
+            checkDep.IsChecked = false;
+            checkObra.IsChecked = false;
+
+            checkLunM.IsChecked = false;
+            checkMarM.IsChecked = false;
+            checkMierM.IsChecked = false;
+            checkJueM.IsChecked = false;
+            checkVierM.IsChecked = false;
+
+            checkLunT.IsChecked = false;
+            checkMarT.IsChecked = false;
+            checkMierT.IsChecked = false;
+            checkJueT.IsChecked = false;
+            checkVierT.IsChecked = false;
+        }
+
+
+        private void limpiarPaciente()
+        {
+            nameBox.Clear();
+            apBox.Clear();
+            dniBox.Clear();
+            natBox.Clear();
+            dirBox.Clear();
+            telBox.Clear();
+            celBox.Clear();
+            emBox.Clear();
+            datObras.Items.Clear();
+            combObras.SelectedItem = null;
+            checkObra.IsChecked = false;
+
+
+        }
+        private void limpiarTurno()
+        {
+            FormaDePago.SelectedItem = null;
+            Especialidad.SelectedItem = null;
+            Fecha.SelectedItem = null;
+            Hora.SelectedItem = null;
+            Medico.SelectedItem = null;
+            Paciente.SelectedItem = null;
+            TurnoM.IsChecked = false;
+            TurnoE.IsChecked = false;
+            TurnoT.IsChecked = false;
+
+
+        }
+        private void limpiarPago()
+        {
+
+        }
+
     }
 }
 
