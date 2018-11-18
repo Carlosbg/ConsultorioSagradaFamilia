@@ -84,6 +84,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CrystalReportViewer.cs" />
+    <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Banco.cs" />
+    <Compile Include="Models\PacienteTarjeta.cs" />
+    <Compile Include="Models\Tarjeta.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Reports\MedicosPorPacientePorPeriodo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,6 +168,67 @@
       <DependentUpon>TotalRecaudadoPorTipoDePago.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilities\Validations.cs" />
+    <Compile Include="Windows\Layout.xaml.cs">
+      <DependentUpon>Layout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Bancos.xaml.cs">
+      <DependentUpon>Bancos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Especialidades.xaml.cs">
+      <DependentUpon>Especialidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\FormasPago.xaml.cs">
+      <DependentUpon>FormasPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\HistoriaClinica\CrearHistoriaClinica.xaml.cs">
+      <DependentUpon>CrearHistoriaClinica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\HistoriaClinica\HistoriaClinica.xaml.cs">
+      <DependentUpon>HistoriaClinica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Medicos..xaml.cs">
+      <DependentUpon>Medicos..xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Medico\Crear.xaml.cs">
+      <DependentUpon>Crear.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Medico\EditarMedico.xaml.cs">
+      <DependentUpon>EditarMedico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ObrasSociales.xaml.cs">
+      <DependentUpon>ObrasSociales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Pacientes.xaml.cs">
+      <DependentUpon>Pacientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Paciente\CrearPaciente.xaml.cs">
+      <DependentUpon>CrearPaciente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Paciente\EditarPaciente.xaml.cs">
+      <DependentUpon>EditarPaciente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Pagos.xaml.cs">
+      <DependentUpon>Pagos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Turnos.xaml.cs">
+      <DependentUpon>Turnos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Turno\CrearPago.xaml.cs">
+      <DependentUpon>CrearPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Turno\CrearTurno.xaml.cs">
+      <DependentUpon>CrearTurno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Usuario\CrearUsuario.xaml.cs">
+      <DependentUpon>CrearUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Usuario\IndexUsuario.xaml.cs">
+      <DependentUpon>IndexUsuario.xaml</DependentUpon>
+    </Compile>
     <Page Include="Administrador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +250,86 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Medico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Layout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Bancos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Especialidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\FormasPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\HistoriaClinica\CrearHistoriaClinica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\HistoriaClinica\HistoriaClinica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Medicos..xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Medico\Crear.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Medico\EditarMedico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\ObrasSociales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Pacientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Paciente\CrearPaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Paciente\EditarPaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Pagos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Turnos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Turno\CrearPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Turno\CrearTurno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Usuario\CrearUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Usuario\IndexUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,5 +447,6 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

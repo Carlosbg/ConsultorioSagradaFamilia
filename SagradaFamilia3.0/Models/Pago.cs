@@ -19,6 +19,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string NumeroTarjeta { get; set; }
 
+        public int? IdTarjeta { get; set; }
+
         //public virtual FormaPago FormaPago { get; set; }
         //public virtual ObraSocial ObraSocial { get; set; }
         //public virtual Turno Turno { get; set; }

@@ -20,7 +20,7 @@ namespace ConsultorioSagradaFamilia.Models
 
         public int IdMedico { get; set; }
 
-        public int IdObraSocial { get; set; }
+        public int? IdObraSocial { get; set; }
 
         public string NombreObraSocial{ get; set; }
 

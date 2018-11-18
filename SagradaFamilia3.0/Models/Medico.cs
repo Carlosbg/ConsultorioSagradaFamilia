@@ -23,6 +23,14 @@ namespace ConsultorioSagradaFamilia.Models
 
         public decimal Monto { get; set; }       
 
+        public string Domicilio { get; set; }
+
+        public DateTime FechaNacimiento { get; set; }
+
+        public string Mail { get; set; }
+
+        public int Telefono { get; set; }
+
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }
         //public virtual ICollection<HorarioAtencion> HorarioAtencion { get; set; }
         //public virtual ICollection<ObraSocialMedico> ObraSocialMedico { get; set; }

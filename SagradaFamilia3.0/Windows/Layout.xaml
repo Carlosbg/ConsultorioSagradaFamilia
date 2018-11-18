@@ -1,0 +1,31 @@
+﻿<Window x:Name="Main" x:Class="SagradaFamilia3._0.Views.Layout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SagradaFamilia3._0.Views"
+        mc:Ignorable="d"
+        Title="Layout" Height="796.75" Width="1443.5" Initialized="Main_Initialized" WindowState="Maximized">
+    <Grid>
+        <Image x:Name="Logo" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="294" Source="/SagradaFamilia3.0;component/Source/Logo.png"/>
+        <Grid x:Name="SideBar" HorizontalAlignment="Left" Margin="0,102,0,0" Width="294" Background="White">
+            <Button x:Name="Btn_Pacientes" Content="Pacientes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,40,0,0" Click="Btn_Pacientes_Click"/>
+            <Button x:Name="Btn_Turnos" Content="Turnos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,80,0,0" Click="Btn_Turnos_Click"/>
+            <Button x:Name="Btn_ObrasSociales" Content="Obras Sociales" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,159,0,0" Click="Btn_ObrasSociales_Click"/>
+            <Button x:Name="Btn_Pagos" Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,119,0,0" Click="Btn_Pagos_Click"/>
+            <Button x:Name="Btn_Especialidades" Content="Especialidades" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,199,0,0" Click="Btn_Especialidades_Click"/>
+            <Button x:Name="Btn_FormasPago" Content="Formas de Pago" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,239,0,0" Click="Btn_FormasPago_Click"/>
+            <Button x:Name="Btn_Bancos" Content="Bancos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,279,0,0" Click="Btn_Bancos_Click"/>
+            <Button x:Name="Btn_Medicos" Content="Médicos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Click="Btn_Medicos_Click"/>
+            <Button x:Name="Btn_HistoriaClinica" Content="Historia Clínica" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,319,0,0" Click="Btn_HistoriaClinica_Click"/>
+            <Button x:Name="Btn_Usuarios" Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,359,0,0" Click="Btn_Usuarios_Click"/>
+        </Grid>
+        <Grid x:Name="TopBar" Height="102" Margin="294,0,0,0" VerticalAlignment="Top" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="511*"/>
+                <ColumnDefinition Width="632*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Frame x:Name="Body" Content="&#xD;&#xA;" HorizontalAlignment="Left" Height="659" Margin="294,107,0,0" VerticalAlignment="Top" Width="1142" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
