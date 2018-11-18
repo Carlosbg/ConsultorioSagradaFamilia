@@ -40,6 +40,7 @@ namespace SagradaFamilia3._0.Windows.Views.Medico
             Monto.Text = medico.Monto.ToString("n2");
             Nombre.Text = medico.Nombre;
             Telefono.Text = medico.Telefono.ToString();
+            Habilitado.IsChecked = medico.Habilitado;
         }
 
         private void ButtonVolver_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,8 @@ namespace SagradaFamilia3._0.Windows.Views.Medico
                 Matricula = int.Parse(Matricula.Text),
                 Monto = decimal.Parse(Monto.Text),
                 Nombre = Nombre.Text,
-                Telefono = int.Parse(Telefono.Text)
+                Telefono = int.Parse(Telefono.Text),
+                Habilitado = Habilitado.IsChecked.GetValueOrDefault()
             };
 
             StatusMessage statusMessage = DbContextSingleton.dbContext.EditarMedico(medico);

@@ -86,7 +86,7 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
 
         private void FillObrasSociales()
         {
-            List<ObraSocial> obraSocialList = DbContextSingleton.dbContext.GetObrasSocialesPorPaciente(IdPaciente);
+            List<ConsultorioSagradaFamilia.Models.ObraSocial> obraSocialList = DbContextSingleton.dbContext.GetObrasSocialesPorPaciente(IdPaciente);
 
             ObraSocialCombobox.ItemsSource = obraSocialList;
             ObraSocialCombobox.DisplayMemberPath = "Nombre";

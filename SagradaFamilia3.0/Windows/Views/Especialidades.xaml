@@ -10,8 +10,8 @@
 
     <Grid>
         <DataGrid Name="EspecialidadesGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
-        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Name="Crear" Click="Crear_Click" />
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Name="Editar" Click="Editar_Click" />
         <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
     </Grid>
 </Page>

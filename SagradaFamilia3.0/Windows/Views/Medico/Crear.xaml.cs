@@ -159,7 +159,8 @@ namespace SagradaFamilia3._0.Windows.Views.Medico
                 Matricula = int.Parse(Matricula.Text),
                 Monto = decimal.Parse(Monto.Text),
                 Nombre = Nombre.Text,
-                Telefono = int.Parse(Telefono.Text)
+                Telefono = int.Parse(Telefono.Text),
+                Habilitado = true
             };
 
             StatusMessage statusMessage = DbContextSingleton.dbContext.GuardarMedico(medico);

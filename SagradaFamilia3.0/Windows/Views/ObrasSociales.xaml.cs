@@ -1,4 +1,6 @@
 ﻿using ConsultorioSagradaFamilia.Models;
+using SagradaFamilia3._0.Views;
+using SagradaFamilia3._0.Windows.Views.ObraSocial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,7 @@ namespace SagradaFamilia3._0.Windows.Views
     /// </summary>
     public partial class ObrasSociales : Page
     {
-        public List<ObraSocial> obrasSociales = new List<ObraSocial>();
+        public List<ConsultorioSagradaFamilia.Models.ObraSocial> obrasSociales = new List<ConsultorioSagradaFamilia.Models.ObraSocial>();
 
         public ObrasSociales()
         {
@@ -30,6 +32,26 @@ namespace SagradaFamilia3._0.Windows.Views
             obrasSociales = DbContextSingleton.dbContext.GetObrasSociales();
             ObrasSocialesGrid.ItemsSource = obrasSociales;
             ObrasSocialesGrid.IsReadOnly = true;
+        }
+
+        private void CrearObraSocial_Click(object sender, RoutedEventArgs e)
+        {
+            CrearObraSocial crearObraSocial = new CrearObraSocial();
+            Layout.Frame.Navigate(crearObraSocial);
+        }
+
+        private void EditaObraSocial_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultorioSagradaFamilia.Models.ObraSocial seleccion = (ConsultorioSagradaFamilia.Models.ObraSocial)ObrasSocialesGrid.SelectedItem;
+
+            if (seleccion == null)
+            {
+                MessageBox.Show("Seleccione una obra social");
+                return;
+            }
+
+            EditarObraSocial editarObraSocial = new EditarObraSocial(seleccion);
+            Layout.Frame.Navigate(editarObraSocial);
         }
     }
 }

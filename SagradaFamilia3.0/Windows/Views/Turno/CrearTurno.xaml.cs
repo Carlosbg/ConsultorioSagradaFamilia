@@ -293,11 +293,11 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
         {
             if (Especialidad.ItemsSource != null) return;
             List<dynamic> especialidadDynamicList = GetLista("Especialidad");
-            List<Especialidad> especialidadList = new List<Especialidad>();
+            List<ConsultorioSagradaFamilia.Models.Especialidad> especialidadList = new List<ConsultorioSagradaFamilia.Models.Especialidad>();
 
             foreach (var especialidadDynamic in especialidadDynamicList)
             {
-                Especialidad especialidad = new Especialidad
+                ConsultorioSagradaFamilia.Models.Especialidad especialidad = new ConsultorioSagradaFamilia.Models.Especialidad
                 {
                     Nombre = especialidadDynamic.Nombre,
                     IdEspecialidad = especialidadDynamic.IdEspecialidad

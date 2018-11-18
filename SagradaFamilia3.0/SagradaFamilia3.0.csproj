@@ -175,8 +175,20 @@
     <Compile Include="Windows\Views\Bancos.xaml.cs">
       <DependentUpon>Bancos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Views\Banco\CrearBanco.xaml.cs">
+      <DependentUpon>CrearBanco.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Banco\EditarBanco.xaml.cs">
+      <DependentUpon>EditarBanco.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Views\Especialidades.xaml.cs">
       <DependentUpon>Especialidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Especialidad\CrearEspecialidad.xaml.cs">
+      <DependentUpon>CrearEspecialidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Especialidad\EditarEspecialidad.xaml.cs">
+      <DependentUpon>EditarEspecialidad.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Views\FormasPago.xaml.cs">
       <DependentUpon>FormasPago.xaml</DependentUpon>
@@ -198,6 +210,12 @@
     </Compile>
     <Compile Include="Windows\Views\Medico\EditarMedico.xaml.cs">
       <DependentUpon>EditarMedico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ObraSocial\CrearObraSocial.xaml.cs">
+      <DependentUpon>CrearObraSocial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ObraSocial\EditarObraSocial.xaml.cs">
+      <DependentUpon>EditarObraSocial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Views\ObrasSociales.xaml.cs">
       <DependentUpon>ObrasSociales.xaml</DependentUpon>
@@ -261,7 +279,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Views\Banco\CrearBanco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Banco\EditarBanco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Views\Especialidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Especialidad\CrearEspecialidad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Especialidad\EditarEspecialidad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,6 +324,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Views\Medico\EditarMedico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\ObraSocial\CrearObraSocial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\ObraSocial\EditarObraSocial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

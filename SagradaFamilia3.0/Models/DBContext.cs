@@ -109,10 +109,10 @@ namespace SagradaFamilia3._0.Models
             connection.Open();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Medico]" +
-           "([DNI],[Nombre],[Apellido],[Matricula],[CUIL],[Monto],[Mail],[Telefono],[FechaNacimiento],[Domicilio])" + 
+           "([DNI],[Nombre],[Apellido],[Matricula],[CUIL],[Monto],[Mail],[Telefono],[FechaNacimiento],[Domicilio],[Habilitado])" + 
            "VALUES ("+ medico.DNI + ",'" + medico.Nombre + "','" + medico.Apellido + "'," + medico.Matricula + "," + medico.CUIL + "," + medico.Monto +
            ",'" + medico.Mail + "'," + medico.Telefono + ",'" + medico.FechaNacimiento.Year + "-" + medico.FechaNacimiento.Month + "-" + medico.FechaNacimiento.Day 
-           + "','" + medico.Domicilio + "')");
+           + "','" + medico.Domicilio + "', 1)");
 
             try
             {
@@ -141,8 +141,8 @@ namespace SagradaFamilia3._0.Models
            "[DNI] = " + medico.DNI + ",[Nombre] = '" + medico.Nombre + "',[Apellido] = '" + medico.Apellido + "',[Matricula] = " + medico.Matricula + 
            ",[CUIL] = " + medico.CUIL + ",[Monto] = " + medico.Monto.ToString("n2").Replace(",",".") + ",[Mail] = '" + medico.Mail + "',[Telefono] = " + medico.Telefono + 
            ",[FechaNacimiento] = '" + medico.FechaNacimiento.Year + "-" + medico.FechaNacimiento.Month + "-" + medico.FechaNacimiento.Day + 
-           "',[Domicilio] = '" + medico.Domicilio +
-           "' WHERE [IdMedico] = " + medico.IdMedico);
+           "',[Domicilio] = '" + medico.Domicilio + "',[Habilitado] = " + (medico.Habilitado ? "1" : "0") +
+           " WHERE [IdMedico] = " + medico.IdMedico);
 
             try
             {
@@ -187,7 +187,8 @@ namespace SagradaFamilia3._0.Models
                     Domicilio = reader["Domicilio"].ToString(),
                     FechaNacimiento = (DateTime)reader["FechaNacimiento"],
                     Mail = reader["Mail"].ToString(),
-                    Telefono = int.Parse(reader["Telefono"].ToString())
+                    Telefono = int.Parse(reader["Telefono"].ToString()),
+                    Habilitado = bool.Parse(reader["Habilitado"].ToString())
                 };
 
                 medicos.Add(medico);
@@ -435,7 +436,8 @@ namespace SagradaFamilia3._0.Models
                 ObraSocial obraSocial = new ObraSocial
                 {
                     IdObraSocial = int.Parse(reader["IdObraSocial"].ToString()),
-                    Nombre = reader["Nombre"].ToString()
+                    Nombre = reader["Nombre"].ToString(),
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
                 };
 
                 obrasSociales.Add(obraSocial);
@@ -444,6 +446,60 @@ namespace SagradaFamilia3._0.Models
             connection.Close();
 
             return obrasSociales;
+        }
+
+        public StatusMessage GuardarObraSocial(ObraSocial obraSocial)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Obra social creada" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[ObraSocial]" +
+            "([Nombre], [Habilitada])" +
+            "VALUES ('" + obraSocial.Nombre + "', 1)");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage EditarObraSocial(ConsultorioSagradaFamilia.Models.ObraSocial obraSocial)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Obra social editada" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[ObraSocial] SET " +
+            "[Nombre] = '" + obraSocial.Nombre + "',[Habilitada] = " + (obraSocial.Habilitada ? "1" : "0") +
+            " WHERE [IdObraSocial] = " + obraSocial.IdObraSocial);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
         }
 
         public List<Especialidad> GetEspecialidades()
@@ -462,7 +518,8 @@ namespace SagradaFamilia3._0.Models
                 Especialidad especialidad = new Especialidad
                 {
                     IdEspecialidad = int.Parse(reader["IdEspecialidad"].ToString()),
-                    Nombre = reader["Nombre"].ToString()
+                    Nombre = reader["Nombre"].ToString(),
+                   Habilitada = bool.Parse(reader["Habilitada"].ToString())
                 };
 
                 especialidades.Add(especialidad);
@@ -472,7 +529,61 @@ namespace SagradaFamilia3._0.Models
 
             return especialidades;
         }
-        
+
+        public StatusMessage GuardarEspecialidad(Especialidad especialidad)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Especialidad creada" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Especialidad]" +
+            "([Nombre], [Habilitada])" +
+            "VALUES ('" + especialidad.Nombre + "', 1)");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage EditarEspecialidad(ConsultorioSagradaFamilia.Models.Especialidad especialidad)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Especialidad editada" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Especialidad] SET " +
+            "[Nombre] = '" + especialidad.Nombre  + "', [Habilitada] = " + (especialidad.Habilitada ? "1" : "0") +
+            " WHERE [IdEspecialidad] = " + especialidad.IdEspecialidad);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
         public List<FormaPago> GetFormasPago()
         {
             connection.Open();
@@ -525,6 +636,60 @@ namespace SagradaFamilia3._0.Models
             connection.Close();
 
             return bancos;
+        }
+
+        public StatusMessage GuardarBanco(Banco banco)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Banco creado" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Banco]" +
+            "([Nombre])" +
+            "VALUES ('" + banco.Nombre + "')");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage EditarBanco(ConsultorioSagradaFamilia.Models.Banco banco)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Banco editado" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Banco] SET " +
+            "[Nombre] = '" + banco.Nombre +
+            "' WHERE [IdBanco] = " + banco.IdBanco);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
         }
 
         public StatusMessage GuardarHistoriaClinica(ConsultorioSagradaFamilia.Models.HistoriaClinica historiaClinica)

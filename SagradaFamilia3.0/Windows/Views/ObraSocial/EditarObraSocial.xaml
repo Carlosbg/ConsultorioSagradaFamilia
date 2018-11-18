@@ -9,6 +9,12 @@
       Title="EditarObraSocial">
 
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" x:Name="Nombre" Height="14" Margin="190,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" />
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="51,12,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="62,85,0,0" VerticalAlignment="Top" Width="75" Click="ButtonVolver_Click"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="318,85,0,0" VerticalAlignment="Top" Width="75" Click="ButtonEditar_Click"/>
+        <CheckBox Name="Habilitada" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="190,43,0,0" VerticalAlignment="Top"/>
+        <Label Content="Habilitada" HorizontalAlignment="Left" Margin="51,49,0,0" VerticalAlignment="Top" Width="121"/>
+
     </Grid>
 </Page>

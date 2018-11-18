@@ -31,6 +31,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public int Telefono { get; set; }
 
+        public bool Habilitado { get; set; }
+
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }
         //public virtual ICollection<HorarioAtencion> HorarioAtencion { get; set; }
         //public virtual ICollection<ObraSocialMedico> ObraSocialMedico { get; set; }

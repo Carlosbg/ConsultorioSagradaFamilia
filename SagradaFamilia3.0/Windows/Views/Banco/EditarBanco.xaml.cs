@@ -15,25 +15,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SagradaFamilia3._0.Windows.Views.ObraSocial
+namespace SagradaFamilia3._0.Windows.Views.Banco
 {
     /// <summary>
-    /// Lógica de interacción para CrearObraSocial.xaml
+    /// Lógica de interacción para EditarBanco.xaml
     /// </summary>
-    public partial class CrearObraSocial : Page
+    public partial class EditarBanco : Page
     {
-        public CrearObraSocial()
+        public ConsultorioSagradaFamilia.Models.Banco Banco { get; set; }
+
+        public EditarBanco(ConsultorioSagradaFamilia.Models.Banco banco)
         {
             InitializeComponent();
+            Banco = banco;
+
+            Nombre.Text = banco.Nombre;
         }
 
         private void ButtonVolver_Click(object sender, RoutedEventArgs e)
         {
-            ObrasSociales obrasSociales = new ObrasSociales();
-            Layout.Frame.Navigate(obrasSociales);
+            Bancos bancos = new Bancos();
+            Layout.Frame.Navigate(bancos);
         }
 
-        private void ButtonCrear_Click(object sender, RoutedEventArgs e)
+        private void ButtonEditar_Click(object sender, RoutedEventArgs e)
         {
             if (Nombre.Text == "")
             {
@@ -41,20 +46,20 @@ namespace SagradaFamilia3._0.Windows.Views.ObraSocial
                 return;
             }
 
-            ConsultorioSagradaFamilia.Models.ObraSocial obraSocial = new ConsultorioSagradaFamilia.Models.ObraSocial
+            ConsultorioSagradaFamilia.Models.Banco banco = new ConsultorioSagradaFamilia.Models.Banco
             {
-                Nombre = Nombre.Text,
-                Habilitada = true
+                IdBanco = Banco.IdBanco,
+                Nombre = Nombre.Text
             };
 
-            StatusMessage statusMessage = DbContextSingleton.dbContext.GuardarObraSocial(obraSocial);
+            StatusMessage statusMessage = DbContextSingleton.dbContext.EditarBanco(banco);
 
             MessageBox.Show(statusMessage.Mensaje);
 
             if (statusMessage.Status == 0)
             {
-                ObrasSociales obrasSociales = new ObrasSociales();
-                Layout.Frame.Navigate(obrasSociales);
+                Bancos bancos = new Bancos();
+                Layout.Frame.Navigate(bancos);
             }
         }
     }

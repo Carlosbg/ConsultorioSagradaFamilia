@@ -11,6 +11,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string Nombre { get; set; }
 
+        public bool Habilitada { get; set; }
+
         //public virtual ICollection<MedicoEspecialidad> MedicoEspecialidad { get; set; }
     }
 }

@@ -15,22 +15,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SagradaFamilia3._0.Windows.Views.ObraSocial
+namespace SagradaFamilia3._0.Windows.Views.Banco
 {
     /// <summary>
-    /// Lógica de interacción para CrearObraSocial.xaml
+    /// Lógica de interacción para CrearBanco.xaml
     /// </summary>
-    public partial class CrearObraSocial : Page
+    public partial class CrearBanco : Page
     {
-        public CrearObraSocial()
+        public CrearBanco()
         {
             InitializeComponent();
         }
 
         private void ButtonVolver_Click(object sender, RoutedEventArgs e)
         {
-            ObrasSociales obrasSociales = new ObrasSociales();
-            Layout.Frame.Navigate(obrasSociales);
+            Bancos bancos = new Bancos();
+            Layout.Frame.Navigate(bancos);
         }
 
         private void ButtonCrear_Click(object sender, RoutedEventArgs e)
@@ -41,19 +41,18 @@ namespace SagradaFamilia3._0.Windows.Views.ObraSocial
                 return;
             }
 
-            ConsultorioSagradaFamilia.Models.ObraSocial obraSocial = new ConsultorioSagradaFamilia.Models.ObraSocial
+            ConsultorioSagradaFamilia.Models.Banco banco = new ConsultorioSagradaFamilia.Models.Banco
             {
-                Nombre = Nombre.Text,
-                Habilitada = true
+                Nombre = Nombre.Text
             };
 
-            StatusMessage statusMessage = DbContextSingleton.dbContext.GuardarObraSocial(obraSocial);
+            StatusMessage statusMessage = DbContextSingleton.dbContext.GuardarBanco(banco);
 
             MessageBox.Show(statusMessage.Mensaje);
 
             if (statusMessage.Status == 0)
             {
-                ObrasSociales obrasSociales = new ObrasSociales();
+                Bancos obrasSociales = new Bancos();
                 Layout.Frame.Navigate(obrasSociales);
             }
         }

@@ -15,28 +15,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SagradaFamilia3._0.Windows.Views.ObraSocial
+namespace SagradaFamilia3._0.Windows.Views.Especialidad
 {
     /// <summary>
-    /// Lógica de interacción para EditarObraSocial.xaml
+    /// Lógica de interacción para EditarEspecialidad.xaml
     /// </summary>
-    public partial class EditarObraSocial : Page
+    public partial class EditarEspecialidad : Page
     {
-        public ConsultorioSagradaFamilia.Models.ObraSocial ObraSocial { get; set; }
+        public ConsultorioSagradaFamilia.Models.Especialidad Especialidad { get; set; }
 
-        public EditarObraSocial(ConsultorioSagradaFamilia.Models.ObraSocial obraSocial)
+        public EditarEspecialidad(ConsultorioSagradaFamilia.Models.Especialidad especialidad)
         {
             InitializeComponent();
-            ObraSocial = obraSocial;
 
-            Nombre.Text = obraSocial.Nombre;
-            Habilitada.IsChecked = obraSocial.Habilitada;
+            Especialidad = especialidad;
+
+            Nombre.Text = especialidad.Nombre;
+            Habilitada.IsChecked = especialidad.Habilitada;
         }
 
         private void ButtonVolver_Click(object sender, RoutedEventArgs e)
         {
-            ObrasSociales obrasSociales = new ObrasSociales();
-            Layout.Frame.Navigate(obrasSociales);
+            Especialidades especialidads = new Especialidades();
+            Layout.Frame.Navigate(especialidads);
         }
 
         private void ButtonEditar_Click(object sender, RoutedEventArgs e)
@@ -47,22 +48,22 @@ namespace SagradaFamilia3._0.Windows.Views.ObraSocial
                 return;
             }
 
-            ConsultorioSagradaFamilia.Models.ObraSocial obraSocial = new ConsultorioSagradaFamilia.Models.ObraSocial
+            ConsultorioSagradaFamilia.Models.Especialidad especialidad = new ConsultorioSagradaFamilia.Models.Especialidad
             {
-                IdObraSocial = ObraSocial.IdObraSocial,
+                IdEspecialidad = Especialidad.IdEspecialidad,
                 Nombre = Nombre.Text,
                 Habilitada = Habilitada.IsChecked.GetValueOrDefault()
             };
 
-            StatusMessage statusMessage = DbContextSingleton.dbContext.EditarObraSocial(obraSocial);
+            StatusMessage statusMessage = DbContextSingleton.dbContext.EditarEspecialidad(especialidad);
 
             MessageBox.Show(statusMessage.Mensaje);
 
             if (statusMessage.Status == 0)
             {
-                ObrasSociales obrasSociales = new ObrasSociales();
-                Layout.Frame.Navigate(obrasSociales);
+                Especialidades especialidads = new Especialidades();
+                Layout.Frame.Navigate(especialidads);
             }
         }
-    }
+    }    
 }
