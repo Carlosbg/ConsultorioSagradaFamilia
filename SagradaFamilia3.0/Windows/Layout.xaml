@@ -19,6 +19,7 @@
             <Button x:Name="Btn_Medicos" Content="Médicos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Click="Btn_Medicos_Click"/>
             <Button x:Name="Btn_HistoriaClinica" Content="Historia Clínica" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,319,0,0" Click="Btn_HistoriaClinica_Click"/>
             <Button x:Name="Btn_Usuarios" Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,359,0,0" Click="Btn_Usuarios_Click"/>
+            <Button x:Name="Btn_Tarjeta" Content="Tarjetas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,399,0,0" Click="Btn_Tarjetas_Click"/>
         </Grid>
         <Grid x:Name="TopBar" Height="102" Margin="294,0,0,0" VerticalAlignment="Top" Background="White">
             <Grid.ColumnDefinitions>

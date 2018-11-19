@@ -1,0 +1,18 @@
+﻿<Page x:Class="SagradaFamilia3._0.Windows.Views.Tarjeta.TarjetaIndex"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SagradaFamilia3._0.Windows.Views.Tarjeta"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TarjetaIndex">
+
+    <Grid>
+        <DataGrid x:Name="TarjetasGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" x:Name="CrearTarjeta" Click="CrearTarjeta_Click"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" x:Name="EditarTarjeta" Click="EditarTarjeta_Click"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+
+    </Grid>
+</Page>

@@ -19,8 +19,13 @@
         <Label Content="DNI" HorizontalAlignment="Left" Margin="51,94,0,0" VerticalAlignment="Top" Width="121"/>
         <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="51,134,0,0" VerticalAlignment="Top" Width="121"/>
         <Label Content="Domicilio" HorizontalAlignment="Left" Margin="51,174,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="62,224,0,0" VerticalAlignment="Top" Width="75" Click="ButtonVolver_Click"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Margin="318,224,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCrear_Click"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="62,411,0,0" VerticalAlignment="Top" Width="75" Click="ButtonVolver_Click"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="318,411,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCrear_Click"/>
+        <Label Content="Obras Sociales" HorizontalAlignment="Left" Margin="55,218,0,0" VerticalAlignment="Top" Width="91"/>
+        <ComboBox x:Name="ObrasSocialesCombobox" HorizontalAlignment="Left" Margin="190,218,0,0" VerticalAlignment="Top" Width="268" Height="26" Initialized="ObrasSocialesCombobox_Initialized" />
+        <DataGrid CanUserAddRows="False" IsReadOnly="True" x:Name="ObrasSocialesGrid" HorizontalAlignment="Left" Height="150" Margin="62,249,0,0" VerticalAlignment="Top" Width="514"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="475,215,0,0" VerticalAlignment="Top" Width="33" Height="30" x:Name="AgregarObraSocial" Click="AgregarObraSocial_Click"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="543,215,0,0" VerticalAlignment="Top" Width="33" Height="30" x:Name="BorrarObraSocial" Click="BorrarObraSocial_Click"/>
 
     </Grid>
 </Page>

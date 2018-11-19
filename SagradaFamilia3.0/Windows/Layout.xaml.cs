@@ -1,6 +1,7 @@
 ﻿using SagradaFamilia3._0.Views.Pages;
 using SagradaFamilia3._0.Windows.Views;
 using SagradaFamilia3._0.Windows.Views.HistoriaClinica;
+using SagradaFamilia3._0.Windows.Views.Tarjeta;
 using SagradaFamilia3._0.Windows.Views.Usuario;
 using System;
 using System.Collections.Generic;
@@ -95,6 +96,12 @@ namespace SagradaFamilia3._0.Views
         {
             IndexUsuario indexUsuario = new IndexUsuario();
             Body.Navigate(indexUsuario);
+        }
+
+        private void Btn_Tarjetas_Click(object sender, RoutedEventArgs e)
+        {
+            TarjetaIndex tarjetaIndex = new TarjetaIndex();
+            Body.Navigate(tarjetaIndex);
         }
     }
 }

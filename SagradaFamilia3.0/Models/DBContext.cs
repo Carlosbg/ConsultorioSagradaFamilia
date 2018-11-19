@@ -519,7 +519,7 @@ namespace SagradaFamilia3._0.Models
                 {
                     IdEspecialidad = int.Parse(reader["IdEspecialidad"].ToString()),
                     Nombre = reader["Nombre"].ToString(),
-                   Habilitada = bool.Parse(reader["Habilitada"].ToString())
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
                 };
 
                 especialidades.Add(especialidad);
@@ -848,6 +848,485 @@ namespace SagradaFamilia3._0.Models
             connection.Close();
 
             return tarjetas;
+        }
+
+        //public StatusMessage GuardarBanco(Banco banco)
+        //{
+        //    StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Banco creado" };
+        //    connection.Open();
+
+        //    SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Banco]" +
+        //    "([Nombre])" +
+        //    "VALUES ('" + banco.Nombre + "')");
+
+        //    try
+        //    {
+        //        cmd.Connection = connection;
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        connection.Close();
+
+        //        statusMessage.Status = 1;
+        //        statusMessage.Mensaje = e.Message;
+        //    }
+
+        //    connection.Close();
+
+        //    return statusMessage;
+        //}
+
+        public StatusMessage GuardarMedicoEspecialidad(MedicoEspecialidad medicoEspecialidad)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[MedicoEspecialidad]" +
+            "([IdMedico], [IdEspecialidad])" +
+            "VALUES (" + medicoEspecialidad.IdMedico+ ", " + medicoEspecialidad.IdEspecialidad +")");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage BorrarMedicoEspecialidad(MedicoEspecialidad medicoEspecialidad)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[MedicoEspecialidad] " +
+                "WHERE [IdMedico]=" + medicoEspecialidad.IdMedico + " and " + "[IdEspecialidad]=" + medicoEspecialidad.IdEspecialidad);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage GuardarObraSocialMedico(ObraSocialMedico obraSocialMedico)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[ObraSocialMedico]" +
+            "([IdMedico], [IdObraSocial], [Habilitado])" +
+            "VALUES (" + obraSocialMedico.IdMedico + ", " + obraSocialMedico.IdObraSocial + ",1)");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage BorrarObraSocialMedico(ObraSocialMedico obraSocialMedico)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[ObraSocialMedico] " +
+                "WHERE [IdMedico]=" + obraSocialMedico.IdMedico + " and " + "[IdObraSocial]=" + obraSocialMedico.IdObraSocial);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage GuardarHorarioAtencion(HorarioAtencion horarioAtencion)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[HorarioAtencion]" +
+            "([IdMedico], [IdDia], [HorarioInicio], [HorarioFinal], [Habilitado])" +
+            "VALUES (" + horarioAtencion.IdMedico + ", " + horarioAtencion.IdDia + ", '" + horarioAtencion.HorarioInicio.Hours +":"+ 
+            horarioAtencion.HorarioInicio.Minutes + ":00', '"+ horarioAtencion.HorarioFinal.Hours + ":" +
+            horarioAtencion.HorarioFinal.Minutes + ":00', 1)");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage EditarHorarioAtencion(HorarioAtencion horarioAtencion)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[HorarioAtencion] " +
+            "set [IdMedico] = " + horarioAtencion.IdMedico +
+            ",   [IdDia] = " + horarioAtencion.IdDia +
+            ",   [HorarioInicio] = '" + horarioAtencion.HorarioInicio.Hours + ":" + horarioAtencion.HorarioInicio.Minutes + ":00'" +
+            ",   [HorarioFinal] = '" + horarioAtencion.HorarioFinal.Hours + ":" + horarioAtencion.HorarioFinal.Minutes + ":00'" +
+            ",   [Habilitado] = " + (horarioAtencion.Habilitado ? "1" : "0") +
+            " WHERE [IdHorarioAtencion] = " + horarioAtencion.IdHorarioAtencion);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+
+        public ConsultorioSagradaFamilia.Models.Medico GetLastMedico()
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(" SELECT top 1 * FROM Medico order by IdMedico desc");
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            ConsultorioSagradaFamilia.Models.Medico medico = new ConsultorioSagradaFamilia.Models.Medico();
+
+            while (reader.Read())
+            {
+                medico = new ConsultorioSagradaFamilia.Models.Medico
+                {
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Apellido = reader["Apellido"].ToString(),
+                    CUIL = reader["CUIL"].ToString(),
+                    DNI = int.Parse(reader["DNI"].ToString()),
+                    Matricula = int.Parse(reader["Matricula"].ToString()),
+                    Monto = decimal.Parse(reader["Monto"].ToString()),
+                    Domicilio = reader["Domicilio"].ToString(),
+                    FechaNacimiento = (DateTime)reader["FechaNacimiento"],
+                    Mail = reader["Mail"].ToString(),
+                    Telefono = int.Parse(reader["Telefono"].ToString()),
+                    Habilitado = bool.Parse(reader["Habilitado"].ToString())
+                };
+            }
+
+            connection.Close();
+
+            return medico;
+        }
+
+        public List<Especialidad> GetEspecialidadesPorMedico(int idMedico)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from Especialidad as e inner join MedicoEspecialidad as me on e.IdEspecialidad = me.IdEspecialidad " +
+                                            "where me.IdMedico = " + idMedico);
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<Especialidad> especialidades = new List<Especialidad>();
+
+            while (reader.Read())
+            {
+                Especialidad especialidad = new Especialidad
+                {
+                    IdEspecialidad = int.Parse(reader["IdEspecialidad"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
+                };
+
+                especialidades.Add(especialidad);
+            }
+
+            connection.Close();
+
+            return especialidades;
+        }
+
+        public List<ObraSocial> GetObraSocialesPorMedico(int idMedico)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from ObraSocial as e inner join ObraSocialMedico as me on e.IdObraSocial = me.IdObraSocial " +
+                                            "where me.IdMedico = " + idMedico);
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<ObraSocial> obraSociales = new List<ObraSocial>();
+
+            while (reader.Read())
+            {
+                ObraSocial obraSocial = new ObraSocial
+                {
+                    IdObraSocial = int.Parse(reader["IdObraSocial"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
+                };
+
+                obraSociales.Add(obraSocial);
+            }
+
+            connection.Close();
+
+            return obraSociales;
+        }
+
+        public List<ObraSocial> GetObraSocialesPorPaciente(int idPaciente)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from ObraSocial as e inner join ObraSocialPaciente as me on e.IdObraSocial = me.IdObraSocial " +
+                                            "where me.IdPaciente = " + idPaciente);
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<ObraSocial> obraSociales = new List<ObraSocial>();
+
+            while (reader.Read())
+            {
+                ObraSocial obraSocial = new ObraSocial
+                {
+                    IdObraSocial = int.Parse(reader["IdObraSocial"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
+                };
+
+                obraSociales.Add(obraSocial);
+            }
+
+            connection.Close();
+
+            return obraSociales;
+        }
+
+        public StatusMessage BorrarObraSocialPaciente(ObraSocialPaciente obraSocialPaciente)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[ObraSocialPaciente] " +
+                "WHERE [IdPaciente]=" + obraSocialPaciente.IdPaciente + " and " + "[IdObraSocial]=" + obraSocialPaciente.IdObraSocial);
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage GuardarObraSocialPaciente(ObraSocialPaciente obraSocialPaciente)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[ObraSocialPaciente]" +
+            "([IdPaciente], [IdObraSocial], [Habilitado])" +
+            "VALUES (" + obraSocialPaciente.IdPaciente + ", " + obraSocialPaciente.IdObraSocial + ",1)");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public List<HorarioAtencion> GetHorariosAtencionPorMedico(int idMedico)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from HorarioAtencion as e where e.IdMedico = " + idMedico + " order by e.Habilitado desc");
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<HorarioAtencion> horariosAtencion = new List<HorarioAtencion>();
+
+            while (reader.Read())
+            {
+                HorarioAtencion horarioAtencion = new HorarioAtencion
+                {
+                    Habilitado = bool.Parse(reader["Habilitado"].ToString()),
+                    HorarioFinal = TimeSpan.Parse(reader["HorarioFinal"].ToString()),
+                    HorarioInicio = TimeSpan.Parse(reader["HorarioInicio"].ToString()),
+                    IdDia = int.Parse(reader["IdDia"].ToString()),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    IdHorarioAtencion = int.Parse(reader["IdHorarioAtencion"].ToString())
+                };
+
+                horariosAtencion.Add(horarioAtencion);
+            }
+
+            connection.Close();
+
+            return horariosAtencion;
+        }
+
+        public ConsultorioSagradaFamilia.Models.Paciente GetLastPaciente()
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(" SELECT top 1 * FROM Paciente order by IdPaciente desc");
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            ConsultorioSagradaFamilia.Models.Paciente paciente = new ConsultorioSagradaFamilia.Models.Paciente();
+
+            while (reader.Read())
+            {
+                paciente = new ConsultorioSagradaFamilia.Models.Paciente
+                {
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Apellido = reader["Apellido"].ToString(),
+                    DNI = int.Parse(reader["DNI"].ToString()),
+                    Direccion = reader["Direccion"].ToString(),
+                    FechaNacimiento = DateTime.Parse(reader["FechaNacimiento"].ToString())
+                };
+            }
+
+            connection.Close();
+
+            return paciente;
+        }
+
+        public void MarcarTurnoAtendido(int idTurno)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE Turno set Atendido=1 where IdTurno=" + idTurno);
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();            
+
+            connection.Close();            
+        }
+
+        public ConsultorioSagradaFamilia.Models.Tarjeta GetLastTarjeta()
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(" SELECT top 1 * FROM Tarjeta order by IdTarjeta desc");
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            ConsultorioSagradaFamilia.Models.Tarjeta tarjeta = new ConsultorioSagradaFamilia.Models.Tarjeta();
+
+            while (reader.Read())
+            {
+                tarjeta = new ConsultorioSagradaFamilia.Models.Tarjeta
+                {
+                    IdTarjeta = int.Parse(reader["IdTarjeta"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Numero = reader["Numero"].ToString(),
+                    IdBanco = int.Parse(reader["IdBanco"].ToString())
+                };
+            }
+
+            connection.Close();
+
+            return tarjeta;
         }
     }
 }

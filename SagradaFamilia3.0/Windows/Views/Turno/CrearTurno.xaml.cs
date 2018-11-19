@@ -240,8 +240,8 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
         {
             List<dynamic> medicoDynamicList = GetLista("Medico", "idEspecialidad",
                                                         Especialidad.SelectedValue != null ? (int?)Especialidad.SelectedValue : null,
-                                                       "idPaciente",
-                                                       Paciente.SelectedValue != null ? (int?)Paciente.SelectedValue : null);
+                                                       "idPaciente", null);
+                                                       //Paciente.SelectedValue != null ? (int?)Paciente.SelectedValue : null);
             List<ConsultorioSagradaFamilia.Models.Medico> medicoList = new List<ConsultorioSagradaFamilia.Models.Medico>();
 
             foreach (var medicoDynamic in medicoDynamicList)
@@ -315,8 +315,8 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
         {
             List<dynamic> medicoDynamicList = GetLista("Medico", "idEspecialidad",
                                                         Especialidad.SelectedValue != null ? (int?)Especialidad.SelectedValue : null,
-                                                       "idPaciente",
-                                                       Paciente.SelectedValue != null ? (int?)Paciente.SelectedValue : null);
+                                                       "idPaciente", null);
+                                                       //Paciente.SelectedValue != null ? (int?)Paciente.SelectedValue : null);
             List<ConsultorioSagradaFamilia.Models.Medico> medicoList = new List<ConsultorioSagradaFamilia.Models.Medico>();
 
             foreach (var medicoDynamic in medicoDynamicList)

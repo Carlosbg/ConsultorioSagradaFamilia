@@ -232,6 +232,12 @@
     <Compile Include="Windows\Views\Pagos.xaml.cs">
       <DependentUpon>Pagos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Views\Tarjeta\CrearTarjeta.xaml.cs">
+      <DependentUpon>CrearTarjeta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Tarjeta\TarjetaIndex.xaml.cs">
+      <DependentUpon>TarjetaIndex.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Views\Turnos.xaml.cs">
       <DependentUpon>Turnos.xaml</DependentUpon>
     </Compile>
@@ -352,6 +358,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Views\Pagos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Tarjeta\CrearTarjeta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Tarjeta\TarjetaIndex.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -154,6 +154,8 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
 
             if (statusMessage.Status == 0)
             {
+                DbContextSingleton.dbContext.MarcarTurnoAtendido(IdTurno);
+
                 Turnos turnos = new Turnos();
                 Layout.Frame.Navigate(turnos);
             }
