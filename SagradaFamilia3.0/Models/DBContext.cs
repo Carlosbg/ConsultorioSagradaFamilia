@@ -850,6 +850,36 @@ namespace SagradaFamilia3._0.Models
             return tarjetas;
         }
 
+        public List<Tarjeta> GetTarjetas()
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Tarjeta");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<Tarjeta> tarjetas = new List<Tarjeta>();
+
+            while (reader.Read())
+            {
+                Tarjeta tarjeta = new Tarjeta
+                {
+                    IdTarjeta = int.Parse(reader["IdTarjeta"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Numero = reader["Numero"].ToString(),
+                    IdBanco = int.Parse(reader["IdBanco"].ToString())
+                };
+
+                tarjetas.Add(tarjeta);
+            }
+
+            connection.Close();
+
+            return tarjetas;
+        }
+
+
         //public StatusMessage GuardarBanco(Banco banco)
         //{
         //    StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Banco creado" };
@@ -1305,7 +1335,7 @@ namespace SagradaFamilia3._0.Models
             StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
             connection.Open();
 
-            SqlCommand cmd = new SqlCommand(" SELECT top 1 * FROM Tarjeta order by IdTarjeta desc");
+            SqlCommand cmd = new SqlCommand("SELECT top 1 * FROM Tarjeta order by IdTarjeta desc");
 
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
@@ -1327,6 +1357,85 @@ namespace SagradaFamilia3._0.Models
             connection.Close();
 
             return tarjeta;
+        }
+
+        public StatusMessage GuardarTarjeta(Tarjeta tarjeta)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Tarjeta creada" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Tarjeta]" +
+            "([Nombre], [Numero], [IdBanco])" +
+            "VALUES ('" + tarjeta.Nombre + "'," + tarjeta.Numero + "," + tarjeta.IdBanco +")");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public StatusMessage GuardarPacienteTarjeta(PacienteTarjeta pacienteTarjeta)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[PacienteTarjeta]" +
+            "([IdPaciente], [IdTarjeta])" +
+            "VALUES (" + pacienteTarjeta.IdPaciente + ", " + pacienteTarjeta.IdTarjeta + ")");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
+
+            return statusMessage;
+        }
+
+        public void GuardarPacienteMedico(PacienteMedico pacienteMedico)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[PacienteMedico]" +
+            "([IdPaciente], [IdMedico])" +
+            "VALUES (" + pacienteMedico.IdPaciente + ", " + pacienteMedico.IdMedico + ")");
+
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            connection.Close();
         }
     }
 }

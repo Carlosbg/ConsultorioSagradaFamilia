@@ -472,6 +472,9 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
                 {
                     MessageBox.Show("Turno Creado");
                     if (idObjetoEditando != 0) idObjetoEditando = 0;
+
+
+
                     Turnos turnos = new Turnos();
                     Layout.Frame.Navigate(turnos);
                 }

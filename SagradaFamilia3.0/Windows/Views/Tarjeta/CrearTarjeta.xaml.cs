@@ -1,4 +1,5 @@
-﻿using SagradaFamilia3._0.Models;
+﻿using ConsultorioSagradaFamilia.Models;
+using SagradaFamilia3._0.Models;
 using SagradaFamilia3._0.Views;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,18 @@ namespace SagradaFamilia3._0.Windows.Views.Tarjeta
         public CrearTarjeta()
         {
             InitializeComponent();
+
+            IList<ConsultorioSagradaFamilia.Models.Banco> bancos = DbContextSingleton.dbContext.GetBancos();
+
+            BancoCombobox.ItemsSource = bancos;
+            BancoCombobox.DisplayMemberPath = "Nombre";
+            BancoCombobox.SelectedValuePath = "IdBanco";
+
+            IList<ConsultorioSagradaFamilia.Models.Paciente> pacientes = DbContextSingleton.dbContext.GetPacientes();
+
+            PacienteCombobox.ItemsSource = pacientes;
+            PacienteCombobox.DisplayMemberPath = "ApellidoNombre";
+            PacienteCombobox.SelectedValuePath = "IdPaciente";
         }
 
         private void ButtonVolver_Click(object sender, RoutedEventArgs e)
@@ -41,6 +54,18 @@ namespace SagradaFamilia3._0.Windows.Views.Tarjeta
                 return;
             }
 
+            if (Numero.Text == "")
+            {
+                MessageBox.Show("Debe indicar un Numero");
+                return;
+            }
+
+            if(BancoCombobox.SelectedValue == null)
+            {
+                MessageBox.Show("Debe indicar un Banco");
+                return;
+            }
+
             ConsultorioSagradaFamilia.Models.Tarjeta tarjeta = new ConsultorioSagradaFamilia.Models.Tarjeta
             {
                 Nombre = Nombre.Text,
@@ -54,6 +79,16 @@ namespace SagradaFamilia3._0.Windows.Views.Tarjeta
 
             if (statusMessage.Status == 0)
             {
+                ConsultorioSagradaFamilia.Models.Tarjeta ulimaTarjeta = DbContextSingleton.dbContext.GetLastTarjeta();
+
+                PacienteTarjeta pacienteTarjeta = new PacienteTarjeta
+                {
+                    IdPaciente = (int)PacienteCombobox.SelectedValue,
+                    IdTarjeta = ulimaTarjeta.IdTarjeta
+                };
+
+                DbContextSingleton.dbContext.GuardarPacienteTarjeta(pacienteTarjeta);
+
                 TarjetaIndex obrasSociales = new TarjetaIndex();
                 Layout.Frame.Navigate(obrasSociales);
             }

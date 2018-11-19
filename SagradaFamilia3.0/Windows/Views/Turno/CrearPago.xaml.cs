@@ -77,7 +77,7 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
 
         private void FillTarjetas()
         {
-            List<Tarjeta> tarjetaList = DbContextSingleton.dbContext.GetTarjetasPorPaciente(IdPaciente);
+            List<ConsultorioSagradaFamilia.Models.Tarjeta> tarjetaList = DbContextSingleton.dbContext.GetTarjetasPorPaciente(IdPaciente);
 
             TarjetaCombobox.ItemsSource = tarjetaList;
             TarjetaCombobox.DisplayMemberPath = "Nombre";

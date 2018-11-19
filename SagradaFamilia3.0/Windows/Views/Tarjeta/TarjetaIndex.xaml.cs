@@ -24,6 +24,8 @@ namespace SagradaFamilia3._0.Windows.Views.Tarjeta
         public TarjetaIndex()
         {
             InitializeComponent();
+
+            TarjetasGrid.ItemsSource = DbContextSingleton.dbContext.GetTarjetas();
         }
 
         private void CrearTarjeta_Click(object sender, RoutedEventArgs e)
