@@ -1418,21 +1418,36 @@ namespace SagradaFamilia3._0.Models
             StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
             connection.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[PacienteMedico]" +
-            "([IdPaciente], [IdMedico])" +
-            "VALUES (" + pacienteMedico.IdPaciente + ", " + pacienteMedico.IdMedico + ")");
+            SqlCommand cmd = new SqlCommand("SELECT * from PacienteMedico WHERE IdPaciente=" + pacienteMedico.IdPaciente +
+                                            "and IdMedico=" + pacienteMedico.IdMedico);
 
-            try
-            {
-                cmd.Connection = connection;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                connection.Close();
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
 
-                statusMessage.Status = 1;
-                statusMessage.Mensaje = e.Message;
+            var reader = cmd.ExecuteReader();
+
+            bool existe = reader.HasRows;
+
+            if (!existe)
+            {
+                reader.Close();
+
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[PacienteMedico]" +
+                "([IdPaciente], [IdMedico], [Habilitado])" +
+                "VALUES (" + pacienteMedico.IdPaciente + ", " + pacienteMedico.IdMedico + ",1)");
+
+                try
+                {
+                    cmd2.Connection = connection;
+                    cmd2.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    connection.Close();
+
+                    statusMessage.Status = 1;
+                    statusMessage.Mensaje = e.Message;
+                }
             }
 
             connection.Close();

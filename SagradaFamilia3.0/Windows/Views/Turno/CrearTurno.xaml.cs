@@ -473,7 +473,13 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
                     MessageBox.Show("Turno Creado");
                     if (idObjetoEditando != 0) idObjetoEditando = 0;
 
+                    PacienteMedico pacienteMedico = new PacienteMedico
+                    {
+                        IdPaciente = turno.IdPaciente,
+                        IdMedico = turno.IdMedico
+                    };
 
+                    DbContextSingleton.dbContext.GuardarPacienteMedico(pacienteMedico);
 
                     Turnos turnos = new Turnos();
                     Layout.Frame.Navigate(turnos);
@@ -482,6 +488,15 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
                 {
                     MessageBox.Show("Turno Editado");
                     if (idObjetoEditando != 0) idObjetoEditando = 0;
+
+                    PacienteMedico pacienteMedico = new PacienteMedico
+                    {
+                        IdPaciente = turno.IdPaciente,
+                        IdMedico = turno.IdMedico
+                    };
+
+                    DbContextSingleton.dbContext.GuardarPacienteMedico(pacienteMedico);
+
                     Turnos turnos = new Turnos();
                     Layout.Frame.Navigate(turnos);
                 }
