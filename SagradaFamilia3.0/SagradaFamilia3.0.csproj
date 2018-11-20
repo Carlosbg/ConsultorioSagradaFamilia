@@ -503,6 +503,20 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Source\botones\bancos.png" />
+    <Resource Include="Source\botones\cerrarSesion.png" />
+    <Resource Include="Source\botones\especialidades.png" />
+    <Resource Include="Source\botones\formas de pago.png" />
+    <Resource Include="Source\botones\historiaClinica.png" />
+    <Resource Include="Source\botones\medicos.png" />
+    <Resource Include="Source\botones\obrasSociales.png" />
+    <Resource Include="Source\botones\pacientes.png" />
+    <Resource Include="Source\botones\pagos.png" />
+    <Resource Include="Source\botones\reportes.png" />
+    <Resource Include="Source\botones\tarjetas.png" />
+    <Resource Include="Source\botones\turnos.png" />
+    <Resource Include="Source\botones\usuarios.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
