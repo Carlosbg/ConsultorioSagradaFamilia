@@ -518,5 +518,20 @@
     <Resource Include="Source\botones\turnos.png" />
     <Resource Include="Source\botones\usuarios.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\botones\bancos_light.png" />
+    <Resource Include="Source\botones\cerrarSesion_light.png" />
+    <Resource Include="Source\botones\especialidades_light.png" />
+    <Resource Include="Source\botones\formas de pago_light.png" />
+    <Resource Include="Source\botones\historiaClinica_light.png" />
+    <Resource Include="Source\botones\medicos_light.png" />
+    <Resource Include="Source\botones\obrasSociales_light.png" />
+    <Resource Include="Source\botones\pacientes_light.png" />
+    <Resource Include="Source\botones\pagos_light.png" />
+    <Resource Include="Source\botones\reportes_light.png" />
+    <Resource Include="Source\botones\tarjetas_light.png" />
+    <Resource Include="Source\botones\turnos_light.png" />
+    <Resource Include="Source\botones\usuarios_light.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
