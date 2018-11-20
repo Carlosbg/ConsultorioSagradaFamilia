@@ -9,24 +9,72 @@
     <Grid>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="294" Source="/SagradaFamilia3.0;component/Source/Logo.png"/>
         <Grid x:Name="SideBar" HorizontalAlignment="Left" Margin="0,102,0,0" Width="294" Background="White">
-            <Button x:Name="Btn_Pacientes" Content="Pacientes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,40,0,0" Click="Btn_Pacientes_Click"/>
-            <Button x:Name="Btn_Turnos" Content="Turnos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,80,0,0" Click="Btn_Turnos_Click"/>
-            <Button x:Name="Btn_ObrasSociales" Content="Obras Sociales" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,159,0,0" Click="Btn_ObrasSociales_Click"/>
-            <Button x:Name="Btn_Pagos" Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,119,0,0" Click="Btn_Pagos_Click"/>
-            <Button x:Name="Btn_Especialidades" Content="Especialidades" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,199,0,0" Click="Btn_Especialidades_Click"/>
-            <Button x:Name="Btn_FormasPago" Content="Formas de Pago" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,239,0,0" Click="Btn_FormasPago_Click"/>
-            <Button x:Name="Btn_Bancos" Content="Bancos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,279,0,0" Click="Btn_Bancos_Click"/>
-            <Button x:Name="Btn_Medicos" Content="Médicos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Click="Btn_Medicos_Click"/>
-            <Button x:Name="Btn_HistoriaClinica" Content="Historia Clínica" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,319,0,0" Click="Btn_HistoriaClinica_Click"/>
-            <Button x:Name="Btn_Usuarios" Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,359,0,0" Click="Btn_Usuarios_Click"/>
-            <Button x:Name="Btn_Tarjeta" Content="Tarjetas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="40" Margin="0,399,0,0" Click="Btn_Tarjetas_Click"/>
+            <Button x:Name="Btn_Pacientes" Foreground="White" Content="Pacientes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,65,0,0" Click="Btn_Pacientes_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/pacientes.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Turnos" Foreground="White" Content="Turnos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,120,0,0" Click="Btn_Turnos_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/turnos.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_ObrasSociales" Foreground="White" Content="Obras Sociales" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,230,0,0" Click="Btn_ObrasSociales_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/obrasSociales.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Pagos" Foreground="White" Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,175,0,0" Click="Btn_Pagos_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/pagos.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Especialidades" Foreground="White" Content="Especialidades" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,285,0,0" Click="Btn_Especialidades_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/especialidades.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_FormasPago" Foreground="White" Content="Formas de Pago" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,340,0,0" Click="Btn_FormasPago_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/formas de pago.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Bancos" Foreground="White" Content="Bancos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,395,0,0" Click="Btn_Bancos_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/bancos.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Medicos" Foreground="White" Content="Médicos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Click="Btn_Medicos_Click" Margin="0,10,0,0" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/medicos.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_HistoriaClinica" Foreground="White" Content="Historia Clínica" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,450,0,0" Click="Btn_HistoriaClinica_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/historiaClinica.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Usuarios" Foreground="White" Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,505,0,0" Click="Btn_Usuarios_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/usuarios.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Btn_Tarjeta" Foreground="White" Content="Tarjetas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,560,0,0" Click="Btn_Tarjetas_Click" FontWeight="Bold" FontFamily="Microsoft YaHei">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/tarjetas.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
         </Grid>
         <Grid x:Name="TopBar" Height="102" Margin="294,0,0,0" VerticalAlignment="Top" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="511*"/>
                 <ColumnDefinition Width="632*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="Btn_CerrarSesion" BorderBrush="OrangeRed" BorderThickness="3px" Background="Red" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Cerrar Sesión" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,40.4,0" VerticalAlignment="Top" Width="122" Height="44" FontFamily="Microsoft JhengHei" FontWeight="Bold" Click="Btn_CerrarSesion_Click"/>
+            <Button Name="Btn_CerrarSesion" Foreground="White"  HorizontalContentAlignment="Center" Content="Cerrar Sesión" Grid.Column="1" HorizontalAlignment="Right" Margin="0,24.667,19.733,0" VerticalAlignment="Top" Width="172.667" Height="60" FontFamily="Microsoft YaHei" Click="Btn_CerrarSesion_Click" FontWeight="Bold">
+                <Button.Background>
+                    <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/cerrarSesion.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
         </Grid>
         <Frame x:Name="Body" Content="&#xD;&#xA;" HorizontalAlignment="Left" Height="659" Margin="294,107,0,0" VerticalAlignment="Top" Width="1142" NavigationUIVisibility="Hidden"/>
     </Grid>
