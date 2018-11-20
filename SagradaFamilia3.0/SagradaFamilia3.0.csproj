@@ -505,7 +505,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\botones\bancos.png" />
-    <Resource Include="Source\botones\cerrarSesion.png" />
     <Resource Include="Source\botones\especialidades.png" />
     <Resource Include="Source\botones\formas de pago.png" />
     <Resource Include="Source\botones\historiaClinica.png" />
@@ -520,7 +519,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\botones\bancos_light.png" />
-    <Resource Include="Source\botones\cerrarSesion_light.png" />
     <Resource Include="Source\botones\especialidades_light.png" />
     <Resource Include="Source\botones\formas de pago_light.png" />
     <Resource Include="Source\botones\historiaClinica_light.png" />
@@ -532,6 +530,9 @@
     <Resource Include="Source\botones\tarjetas_light.png" />
     <Resource Include="Source\botones\turnos_light.png" />
     <Resource Include="Source\botones\usuarios_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\botones\cerrarSesion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

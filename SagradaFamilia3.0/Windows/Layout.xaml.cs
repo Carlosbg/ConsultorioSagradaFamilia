@@ -111,5 +111,141 @@ namespace SagradaFamilia3._0.Views
             main.Focus();
             this.Close();
         }
+
+        private void Btn_Medicos_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Medicos.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_Medicos_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Medicos.Foreground = Brushes.White;
+        }
+
+        private void Btn_Pacientes_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Pacientes.Foreground = Brushes.Blue;
+
+        }
+
+        private void Btn_Pacientes_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Pacientes.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Turnos_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Turnos.Foreground = Brushes.Blue;
+
+        }
+
+        private void Btn_Turnos_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Turnos.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Pagos_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Pagos.Foreground = Brushes.Blue;
+
+        }
+
+        private void Btn_Pagos_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Pagos.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_ObrasSociales_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_ObrasSociales.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_ObrasSociales_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_ObrasSociales.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Especialidades_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Especialidades.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_Especialidades_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Especialidades.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_FormasPago_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_FormasPago.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_FormasPago_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_FormasPago.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Bancos_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Bancos.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_Bancos_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Bancos.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_HistoriaClinica_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_HistoriaClinica.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_HistoriaClinica_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_HistoriaClinica.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Usuarios_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Usuarios.Foreground = Brushes.Blue;
+        }
+
+        private void Btn_Usuarios_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Usuarios.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_Tarjeta_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Tarjeta.Foreground = Brushes.Blue;
+
+        }
+
+        private void Btn_Tarjeta_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Tarjeta.Foreground = Brushes.White;
+
+        }
+
+        private void Btn_CerrarSesion_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_CerrarSesion.Foreground = Brushes.Yellow;
+
+        }
+
+        private void Btn_CerrarSesion_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_CerrarSesion.Foreground = Brushes.White;
+
+        }
     }
 }
