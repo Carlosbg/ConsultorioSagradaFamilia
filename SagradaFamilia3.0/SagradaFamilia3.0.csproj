@@ -534,5 +534,11 @@
   <ItemGroup>
     <Resource Include="Source\botones\cerrarSesion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\botones\iniciarSesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\fondo xl.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -112,6 +112,11 @@ namespace SagradaFamilia3._0.Views
             this.Close();
         }
 
+        private void Btn_Reportes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Btn_Medicos_MouseEnter(object sender, MouseEventArgs e)
         {
             Btn_Medicos.Foreground = Brushes.Blue;
@@ -236,6 +241,19 @@ namespace SagradaFamilia3._0.Views
 
         }
 
+        private void Btn_Reportes_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_Reportes.Foreground = Brushes.Blue;
+
+        }
+
+        private void Btn_Reportes_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Btn_Reportes.Foreground = Brushes.White;
+        }
+
+
+
         private void Btn_CerrarSesion_MouseEnter(object sender, MouseEventArgs e)
         {
             Btn_CerrarSesion.Foreground = Brushes.Yellow;
@@ -247,5 +265,9 @@ namespace SagradaFamilia3._0.Views
             Btn_CerrarSesion.Foreground = Brushes.White;
 
         }
+
+
+
+        
     }
 }
