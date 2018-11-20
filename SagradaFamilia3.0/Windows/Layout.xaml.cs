@@ -1,6 +1,7 @@
 ﻿using SagradaFamilia3._0.Views.Pages;
 using SagradaFamilia3._0.Windows.Views;
 using SagradaFamilia3._0.Windows.Views.HistoriaClinica;
+using SagradaFamilia3._0.Windows.Views.Reportes;
 using SagradaFamilia3._0.Windows.Views.Tarjeta;
 using SagradaFamilia3._0.Windows.Views.Usuario;
 using System;
@@ -104,17 +105,18 @@ namespace SagradaFamilia3._0.Views
             Body.Navigate(tarjetaIndex);
         }
 
+        private void Btn_Reportes_Click(object sender, RoutedEventArgs e)
+        {
+            ReportesIndex reportesIndex = new ReportesIndex();
+            Body.Navigate(reportesIndex);
+        }
+
         private void Btn_CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
             main.Show();
             main.Focus();
             this.Close();
-        }
-
-        private void Btn_Reportes_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Btn_Medicos_MouseEnter(object sender, MouseEventArgs e)

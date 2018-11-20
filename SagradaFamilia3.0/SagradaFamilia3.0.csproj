@@ -232,6 +232,9 @@
     <Compile Include="Windows\Views\Pagos.xaml.cs">
       <DependentUpon>Pagos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Views\Reportes\ReportesIndex.xaml.cs">
+      <DependentUpon>ReportesIndex.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Views\Tarjeta\CrearTarjeta.xaml.cs">
       <DependentUpon>CrearTarjeta.xaml</DependentUpon>
     </Compile>
@@ -358,6 +361,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Views\Pagos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Reportes\ReportesIndex.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -540,5 +547,14 @@
   <ItemGroup>
     <Resource Include="Source\fondo xl.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+  	<EmbeddedResource Include="Windows\Views\Reportes\Ganancias.html" />
+    <EmbeddedResource Include="Windows\Views\Reportes\Header.html" />
+    <EmbeddedResource Include="Windows\Views\Reportes\Body.html" />
+  </ItemGroup>    
+  <ItemGroup>
+    <Content Include="wkhtmltopdf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+ </ItemGroup>  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

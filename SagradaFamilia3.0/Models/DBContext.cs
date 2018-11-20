@@ -28,6 +28,42 @@ namespace SagradaFamilia3._0.Models
             };
         }
 
+        public ConsultorioSagradaFamilia.Models.Medico GetMedicoById(int idMedico)
+        {
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from Medico where IdMedico = " + idMedico );
+
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+
+            ConsultorioSagradaFamilia.Models.Medico medico = new ConsultorioSagradaFamilia.Models.Medico();
+
+            while (reader.Read())
+            {
+                medico = new ConsultorioSagradaFamilia.Models.Medico
+                {
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Apellido = reader["Apellido"].ToString(),
+                    CUIL = reader["CUIL"].ToString(),
+                    DNI = int.Parse(reader["DNI"].ToString()),
+                    Matricula = int.Parse(reader["Matricula"].ToString()),
+                    Monto = decimal.Parse(reader["Monto"].ToString()),
+                    Domicilio = reader["Domicilio"].ToString(),
+                    FechaNacimiento = (DateTime)reader["FechaNacimiento"],
+                    Mail = reader["Mail"].ToString(),
+                    Telefono = int.Parse(reader["Telefono"].ToString()),
+                    Habilitado = bool.Parse(reader["Habilitado"].ToString())
+                };
+            }
+
+            connection.Close();
+
+            return medico;
+        }
+
         public int GetMedicoIdByMail(string mail)
         {
             connection.Open();
@@ -384,6 +420,44 @@ namespace SagradaFamilia3._0.Models
             connection.Open();
 
             SqlCommand cmd = new SqlCommand("Select * from PagosPorFormaPago");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<PagosPorFormaPago> pagos = new List<PagosPorFormaPago>();
+
+            while (reader.Read())
+            {
+                PagosPorFormaPago pago = new PagosPorFormaPago
+                {
+                    IdFormaPago = int.Parse(reader["IdFormaPago"].ToString()),
+                    IdObraSocial = ToNullableInt(reader["IdObraSocial"].ToString()),
+                    Monto = decimal.Parse(reader["Monto"].ToString()),
+                    Fecha = DateTime.Parse(reader["Fecha"].ToString()),
+                    FormaPago = reader["FormaPago"].ToString(),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    NombreMedico = reader["NombreMedico"].ToString(),
+                    NombreObraSocial = reader["NombreObraSocial"].ToString(),
+                    NombrePaciente = reader["NombrePaciente"].ToString()
+                };
+
+                pagos.Add(pago);
+            }
+
+            connection.Close();
+
+            return pagos;
+        }
+
+        public List<PagosPorFormaPago> GetPagosByMedicoByFecha(int idMedico, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("Select * from PagosPorFormaPago " +
+                                            "Where IdMedico=" + idMedico + " and " +
+                                            "Fecha >= '" + fechaDesde.Year + "-" + fechaDesde.Month + "-" + fechaDesde.Day + "' and " +
+                                            "Fecha <= '" + fechaHasta.Year + "-" + fechaHasta.Month + "-" + fechaHasta.Day + "'");
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
 
