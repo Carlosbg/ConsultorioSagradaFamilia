@@ -6,9 +6,15 @@
         xmlns:local="clr-namespace:SagradaFamilia3._0.Views"
         mc:Ignorable="d"
         Title="Layout" Height="796.75" Width="1443.5" Initialized="Main_Initialized" WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/fondo xl.png"/>
+    </Window.Background>
     <Grid>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="294" Source="/SagradaFamilia3.0;component/Source/Logo.png"/>
-        <Grid x:Name="SideBar" HorizontalAlignment="Left" Margin="0,102,0,0" Width="294" Background="White">
+        <Grid x:Name="SideBar" HorizontalAlignment="Left" Margin="0,102,0,0" Width="294">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Button x:Name="Btn_Pacientes" Foreground="White" Content="Pacientes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="294" Height="50" Margin="0,55,0,0" Click="Btn_Pacientes_Click" FontWeight="Bold" FontFamily="Microsoft YaHei" MouseEnter="Btn_Pacientes_MouseEnter" MouseLeave="Btn_Pacientes_MouseLeave">
                 <Button.Background>
                     <ImageBrush ImageSource="/SagradaFamilia3.0;component/Source/botones/pacientes.png" Stretch="UniformToFill"/>
@@ -70,7 +76,10 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="TopBar" Height="102" Margin="294,0,0,0" VerticalAlignment="Top" Background="White">
+        <Grid x:Name="TopBar" Height="102" Margin="294,0,0,0" VerticalAlignment="Top">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="511*"/>
                 <ColumnDefinition Width="632*"/>
