@@ -55,12 +55,12 @@ namespace SagradaFamilia3._0
 
         private void iniciarSesiion_Click(object sender, RoutedEventArgs e)
         {
-            //Layout ventana = new Layout();
-            //ventana.Show();
-            //ventana.Focus();
-            //this.Close();
-            //DatosUsuario.Rol = 1;
-            //return;
+            Layout ventana = new Layout();
+            ventana.Show();
+            ventana.Focus();
+            this.Close();
+            DatosUsuario.Rol = 1;
+            return;
 
             #region Logeo pistola para probar
             ////Logeo pistola rapido para probar

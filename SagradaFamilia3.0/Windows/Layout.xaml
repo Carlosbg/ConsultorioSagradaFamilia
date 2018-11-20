@@ -26,6 +26,7 @@
                 <ColumnDefinition Width="511*"/>
                 <ColumnDefinition Width="632*"/>
             </Grid.ColumnDefinitions>
+            <Button Name="Btn_CerrarSesion" BorderBrush="OrangeRed" BorderThickness="3px" Background="Red" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Cerrar Sesión" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,40.4,0" VerticalAlignment="Top" Width="122" Height="44" FontFamily="Microsoft JhengHei" FontWeight="Bold" Click="Btn_CerrarSesion_Click"/>
         </Grid>
         <Frame x:Name="Body" Content="&#xD;&#xA;" HorizontalAlignment="Left" Height="659" Margin="294,107,0,0" VerticalAlignment="Top" Width="1142" NavigationUIVisibility="Hidden"/>
     </Grid>

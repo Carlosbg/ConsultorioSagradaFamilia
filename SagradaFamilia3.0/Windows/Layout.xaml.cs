@@ -103,5 +103,13 @@ namespace SagradaFamilia3._0.Views
             TarjetaIndex tarjetaIndex = new TarjetaIndex();
             Body.Navigate(tarjetaIndex);
         }
+
+        private void Btn_CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            main.Focus();
+            this.Close();
+        }
     }
 }
