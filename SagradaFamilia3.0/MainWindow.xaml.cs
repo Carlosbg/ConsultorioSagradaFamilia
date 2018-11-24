@@ -115,7 +115,7 @@ namespace SagradaFamilia3._0
             // execute the request
             IRestResponse response = client.Execute(request);
             var content = response.Content; // raw content as string
-
+            
             dynamic stuff = JObject.Parse(content);
 
             if (stuff.error == null)

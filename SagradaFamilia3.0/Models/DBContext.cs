@@ -334,6 +334,45 @@ namespace SagradaFamilia3._0.Models
             return pacientes;
         }
 
+        public List<TurnosPorPaciente> GetPacientesEnEspera(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("Select * from TurnosPorPaciente Where Atendido=0 and " +
+                                            "Fecha >= '" + fechaDesde.Year + "-" + fechaDesde.Month + "-" + fechaDesde.Day + "' and " +
+                                            "Fecha <= '" + fechaHasta.Year + "-" + fechaHasta.Month + "-" + fechaHasta.Day + "'");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<TurnosPorPaciente> turnos = new List<TurnosPorPaciente>();
+
+            while (reader.Read())
+            {
+                TurnosPorPaciente turno = new TurnosPorPaciente
+                {
+                    IdTurno = int.Parse(reader["IdTurno"].ToString()),
+                    Atendido = bool.Parse(reader["Atendido"].ToString()),
+                    Fecha = DateTime.Parse(reader["Fecha"].ToString()),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    CUILMedico = reader["CUILMedico"].ToString(),
+                    DNIMedico = int.Parse(reader["DNIMedico"].ToString()),
+                    FechaString = reader["FechaString"].ToString(),
+                    HoraString = reader["HoraString"].ToString(),
+                    MatriculaMedico = int.Parse(reader["MatriculaMedico"].ToString()),
+                    NombreMedico = reader["NombreMedico"].ToString(),
+                    NombrePaciente = reader["NombrePaciente"].ToString()
+                };
+
+                turnos.Add(turno);
+            }
+
+            connection.Close();
+
+            return turnos;
+        }
+
         public List<TurnosPorPaciente> GetTurnos()
         {
             connection.Open();
@@ -371,6 +410,46 @@ namespace SagradaFamilia3._0.Models
             return turnos;
         }
 
+        public List<TurnosPorPaciente> GetTurnosByMedicoByFecha(int idMedico, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("Select * from TurnosPorPaciente " +
+                                            "Where IdMedico=" + idMedico + " and " +
+                                            "Fecha >= '" + fechaDesde.Year + "-" + fechaDesde.Month + "-" + fechaDesde.Day + "' and " +
+                                            "Fecha <= '" + fechaHasta.Year + "-" + fechaHasta.Month + "-" + fechaHasta.Day + "'");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<TurnosPorPaciente> turnos = new List<TurnosPorPaciente>();
+
+            while (reader.Read())
+            {
+                TurnosPorPaciente turno = new TurnosPorPaciente
+                {
+                    IdTurno = int.Parse(reader["IdTurno"].ToString()),
+                    Atendido = bool.Parse(reader["Atendido"].ToString()),
+                    Fecha = DateTime.Parse(reader["Fecha"].ToString()),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    CUILMedico = reader["CUILMedico"].ToString(),
+                    DNIMedico = int.Parse(reader["DNIMedico"].ToString()),
+                    FechaString = reader["FechaString"].ToString(),
+                    HoraString = reader["HoraString"].ToString(),
+                    MatriculaMedico = int.Parse(reader["MatriculaMedico"].ToString()),
+                    NombreMedico = reader["NombreMedico"].ToString(),
+                    NombrePaciente = reader["NombrePaciente"].ToString()
+                };
+
+                turnos.Add(turno);
+            }
+
+            connection.Close();
+
+            return turnos;
+        }
+       
         public StatusMessage GuardarPago(Pago pago)
         {
             StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "Pago creado" };
@@ -488,6 +567,43 @@ namespace SagradaFamilia3._0.Models
             return pagos;
         }
 
+        public List<PagosPorFormaPago> GetPagosByFecha(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("Select * from PagosPorFormaPago " +
+                                            "Where Fecha >= '" + fechaDesde.Year + "-" + fechaDesde.Month + "-" + fechaDesde.Day + "' and " +
+                                            "Fecha <= '" + fechaHasta.Year + "-" + fechaHasta.Month + "-" + fechaHasta.Day + "'");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<PagosPorFormaPago> pagos = new List<PagosPorFormaPago>();
+
+            while (reader.Read())
+            {
+                PagosPorFormaPago pago = new PagosPorFormaPago
+                {
+                    IdFormaPago = int.Parse(reader["IdFormaPago"].ToString()),
+                    IdObraSocial = ToNullableInt(reader["IdObraSocial"].ToString()),
+                    Monto = decimal.Parse(reader["Monto"].ToString()),
+                    Fecha = DateTime.Parse(reader["Fecha"].ToString()),
+                    FormaPago = reader["FormaPago"].ToString(),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    NombreMedico = reader["NombreMedico"].ToString(),
+                    NombreObraSocial = reader["NombreObraSocial"].ToString(),
+                    NombrePaciente = reader["NombrePaciente"].ToString()
+                };
+
+                pagos.Add(pago);
+            }
+
+            connection.Close();
+
+            return pagos;
+        }
+
         public static int? ToNullableInt(string s)
         {
             if (int.TryParse(s, out int i)) return i;
@@ -499,6 +615,34 @@ namespace SagradaFamilia3._0.Models
             connection.Open();
 
             SqlCommand cmd = new SqlCommand("Select * from ObraSocial");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<ObraSocial> obrasSociales = new List<ObraSocial>();
+
+            while (reader.Read())
+            {
+                ObraSocial obraSocial = new ObraSocial
+                {
+                    IdObraSocial = int.Parse(reader["IdObraSocial"].ToString()),
+                    Nombre = reader["Nombre"].ToString(),
+                    Habilitada = bool.Parse(reader["Habilitada"].ToString())
+                };
+
+                obrasSociales.Add(obraSocial);
+            }
+
+            connection.Close();
+
+            return obrasSociales;
+        }
+
+        public List<ObraSocial> GetObrasSocialesHabilitadas(int habilitada)
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("Select * from ObraSocial where Habilitada=" + habilitada);
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
 

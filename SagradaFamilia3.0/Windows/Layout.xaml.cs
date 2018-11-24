@@ -31,6 +31,32 @@ namespace SagradaFamilia3._0.Views
         {
             InitializeComponent();
             Frame = Body;
+
+            if(DatosUsuario.Rol == (int)Roles.Medico)
+            {
+                Btn_Medicos.Visibility = Visibility.Hidden;
+                Btn_Pacientes.Visibility = Visibility.Hidden;
+                Btn_Turnos.Visibility = Visibility.Hidden;
+                Btn_Pagos.Visibility = Visibility.Hidden;
+                Btn_ObrasSociales.Visibility = Visibility.Hidden;
+                Btn_Especialidades.Visibility = Visibility.Hidden;
+                Btn_FormasPago.Visibility = Visibility.Hidden;
+                Btn_Bancos.Visibility = Visibility.Hidden;
+                Btn_Usuarios.Visibility = Visibility.Hidden;
+                Btn_Tarjeta.Visibility = Visibility.Hidden;
+            }
+            if(DatosUsuario.Rol == (int)Roles.Secretario)
+            {
+                Btn_Medicos.Visibility = Visibility.Hidden;
+                Btn_Pacientes.Visibility = Visibility.Hidden;
+                Btn_ObrasSociales.Visibility = Visibility.Hidden;
+                Btn_Especialidades.Visibility = Visibility.Hidden;
+                Btn_FormasPago.Visibility = Visibility.Hidden;
+                Btn_Bancos.Visibility = Visibility.Hidden;
+                Btn_Usuarios.Visibility = Visibility.Hidden;
+                Btn_Tarjeta.Visibility = Visibility.Hidden;
+                Btn_HistoriaClinica.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Main_Initialized(object sender, EventArgs e)

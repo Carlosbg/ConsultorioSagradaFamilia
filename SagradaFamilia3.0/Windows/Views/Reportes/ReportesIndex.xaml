@@ -13,7 +13,13 @@
         <DatePicker Name="FechaHasta" HorizontalAlignment="Left" Margin="361,35,0,0" VerticalAlignment="Top" Width="173"/>
         <Label Content="Fecha Desde" HorizontalAlignment="Left" Margin="26,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,0.326" Width="79"/>
         <Label Content="Fecha Hasta" HorizontalAlignment="Left" Margin="277,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,0.326" Width="79"/>
-        <Button Name="Ganancias" Content="Ganancias" HorizontalAlignment="Left" Margin="26,100,0,0" VerticalAlignment="Top" Width="197" Click="Ganancias_Click"/>
-
+        <Button Name="Ganancias" Content="Ganancias" HorizontalAlignment="Left" Margin="26,128,0,0" VerticalAlignment="Top" Width="197" Click="Ganancias_Click"/>
+        <Button x:Name="ObrasSocialesHabilitadas" Content="Obras Sociales Habilitadas" HorizontalAlignment="Left" Margin="26,173,0,0" VerticalAlignment="Top" Width="197" Click="ObrasSocialesHabilitadas_Click"/>
+        <Button x:Name="ObrasSocialesDeshabilitadas" Content="Obras Sociales deshabilitadas" HorizontalAlignment="Left" Margin="26,218,0,0" VerticalAlignment="Top" Width="197" Click="ObrasSocialesDeshabilitadas_Click"/>
+        <ComboBox Name="MedicosCombobox" HorizontalAlignment="Left" Margin="110,78,0,0" VerticalAlignment="Top" Width="162"/>
+        <Label Name="MedicoLabel" Content="Médico" HorizontalAlignment="Left" Margin="26,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,0.326" Width="79"/>
+        <Button x:Name="TurnosPorMedico" Content="Turnos Por Médico" HorizontalAlignment="Left" Margin="26,260,0,0" VerticalAlignment="Top" Width="197" Click="TurnosPorMedico_Click"/>
+        <Button x:Name="PacientesEnEspera" Content="Pacientes En Espera" HorizontalAlignment="Left" Margin="26,303,0,0" VerticalAlignment="Top" Width="197" Click="PacientesEnEspera_Click"/>
+        <Button x:Name="GananciasGenerales" Content="Ganancias Generales" HorizontalAlignment="Left" Margin="236,128,0,0" VerticalAlignment="Top" Width="197" Click="GananciasGenerales_Click"/>
     </Grid>
 </Page>
