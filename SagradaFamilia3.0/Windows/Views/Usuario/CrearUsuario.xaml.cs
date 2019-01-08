@@ -35,6 +35,16 @@ namespace SagradaFamilia3._0.Windows.Views.Usuario
             RolesGrid.ItemsSource = roles;
             RolesGrid.IsReadOnly = true;
             RolesGrid.SelectionMode = DataGridSelectionMode.Extended;
+
+            IList<ConsultorioSagradaFamilia.Models.Paciente> pacientes = DbContextSingleton.dbContext.GetPacientes();
+            List<string> pacienteMails = new List<string>();
+
+            foreach(var paciente in pacientes)
+            {
+                pacienteMails.Add(paciente.Email);
+            }
+
+            MailPacientesCombobox.ItemsSource = pacienteMails;
         }
 
         private void ButtonCrear_Click(object sender, RoutedEventArgs e)
@@ -47,7 +57,7 @@ namespace SagradaFamilia3._0.Windows.Views.Usuario
 
             ConsultorioSagradaFamilia.Models.Usuario usuario = new ConsultorioSagradaFamilia.Models.Usuario
             {
-                Email = Email.Text,
+                Email = MailPacientesCombobox.SelectedIndex != -1 ? (string)MailPacientesCombobox.SelectedValue : Email.Text,
                 Password = Contraseña.Password
             };
 
@@ -66,6 +76,25 @@ namespace SagradaFamilia3._0.Windows.Views.Usuario
             foreach (var rolVar in roles)
             {
                 Rol rol = (Rol)rolVar;
+
+                if(rol.Nombre == "Paciente")
+                {
+                    if (!EsPaciente.IsChecked.GetValueOrDefault() || MailPacientesCombobox.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("No se puede seleccionar como Rol 'Paciente' si no esta indicado un mail de un paciente válido.");
+                        return;
+                    }
+                }
+                else
+                {
+                    if(EsPaciente.IsChecked.GetValueOrDefault() || MailPacientesCombobox.SelectedIndex != -1)
+                    {
+                        MessageBox.Show("No se puede seleccionar otro rol además de 'Paciente' si se indico que el usuario a crear es un paciente.");
+                        return;
+                    }
+                }
+                
+
                 body = body + "&Roles[" + contador + "]=" + rol.Nombre;
                 contador++;
             }
@@ -80,7 +109,7 @@ namespace SagradaFamilia3._0.Windows.Views.Usuario
             {
                 dynamic stuff = JObject.Parse(content);
 
-                if (stuff.Message.ToString() == "The request is invalid.")
+                if (stuff.Message.ToString() == "La solicitud no es válida.")
                 {
                     foreach (var error in stuff.ModelState)
                     {
@@ -112,6 +141,22 @@ namespace SagradaFamilia3._0.Windows.Views.Usuario
         {
             IndexUsuario indexUsuario = new IndexUsuario();
             Layout.Frame.Navigate(indexUsuario);
+        }
+
+        private void EsPaciente_Checked(object sender, RoutedEventArgs e)
+        {
+            Email.Text = "";
+            Email.IsEnabled = false;
+
+            MailPacientesCombobox.IsEnabled = true;
+        }
+
+        private void EsPaciente_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MailPacientesCombobox.SelectedIndex = -1;
+            MailPacientesCombobox.IsEnabled = false;
+
+            Email.IsEnabled = true;
         }
     }
 }

@@ -241,9 +241,9 @@ namespace SagradaFamilia3._0.Models
             connection.Open();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Paciente]" +
-            "([DNI],[Nombre],[Apellido],[FechaNacimiento],[Direccion])" +
+            "([DNI],[Nombre],[Apellido],[FechaNacimiento],[Direccion],[Email])" +
             "VALUES (" + paciente.DNI + ",'" + paciente.Nombre + "','" + paciente.Apellido + "','" + paciente.FechaNacimiento.Year + "-" + paciente.FechaNacimiento.Month + "-" + 
-            paciente.FechaNacimiento.Day + "','" + paciente.Direccion + "')");
+            paciente.FechaNacimiento.Day + "','" + paciente.Direccion + "','"+ paciente.Email +")");
 
             try
             {
@@ -270,7 +270,7 @@ namespace SagradaFamilia3._0.Models
 
             SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Paciente] SET " +
             "[DNI] = " + paciente.DNI + ",[Nombre] = '" + paciente.Nombre + "',[Apellido] = '" + paciente.Apellido + "',[FechaNacimiento] = '" + 
-            paciente.FechaNacimiento.Year + "-" + paciente.FechaNacimiento.Month + "-" + paciente.FechaNacimiento.Day +
+            paciente.FechaNacimiento.Year + "-" + paciente.FechaNacimiento.Month + "-" + paciente.FechaNacimiento.Day + "',[Email]='" + paciente.Email +
             "' WHERE [IdPaciente] = " + paciente.IdPaciente);
 
             try
@@ -323,7 +323,8 @@ namespace SagradaFamilia3._0.Models
                     Apellido = reader["Apellido"].ToString(),
                     DNI = int.Parse(reader["DNI"].ToString()),
                     Direccion = reader["Direccion"].ToString(),
-                    FechaNacimiento = DateTime.Parse(reader["FechaNacimiento"].ToString())
+                    FechaNacimiento = DateTime.Parse(reader["FechaNacimiento"].ToString()),
+                    Email = reader["Email"].ToString()
                 };
 
                 pacientes.Add(paciente);

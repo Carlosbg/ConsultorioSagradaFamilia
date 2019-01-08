@@ -317,14 +317,7 @@ namespace SagradaFamilia3._0.Windows.Views.Reportes
 
         private void GananciasGenerales_Click(object sender, RoutedEventArgs e)
         {
-            if (!Validar()) return;
-
-            if (DatosUsuario.IdUsuario == 0)
-            {
-                MessageBox.Show("No se esta logueado como médico");
-                return;
-            }
-
+            if (!Validar()) return;            
 
             List<PagosPorFormaPago> pagos = DbContextSingleton.dbContext.GetPagosByFecha(FechaDesde.SelectedDate.GetValueOrDefault(), FechaHasta.SelectedDate.GetValueOrDefault());
             string content = string.Empty;
@@ -359,6 +352,21 @@ namespace SagradaFamilia3._0.Windows.Views.Reportes
             Process.Start(@".\wkhtmltopdf.exe", tempPath + @"Body.html" + " --header-html " + tempPath + @"Header.html" + " " + filename);
 
             MessageBox.Show("Reporte Creado");
+        }
+
+        private void PacientesPorObraSocial_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TurnosDiariosPorMedico_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PacientesProximaConsulta_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

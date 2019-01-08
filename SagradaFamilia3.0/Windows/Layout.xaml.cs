@@ -48,7 +48,6 @@ namespace SagradaFamilia3._0.Views
             if(DatosUsuario.Rol == (int)Roles.Secretario)
             {
                 Btn_Medicos.Visibility = Visibility.Hidden;
-                Btn_Pacientes.Visibility = Visibility.Hidden;
                 Btn_ObrasSociales.Visibility = Visibility.Hidden;
                 Btn_Especialidades.Visibility = Visibility.Hidden;
                 Btn_FormasPago.Visibility = Visibility.Hidden;

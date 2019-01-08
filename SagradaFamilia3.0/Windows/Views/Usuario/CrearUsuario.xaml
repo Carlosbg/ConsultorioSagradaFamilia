@@ -11,15 +11,18 @@
 
     <Grid>
 
-        <TextBox HorizontalAlignment="Left" x:Name="Email" Height="14" Margin="190,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="51,12,0,0" VerticalAlignment="Top" Width="121"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="51,52,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="62,338,0,0" VerticalAlignment="Top" Width="75" Click="ButtonVolver_Click"/>
-        <Button Content="Crear" HorizontalAlignment="Left" Margin="318,338,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCrear_Click"/>
-        <PasswordBox Name="Contraseña" HorizontalAlignment="Left" Margin="190,52,0,0" VerticalAlignment="Top" Width="203"/>
-        <Label Content="Confirmación" HorizontalAlignment="Left" Margin="51,96,0,0" VerticalAlignment="Top" Width="121"/>
-        <PasswordBox Name="Confirmacion" HorizontalAlignment="Left" Margin="190,96,0,0" VerticalAlignment="Top" Width="203"/>
-        <DataGrid Name="RolesGrid" HorizontalAlignment="Left" Height="175" Margin="62,138,0,0" VerticalAlignment="Top" Width="331"/>
+        <TextBox HorizontalAlignment="Left" x:Name="Email" Height="14" Margin="193,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="54,73,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="54,113,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="65,399,0,0" VerticalAlignment="Top" Width="75" Click="ButtonVolver_Click"/>
+        <Button Content="Crear" HorizontalAlignment="Left" Margin="321,399,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCrear_Click"/>
+        <PasswordBox Name="Contraseña" HorizontalAlignment="Left" Margin="193,113,0,0" VerticalAlignment="Top" Width="203"/>
+        <Label Content="Confirmación" HorizontalAlignment="Left" Margin="54,157,0,0" VerticalAlignment="Top" Width="121"/>
+        <PasswordBox Name="Confirmacion" HorizontalAlignment="Left" Margin="193,157,0,0" VerticalAlignment="Top" Width="203"/>
+        <DataGrid Name="RolesGrid" HorizontalAlignment="Left" Height="175" Margin="65,199,0,0" VerticalAlignment="Top" Width="331"/>
+        <ComboBox Name="MailPacientesCombobox" HorizontalAlignment="Left" Margin="193,33,0,0" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="54,33,0,0" VerticalAlignment="Top" Width="121"/>
+        <CheckBox Name="EsPaciente" Content="Es Paciente" HorizontalAlignment="Left" Margin="57,10,0,0" VerticalAlignment="Top" Checked="EsPaciente_Checked" Unchecked="EsPaciente_Unchecked"/>
 
     </Grid>
 </Page>

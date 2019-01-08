@@ -18,8 +18,12 @@
         <Button x:Name="ObrasSocialesDeshabilitadas" Content="Obras Sociales deshabilitadas" HorizontalAlignment="Left" Margin="26,218,0,0" VerticalAlignment="Top" Width="197" Click="ObrasSocialesDeshabilitadas_Click"/>
         <ComboBox Name="MedicosCombobox" HorizontalAlignment="Left" Margin="110,78,0,0" VerticalAlignment="Top" Width="162"/>
         <Label Name="MedicoLabel" Content="Médico" HorizontalAlignment="Left" Margin="26,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,0.326" Width="79"/>
-        <Button x:Name="TurnosPorMedico" Content="Turnos Por Médico" HorizontalAlignment="Left" Margin="26,260,0,0" VerticalAlignment="Top" Width="197" Click="TurnosPorMedico_Click"/>
-        <Button x:Name="PacientesEnEspera" Content="Pacientes En Espera" HorizontalAlignment="Left" Margin="26,303,0,0" VerticalAlignment="Top" Width="197" Click="PacientesEnEspera_Click"/>
+        <Button x:Name="TurnosPorMedico" Content="Turnos Por Médico" HorizontalAlignment="Left" Margin="26,261,0,0" VerticalAlignment="Top" Width="197" Click="TurnosPorMedico_Click"/>
+        <Button x:Name="PacientesEnEspera" Content="Pacientes En Espera" HorizontalAlignment="Left" Margin="26,304,0,0" VerticalAlignment="Top" Width="197" Click="PacientesEnEspera_Click"/>
         <Button x:Name="GananciasGenerales" Content="Ganancias Generales" HorizontalAlignment="Left" Margin="236,128,0,0" VerticalAlignment="Top" Width="197" Click="GananciasGenerales_Click"/>
+        <Button x:Name="TurnosDiariosPorMedico" Content="Turnos Diarios por Médico" HorizontalAlignment="Left" Margin="236,218,0,0" VerticalAlignment="Top" Width="197" Click="TurnosDiariosPorMedico_Click"/>
+        <Button x:Name="PacientesProximaConsulta" Content="Pacientes Próxima Consulta" HorizontalAlignment="Left" Margin="236,173,0,0" VerticalAlignment="Top" Width="197" Click="PacientesProximaConsulta_Click"/>
+        <Button x:Name="PacientesPorObraSocial" Content="Pacientes Por Obra Social" HorizontalAlignment="Left" Margin="461,128,0,0" VerticalAlignment="Top" Width="209" Click="PacientesPorObraSocial_Click"/>
+        <Button x:Name="PacientesAtendidos" Content="Pacientes Atendidos" HorizontalAlignment="Left" Margin="461,172,0,0" VerticalAlignment="Top" Width="209" Click="PacientesPorObraSocial_Click"/>
     </Grid>
 </Page>

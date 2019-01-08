@@ -23,6 +23,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public string FechaNacimientoString => FechaNacimiento.Day + "/" + FechaNacimiento.Month + "/" +
                                                FechaNacimiento.Year;
+
+        public string Email { get; set; }
         //public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }       
         //public virtual ICollection<ObraSocialPaciente> ObraSocialPaciente { get; set; }        
         //public virtual ICollection<PacienteMedico> PacienteMedico { get; set; }     

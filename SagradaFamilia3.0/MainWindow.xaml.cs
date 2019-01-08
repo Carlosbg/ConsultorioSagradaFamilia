@@ -26,7 +26,8 @@ namespace SagradaFamilia3._0
         Administrador = 1,
         DirectorMedico = 2,
         Medico = 3,
-        Secretario = 4
+        Secretario = 4,
+        Paciente = 5
     }
 
     public static class DatosUsuario
@@ -124,7 +125,7 @@ namespace SagradaFamilia3._0
 
                 int rolId = DbContextSingleton.dbContext.GetRol(Usuario.Text);
 
-                if (rolId != 0)
+                if (rolId != 0 && rolId != (int)Roles.Paciente)
                 {
                     DatosUsuario.Rol = rolId;
                     DatosUsuario.NombreUsuario = Usuario.Text;
