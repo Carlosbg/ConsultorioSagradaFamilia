@@ -9,9 +9,17 @@
       Title="Pagos">
 
     <Grid>
-        <DataGrid Name="PagosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" SelectionChanged="PagosGrid_SelectionChanged" />
-        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <DataGrid AutoGenerateColumns="False" Name="PagosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" SelectionChanged="PagosGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding FechaString}" Width="*" />
+                <DataGridTextColumn Header="Forma de Pago" Binding="{Binding FormaPago}" Width="*" />
+                <DataGridTextColumn Header="Médico" Binding="{Binding NombreMedico}" Width="*" />
+                <DataGridTextColumn Header="Paciente" Binding="{Binding NombrePaciente}" Width="*" />
+                <DataGridTextColumn Header="Obra Social" Binding="{Binding NombreObraSocial}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
         <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
     </Grid>
 </Page>

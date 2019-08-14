@@ -354,6 +354,7 @@ namespace SagradaFamilia3._0.Windows.Views.Reportes
             MessageBox.Show("Reporte Creado");
         }
 
+        //Sirve tanto para mostrar todos los pacientes como para mostrar los pacientes de un medico en especifico
         private void PacientesPorObraSocial_Click(object sender, RoutedEventArgs e)
         {
 
@@ -365,6 +366,12 @@ namespace SagradaFamilia3._0.Windows.Views.Reportes
         }
 
         private void PacientesProximaConsulta_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Sirve tanto para mostrar todos los pagos como para mostrar los pagos de algun medico en especifico
+        private void PagosPorModalidad_Click(object sender, RoutedEventArgs e)
         {
 
         }

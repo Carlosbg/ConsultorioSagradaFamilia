@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -243,7 +245,7 @@ namespace SagradaFamilia3._0.Models
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Paciente]" +
             "([DNI],[Nombre],[Apellido],[FechaNacimiento],[Direccion],[Email])" +
             "VALUES (" + paciente.DNI + ",'" + paciente.Nombre + "','" + paciente.Apellido + "','" + paciente.FechaNacimiento.Year + "-" + paciente.FechaNacimiento.Month + "-" + 
-            paciente.FechaNacimiento.Day + "','" + paciente.Direccion + "','"+ paciente.Email +")");
+            paciente.FechaNacimiento.Day + "','" + paciente.Direccion + "','"+ paciente.Email +"')");
 
             try
             {
@@ -1667,6 +1669,109 @@ namespace SagradaFamilia3._0.Models
                     statusMessage.Status = 1;
                     statusMessage.Mensaje = e.Message;
                 }
+            }
+
+            connection.Close();
+        }
+
+        public List<SolicitudOrdenView> GetSolicitudesOrden()
+        {
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SolicitudOrdenView");
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+
+            var reader = cmd.ExecuteReader();
+            List<SolicitudOrdenView> solicitudOrdenViews = new List<SolicitudOrdenView>();
+
+            while (reader.Read())
+            {
+                SolicitudOrdenView solicitudOrdenView = new SolicitudOrdenView
+                {
+                    IdSolicitudOrden = int.Parse(reader["IdSolicitudOrden"].ToString()),
+                    IdPaciente = int.Parse(reader["IdPaciente"].ToString()),
+                    IdMedico = int.Parse(reader["IdMedico"].ToString()),
+                    PacienteNombre = reader["PacienteNombre"].ToString(),
+                    MedicoNombre = reader["MedicoNombre"].ToString(),
+                    Mensaje = reader["Mensaje"].ToString(),
+                    Orden = reader["Orden"] != null ? reader["Orden"].ToString() : null
+                };
+
+                solicitudOrdenViews.Add(solicitudOrdenView);
+            }
+
+            connection.Close();
+
+            return solicitudOrdenViews;
+        }
+
+        public void GuardarOrden(int idSolicitudOrden, string orden, int idUsuario)
+        {
+            StatusMessage statusMessage = new StatusMessage { Status = 0, Mensaje = "" };
+            connection.Open();
+
+            SqlCommand cmd2 = new SqlCommand("UPDATE [dbo].[SolicitudOrden]" +
+            " set Orden = '" + orden + 
+            "' where IdSolicitudOrden = " + idSolicitudOrden);
+
+            try
+            {
+                cmd2.Connection = connection;
+                cmd2.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+
+                statusMessage.Status = 1;
+                statusMessage.Mensaje = e.Message;
+            }
+
+            if (statusMessage.Status == 0)
+            {
+                //Obtener el mail del usuario
+
+                SqlCommand cmd = new SqlCommand("SELECT Email FROM Paciente where IdPaciente=" + idUsuario);
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+
+                var reader = cmd.ExecuteReader();
+
+                string email = "";
+
+                while (reader.Read())
+                {
+                    email = reader["Email"].ToString();
+                }
+
+                connection.Close();
+
+                var fromAddress = new MailAddress("carlosbenitezgiuggia@gmail.com", "Consultorio Sagrada Familia");
+                var toAddress = new MailAddress(email, email);
+                const string fromPassword = "37169525a";
+                const string subject = "Orden";
+                string body = orden;
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+
+                return;
             }
 
             connection.Close();

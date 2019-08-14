@@ -9,7 +9,12 @@
       Title="HistoriaClinica">
 
     <Grid Name="HistoriaClinicaView" Initialized="HistoriaClinicaView_Initialized">
-        <DataGrid Name="HistoriaClinicaGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" Name="HistoriaClinicaGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" Width="*" />
+                <DataGridTextColumn Header="Observaciones" Binding="{Binding Observaciones}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <ComboBox Name="PacientesCombobox" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" Width="378" Height="29" Initialized="PacientesCombobox_Initialized" />
         <Label Content="Paciente" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Height="29"/>
         <Button Content="Ver" HorizontalAlignment="Left" Margin="486,10,0,0" VerticalAlignment="Top" Width="75" Name="ButtonVer" Click="ButtonVer_Click"/>

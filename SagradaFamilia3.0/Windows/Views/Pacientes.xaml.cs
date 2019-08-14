@@ -54,5 +54,16 @@ namespace SagradaFamilia3._0.Windows.Views
 
             Layout.Frame.Navigate(editarPaciente);
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SolicitudesOrdenes_Click(object sender, RoutedEventArgs e)
+        {
+            SolicitudesOrdenes solicitudesOrdenes = new SolicitudesOrdenes();
+            Layout.Frame.Navigate(solicitudesOrdenes);
+        }
     }
 }

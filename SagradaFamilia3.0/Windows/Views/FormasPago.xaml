@@ -9,9 +9,13 @@
       Title="FormasPago">
 
     <Grid>
-        <DataGrid Name="FormasPagoGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
-        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <DataGrid AutoGenerateColumns="False" Name="FormasPagoGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
+        <!--<Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
     </Grid>
 </Page>

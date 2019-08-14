@@ -41,8 +41,15 @@ namespace SagradaFamilia3._0.Windows.Views
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        {            
             TurnosPorPaciente seleccion = (TurnosPorPaciente)TurnosGrid.SelectedItem;
+
+            if (seleccion == null)
+            {
+                MessageBox.Show("Seleccione un Turno");
+                return;
+            }
+
             if (seleccion.Atendido)
             {
                 MessageBox.Show("Este turno no puede ser editado porque ya fue atendido.");

@@ -575,6 +575,12 @@ namespace SagradaFamilia3._0.Windows.Views.Turno
                                  ":" + turno.Fecha.Minute.ToString().PadLeft(2, '0');
 
             List<string> horarios = (List<string>)Hora.ItemsSource;
+
+            if (horarios == null)
+            {
+                horarios = new List<string>();
+            }
+
             horarios.Add(horarioUsado);
             horarios.Sort();
 

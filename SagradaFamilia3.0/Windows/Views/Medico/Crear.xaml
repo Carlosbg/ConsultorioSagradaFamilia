@@ -43,11 +43,19 @@
         <PasswordBox x:Name="Confirmacion" HorizontalAlignment="Left" Margin="478,306,0,0" VerticalAlignment="Top" Width="203"/>
         <Label Content="Especialidades" HorizontalAlignment="Left" Margin="348,19,0,0" VerticalAlignment="Top" Width="91"/>
         <ComboBox x:Name="EspecialidadesCombobox" HorizontalAlignment="Left" Margin="348,57,0,0" VerticalAlignment="Top" Width="197" Height="26" Initialized="EspecialidadesCombobox_Initialized" />
-        <DataGrid CanUserAddRows="False" IsReadOnly="True" Name="EspecialidadesGrid" HorizontalAlignment="Left" Height="150" Margin="348,96,0,0" VerticalAlignment="Top" Width="197"/>
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Name="EspecialidadesGrid" HorizontalAlignment="Left" Height="150" Margin="348,96,0,0" VerticalAlignment="Top" Width="197">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="+" HorizontalAlignment="Left" Margin="444,19,0,0" VerticalAlignment="Top" Width="33" Height="30" Name="AgregarEspecialidad" Click="AgregarEspecialidad_Click"/>
         <Label Content="Obras Sociales" HorizontalAlignment="Left" Margin="561,19,0,0" VerticalAlignment="Top" Width="91"/>
         <ComboBox x:Name="ObrasSocialesCombobox" HorizontalAlignment="Left" Margin="561,57,0,0" VerticalAlignment="Top" Width="197" Height="26" Initialized="ObrasSocialesCombobox_Initialized" />
-        <DataGrid CanUserAddRows="False" IsReadOnly="True" Name="ObrasSocialesGrid" HorizontalAlignment="Left" Height="150" Margin="561,96,0,0" VerticalAlignment="Top" Width="197"/>
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Name="ObrasSocialesGrid" HorizontalAlignment="Left" Height="150" Margin="561,96,0,0" VerticalAlignment="Top" Width="197">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="+" HorizontalAlignment="Left" Margin="657,19,0,0" VerticalAlignment="Top" Width="33" Height="30" Name="AgregarObraSocial" Click="AgregarObraSocial_Click"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="512,19,0,0" VerticalAlignment="Top" Width="33" Height="30" x:Name="BorrarEspecialidad" Click="BorrarEspecialidad_Click"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="725,19,0,0" VerticalAlignment="Top" Width="33" Height="30" x:Name="BorrarObraSocial" Click="BorrarObraSocial_Click"/>

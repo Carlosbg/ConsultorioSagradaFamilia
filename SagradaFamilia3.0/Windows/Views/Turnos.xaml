@@ -9,10 +9,18 @@
       Title="Turnos">
 
     <Grid>
-        <DataGrid Name="TurnosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" Name="TurnosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding FechaString}" Width="*" />
+                <DataGridTextColumn Header="Hora" Binding="{Binding HoraString}" Width="*" />
+                <DataGridTextColumn Header="Paciente" Binding="{Binding NombrePaciente}" Width="*" />
+                <DataGridTextColumn Header="Médico" Binding="{Binding NombreMedico}" Width="*" />
+                <DataGridTextColumn Header="Atendido" Binding="{Binding AtendidoString}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Click_1"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <!--<Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
         <Button Content="Pago" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Pago_Click"/>
     </Grid>
 </Page>

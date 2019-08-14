@@ -9,9 +9,14 @@
       Title="IndexUsuario">
 
     <Grid>
-        <DataGrid x:Name="UsuariosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" x:Name="UsuariosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+                <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Name="Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Nuevo_Click"/>
-        <Button Name="Editar" Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
-        <Button Name="Eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <!--<Button Name="Editar" Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <Button Name="Eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
     </Grid>
 </Page>

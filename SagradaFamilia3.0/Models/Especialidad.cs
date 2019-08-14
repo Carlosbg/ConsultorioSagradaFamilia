@@ -13,6 +13,8 @@ namespace ConsultorioSagradaFamilia.Models
 
         public bool Habilitada { get; set; }
 
+        public string HabilitadString => Habilitada ? "Sí" : "No";
+
         //public virtual ICollection<MedicoEspecialidad> MedicoEspecialidad { get; set; }
     }
 }

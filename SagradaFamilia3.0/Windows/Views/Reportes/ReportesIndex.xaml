@@ -25,5 +25,6 @@
         <Button x:Name="PacientesProximaConsulta" Content="Pacientes Próxima Consulta" HorizontalAlignment="Left" Margin="236,173,0,0" VerticalAlignment="Top" Width="197" Click="PacientesProximaConsulta_Click"/>
         <Button x:Name="PacientesPorObraSocial" Content="Pacientes Por Obra Social" HorizontalAlignment="Left" Margin="461,128,0,0" VerticalAlignment="Top" Width="209" Click="PacientesPorObraSocial_Click"/>
         <Button x:Name="PacientesAtendidos" Content="Pacientes Atendidos" HorizontalAlignment="Left" Margin="461,172,0,0" VerticalAlignment="Top" Width="209" Click="PacientesPorObraSocial_Click"/>
+        <Button x:Name="PagosPorModalidad" Content="Pagos por modalidad" HorizontalAlignment="Left" Margin="236,261,0,0" VerticalAlignment="Top" Width="197" Click="PagosPorModalidad_Click"/>
     </Grid>
 </Page>

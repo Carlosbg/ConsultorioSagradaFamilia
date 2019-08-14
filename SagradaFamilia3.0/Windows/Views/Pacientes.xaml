@@ -9,9 +9,18 @@
       Title="Pacientes">
 
     <Grid>
-        <DataGrid Name="PacientesGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid Name="PacientesGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="DNI" Binding="{Binding DNI}" Width="*" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding ApellidoNombre}" Width="*" />
+                <DataGridTextColumn Header="Fecha Nacimiento" Binding="{Binding FechaNacimientoString}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Click_1"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <Button Content="Solicitudes - Ordenes" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="155" Background="#FF00D1FF" Click="SolicitudesOrdenes_Click"/>
+        <!--<Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
     </Grid>
 </Page>

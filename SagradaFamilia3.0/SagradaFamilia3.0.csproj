@@ -114,6 +114,7 @@
     <Compile Include="CrystalReportViewer.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Banco.cs" />
+    <Compile Include="Models\SolicitudOrden.cs" />
     <Compile Include="Models\PacienteTarjeta.cs" />
     <Compile Include="Models\Tarjeta.cs" />
     <Compile Include="Models\Rol.cs" />
@@ -257,6 +258,12 @@
     <Compile Include="Windows\Views\Paciente\EditarPaciente.xaml.cs">
       <DependentUpon>EditarPaciente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Views\Paciente\RedactarOrden.xaml.cs">
+      <DependentUpon>RedactarOrden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\Paciente\SolicitudesOrdenes.xaml.cs">
+      <DependentUpon>SolicitudesOrdenes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Views\Pagos.xaml.cs">
       <DependentUpon>Pagos.xaml</DependentUpon>
     </Compile>
@@ -385,6 +392,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Views\Paciente\EditarPaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Paciente\RedactarOrden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\Paciente\SolicitudesOrdenes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -586,6 +601,7 @@
     <EmbeddedResource Include="Windows\Views\Reportes\Turnos.html" />
     <EmbeddedResource Include="Windows\Views\Reportes\PacientesEnEspera.html" />
     <EmbeddedResource Include="Windows\Views\Reportes\GananciasGenerales.html" />
+    <EmbeddedResource Include="Windows\Views\Reportes\Factura.html" />
     <Content Include="wkhtmltopdf.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

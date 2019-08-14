@@ -117,6 +117,12 @@ namespace SagradaFamilia3._0.Windows.Views.Paciente
                 return;
             }
 
+            if (Email.Text == "")
+            {
+                MessageBox.Show("Debe indicar un Email");
+                return;
+            }
+
             ConsultorioSagradaFamilia.Models.Paciente paciente = new ConsultorioSagradaFamilia.Models.Paciente
             {
                 Apellido = Apellido.Text,
@@ -124,6 +130,7 @@ namespace SagradaFamilia3._0.Windows.Views.Paciente
                 Direccion = Domicilio.Text,
                 FechaNacimiento = FechaNacimiento.SelectedDate.Value.Date,
                 Nombre = Nombre.Text,
+                Email = Email.Text
             };
 
             StatusMessage statusMessage = DbContextSingleton.dbContext.GuardarPaciente(paciente);

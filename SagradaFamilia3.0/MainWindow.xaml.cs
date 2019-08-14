@@ -76,24 +76,58 @@ namespace SagradaFamilia3._0
             //IRestResponse response = client.Execute(request);
             //var content = response.Content;
 
-            //dynamic stuff = JObject.Parse(content);
+            //dynamic stuff = JObject.Parse(content);           
 
-            //DatosUsuario.Token = stuff.access_token;
-
-            //if (Medic.IsChecked == true)
+            //if (stuff.error == null)
             //{
-            //    Medico ventana = new Medico();
-            //    ventana.Show();
-            //    ventana.Focus();
+            //    DatosUsuario.Token = stuff.access_token;
+
+            //    int rolId = DbContextSingleton.dbContext.GetRol("carlosbenitezgiuggia@gmail.com");
+
+            //    if (rolId != 0 && rolId != (int)Roles.Paciente)
+            //    {
+            //        DatosUsuario.Rol = rolId;
+            //        DatosUsuario.NombreUsuario = "carlosbenitezgiuggia@gmail.com";
+
+            //        if (rolId == (int)Roles.Medico)
+            //        {
+            //            int medicoId = DbContextSingleton.dbContext.GetMedicoIdByMail(Usuario.Text);
+            //            DatosUsuario.IdUsuario = medicoId;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Hubo un problema al identificar el usuario");
+            //        return;
+            //    }
+
+            //    Layout layout = new Layout();
+            //    layout.Show();
+            //    layout.Focus();
             //    this.Close();
             //}
             //else
             //{
-            //    Administrador ventana = new Administrador();
-            //    ventana.Show();
-            //    ventana.Focus();
-            //    this.Close();
+            //    MessageBox.Show("Usuario y/o contraseña inválidos");
             //}
+
+
+
+
+            ////if (Medic.IsChecked == true)
+            ////{
+            ////    Medico ventana = new Medico();
+            ////    ventana.Show();
+            ////    ventana.Focus();
+            ////    this.Close();
+            ////}
+            ////else
+            ////{
+            ////    Administrador ventana = new Administrador();
+            ////    ventana.Show();
+            ////    ventana.Focus();
+            ////    this.Close();
+            ////}
             #endregion
 
             #region Logeo funcional
@@ -116,7 +150,7 @@ namespace SagradaFamilia3._0
             // execute the request
             IRestResponse response = client.Execute(request);
             var content = response.Content; // raw content as string
-            
+
             dynamic stuff = JObject.Parse(content);
 
             if (stuff.error == null)
@@ -129,8 +163,8 @@ namespace SagradaFamilia3._0
                 {
                     DatosUsuario.Rol = rolId;
                     DatosUsuario.NombreUsuario = Usuario.Text;
-                    
-                    if(rolId == (int)Roles.Medico)
+
+                    if (rolId == (int)Roles.Medico)
                     {
                         int medicoId = DbContextSingleton.dbContext.GetMedicoIdByMail(Usuario.Text);
                         DatosUsuario.IdUsuario = medicoId;
@@ -141,7 +175,7 @@ namespace SagradaFamilia3._0
                     MessageBox.Show("Hubo un problema al identificar el usuario");
                     return;
                 }
-           
+
                 Layout layout = new Layout();
                 layout.Show();
                 layout.Focus();

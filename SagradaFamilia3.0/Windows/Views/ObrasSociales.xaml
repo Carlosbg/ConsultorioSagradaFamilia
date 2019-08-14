@@ -9,9 +9,14 @@
       Title="ObrasSociales">
 
     <Grid>
-        <DataGrid Name="ObrasSocialesGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" Name="ObrasSocialesGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                <DataGridTextColumn Header="Habilitada" Binding="{Binding HabilitadaString}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Name="CrearObraSocial" Click="CrearObraSocial_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Name="EditaObraSocial" Click="EditaObraSocial_Click"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <!--<Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
     </Grid>
 </Page>

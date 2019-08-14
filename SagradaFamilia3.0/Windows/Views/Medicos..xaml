@@ -9,7 +9,17 @@
       Title="Medicos">
 
     <Grid>
-        <DataGrid Name="MedicosGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid Name="MedicosGrid" Margin="10,53,0,0" AutoGenerateColumns="False" Height="387" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding ApellidoNombre}" Width="*" />
+                <DataGridTextColumn Header="Cuil" Binding="{Binding CUIL}" Width="*" />
+                <DataGridTextColumn Header="Matrícula" Binding="{Binding Matricula}" Width="*" />
+                <DataGridTextColumn Header="Domicilio" Binding="{Binding Domicilio}" Width="*" />
+                <DataGridTextColumn Header="Mail" Binding="{Binding Mail}" Width="*" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="*" />
+                <DataGridTextColumn Header="Habilitado" Binding="{Binding Habilitado}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="ButtonNuevo_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" Click="Button_Click"/>
     </Grid>

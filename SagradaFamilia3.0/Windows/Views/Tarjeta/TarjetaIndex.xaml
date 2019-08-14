@@ -9,10 +9,15 @@
       Title="TarjetaIndex">
 
     <Grid>
-        <DataGrid x:Name="TarjetasGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" x:Name="TarjetasGrid" Height="387" Margin="10,53,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Numero" Binding="{Binding Numero}" Width="*" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" x:Name="CrearTarjeta" Click="CrearTarjeta_Click"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" x:Name="EditarTarjeta" Click="EditarTarjeta_Click"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>
+        <!--<Button Content="Editar" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF" x:Name="EditarTarjeta" Click="EditarTarjeta_Click"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="199,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF00D1FF"/>-->
 
     </Grid>
 </Page>
